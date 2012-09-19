@@ -2711,6 +2711,12 @@ public final class Settings {
         public static final String EGG_MODE = "egg_mode";
 
         /**
+         * Height of navigation bar buttons
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
+
+        /**
          * Show or hide clock
          * 0 - hide
          * 1 - show (default)
@@ -2771,12 +2777,6 @@ public final class Settings {
         * @hide
         */
         public static final String VOLUME_KEY_ADJUST_SOUND = "volume_key_adjust_sound";
-
-        /**
-         * Change volume up and down handlign based on rotation
-         * @hide
-         */
-        public static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
 
         /**
          *  Enable statusbar double tap gesture on to put device to sleep
