@@ -875,6 +875,12 @@ public class Notification implements Parcelable
      */
     public static final int HEADS_UP_REQUESTED = 2;
 
+     /**
+     * Value that indicates this notification is a privacy guard notification.
+     * @hide
+     */
+    public static final String PRIVACY_GUARD_NOTIFICATION = "android.privacyGuard";
+
     /**
      * Used by light picker in Settings to force
      * notification lights on when screen is on
