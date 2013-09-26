@@ -50,4 +50,8 @@
     <color name="navring_check_tint">@android:color/white</color>
     <color name="navring_edit_fill">#FF558B2F</color>
     <color name="navring_edit_tint">#FF689F38</color>
+
+
+    <!-- Network speed indicator -->
+    <color name="status_bar_traffic_color">#FFFFFFFF</color>
 </resources>

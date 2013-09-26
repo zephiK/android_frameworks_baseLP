@@ -3063,11 +3063,16 @@ public final class Settings {
           */
         public static final String VOLUME_ROCKER_MUSIC_CONTROLS = "volume_rocker_music_controls";
 
-	/*
+	    /*
          * Whether to show/hide status bar native battery percentage
          * @hide
          */
         public static final String STATUS_BAR_NATIVE_BATTERY_PERCENTAGE = "status_bar_native_battery_percentage";
+
+    	/* Network speed indicator
+         * @hide
+         */
+        public static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
 
         /**
          * Enable statusbar double tap gesture on to put device to sleep
