@@ -217,4 +217,6 @@
     <!-- Default value of Settings.System.ENABLE_PEOPLE_LOOKUP -->
     <integer name="def_people_lookup">1</integer>
 
+    <!-- Default for Settings.System.STATUS_BAR_BATTERY_STYLE -->
+    <integer name="def_battery_style">0</integer>
 </resources>
