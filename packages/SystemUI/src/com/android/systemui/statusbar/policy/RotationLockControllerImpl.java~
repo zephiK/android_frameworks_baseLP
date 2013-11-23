@@ -63,8 +63,16 @@ public final class RotationLockControllerImpl implements RotationLockController 
         RotationPolicy.setRotationLock(mContext, locked);
     }
 
-    public boolean isRotationLockAffordanceVisible {
+    public boolean isRotationLockAffordanceVisible() {
+<<<<<<< HEAD
+        return RotationPolicy.isRotationLockToggleVisible(mContext);
+=======
+<<<<<<< HEAD
         return RotationPolicy.isRotationSupported(mContext);
+=======
+        return true;
+>>>>>>> 01ae236... Fix: Don't disable rotation lock tile
+>>>>>>> 560963e... Framework: Configurable 0, 90, 180 and 270 degree rotation (1/2)
     }
 
     @Override
