@@ -432,6 +432,10 @@ public class StatusBarKeyguardViewManager {
         return mPhoneStatusBar.isGoingToNotificationShade();
     }
 
+    public boolean isKeyguardShowingMedia() {
+        return mPhoneStatusBar.isKeyguardShowingMedia();
+    }
+
     public boolean isSecure(int userId) {
         return mBouncer.isSecure() || mLockPatternUtils.isSecure(userId);
     }

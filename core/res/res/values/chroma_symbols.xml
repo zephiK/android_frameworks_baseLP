@@ -82,4 +82,8 @@
 
     <!-- LED pulse -->
     <java-symbol type="bool" name="config_ledCanPulse" />
+
+  <!-- lockscreen Wallpaper -->
+  <java-symbol type="anim" name="lock_screen_wallpaper_exit_noop" />
+
 </resources>
