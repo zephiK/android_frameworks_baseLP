@@ -876,14 +876,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mHandler.removeMessages(MSG_POWER_DELAYED_PRESS);
         }
 
-        // Detect user pressing the power button in panic when an application has
-        // taken over the whole screen.
-        boolean panic = mImmersiveModeConfirmation.onPowerKeyDown(interactive,
-                event.getDownTime(), isImmersiveMode(mLastSystemUiFlags));
-        if (panic) {
-            mHandler.post(mRequestTransientNav);
-        }
-
         // Latch power key state to detect screenshot chord.
         if (interactive && !mScreenshotChordPowerKeyTriggered
                 && (event.getFlags() & KeyEvent.FLAG_FALLBACK) == 0) {
