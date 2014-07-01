@@ -2606,6 +2606,13 @@
         android:description="@string/permdesc_backup"
         android:protectionLevel="signature|system" />
 
+    <!-- Allows an application to use the system Torch service
+        @hide-->
+    <permission android:name="android.permission.ACCESS_TORCH_SERVICE"
+        android:label="@string/permlab_accessTorchService"
+        android:description="@string/permdesc_accessTorchService"
+        android:protectionLevel="signature" />
+
     <!-- Allows a package to launch the secure full-backup confirmation UI.
          ONLY the system process may hold this permission.
          @hide -->
