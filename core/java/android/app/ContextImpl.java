@@ -19,6 +19,13 @@ package android.app;
 import android.app.usage.IUsageStatsManager;
 import android.app.usage.UsageStatsManager;
 import android.appwidget.AppWidgetManager;
+<<<<<<< HEAD
+=======
+import android.content.res.IThemeService;
+import android.content.res.ThemeManager;
+import android.hardware.ITorchService;
+import android.hardware.TorchManager;
+>>>>>>> edc541a... frameworks: implement system-wide Torch service
 import android.os.Build;
 
 import android.service.persistentdata.IPersistentDataBlockService;
@@ -761,6 +768,14 @@ class ContextImpl extends Context {
             public Object createService(ContextImpl ctx) {
                 IBinder b = ServiceManager.getService(APPWIDGET_SERVICE);
                 return new AppWidgetManager(ctx, IAppWidgetService.Stub.asInterface(b));
+            }});
+
+        registerService(TORCH_SERVICE, new ServiceFetcher() {
+            public Object createService(ContextImpl ctx) {
+                IBinder b = ServiceManager.getService(TORCH_SERVICE);
+                ITorchService service = ITorchService.Stub.asInterface(b);
+                final Context outerContext = ctx.getOuterContext();
+                return new TorchManager(outerContext, service);
             }});
     }
 
