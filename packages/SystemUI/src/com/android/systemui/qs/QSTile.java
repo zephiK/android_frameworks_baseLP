@@ -38,6 +38,7 @@ import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.RotationLockController;
 import com.android.systemui.statusbar.policy.HotspotController;
 import com.android.systemui.statusbar.policy.ZenModeController;
+import com.android.systemui.volume.VolumeComponent;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -307,6 +308,8 @@ public abstract class QSTile<TState extends State> implements Listenable {
         ZenModeController getZenModeController();
         HotspotController getHotspotController();
         CastController getCastController();
+        VolumeComponent getVolumeComponent();
+        FlashlightController getFlashlightController();
         KeyguardMonitor getKeyguardMonitor();
 
         public interface Callback {

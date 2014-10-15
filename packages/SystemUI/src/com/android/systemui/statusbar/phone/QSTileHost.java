@@ -41,6 +41,7 @@ import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LocationTile;
+import com.android.systemui.qs.tiles.NotificationsTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenTimeoutTile;
 import com.android.systemui.qs.tiles.WifiTile;
@@ -55,6 +56,7 @@ import com.android.systemui.statusbar.policy.HotspotController;
 import com.android.systemui.statusbar.policy.SecurityController;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.policy.ZenModeController;
+import com.android.systemui.volume.VolumeComponent;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -81,6 +83,7 @@ public class QSTileHost implements QSTile.Host {
     private final CastController mCast;
     private final Looper mLooper;
     private final CurrentUserTracker mUserTracker;
+    private final VolumeComponent mVolume;
     private final UserSwitcherController mUserSwitcherController;
     private final KeyguardMonitor mKeyguard;
     private final SecurityController mSecurity;
@@ -90,7 +93,7 @@ public class QSTileHost implements QSTile.Host {
     public QSTileHost(Context context, PhoneStatusBar statusBar,
             BluetoothController bluetooth, LocationController location,
             RotationLockController rotation, NetworkController network,
-            ZenModeController zen, HotspotController hotspot,
+            ZenModeController zen, VolumeComponent volume, HotspotController hotspot,
             CastController cast, UserSwitcherController userSwitcher,
             KeyguardMonitor keyguard, SecurityController security) {
         mContext = context;
@@ -100,6 +103,7 @@ public class QSTileHost implements QSTile.Host {
         mRotation = rotation;
         mNetwork = network;
         mZen = zen;
+        mVolume = volume;
         mHotspot = hotspot;
         mCast = cast;
         mUserSwitcherController = userSwitcher;
@@ -189,6 +193,11 @@ public class QSTileHost implements QSTile.Host {
         return mZen;
     }
 
+     @Override
+    public VolumeComponent getVolumeComponent() {
+        return mVolume;
+    }
+
     @Override
     public HotspotController getHotspotController() {
         return mHotspot;
@@ -264,7 +273,9 @@ public class QSTileHost implements QSTile.Host {
                 return new CastTile(this);
             case QSConstants.TILE_HOTSPOT:
                 return new HotspotTile(this);
-	    case QSConstants.TILE_SCREEN_TIMEOUT:
+            case QSConstants.TILE_NOTIFICATIONS:
+                return new NotificationsTile(this);
+    	    case QSConstants.TILE_SCREEN_TIMEOUT:
                 return new ScreenTimeoutTile(this);
             default:
                 throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
