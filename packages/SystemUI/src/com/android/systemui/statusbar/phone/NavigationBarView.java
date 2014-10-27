@@ -566,6 +566,21 @@ public class NavigationBarView extends LinearLayout {
         mTaskSwitchHelper.setBarState(mVertical, isRtl);
     }
 
+    private void adjustExtraKeyGravity(View navBar, boolean isLayoutRtl) {
+        View menu = navBar.findViewWithTag(NavbarEditor.NAVBAR_CONDITIONAL_MENU);
+        View imeSwitcher = navBar.findViewById(R.id.ime_switcher);
+        if (menu != null) {
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) menu.getLayoutParams();
+            lp.gravity = isLayoutRtl ? Gravity.BOTTOM : Gravity.TOP;
+            menu.setLayoutParams(lp);
+        }
+        if (imeSwitcher != null) {
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) imeSwitcher.getLayoutParams();
+            lp.gravity = isLayoutRtl ? Gravity.BOTTOM : Gravity.TOP;
+            imeSwitcher.setLayoutParams(lp);
+        }
+    }
+
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
