@@ -81,7 +81,7 @@
                 android:visibility="invisible"
                 />
             <ImageView
-                android:layout_width="80dp"
+                android:layout_width="80dp"             
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_sysbar_lights_out_dot_large"
                 android:scaleType="center"
