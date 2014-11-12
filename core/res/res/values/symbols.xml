@@ -2157,4 +2157,8 @@
   <java-symbol type="bool" name="config_use_sim_language_file" />
   <java-symbol type="bool" name="config_LTE_eri_for_network_name" />
   <java-symbol type="bool" name="config_defaultInTouchMode" />
+
+  <!-- kill app long press back -->
+  <java-symbol type="string" name="app_killed_message" />
+  <java-symbol type="integer" name="config_backKillTimeout" />
 </resources>

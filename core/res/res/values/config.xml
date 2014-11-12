@@ -2028,4 +2028,7 @@
 
     <!-- Whether to start in touch mode -->
     <bool name="config_defaultInTouchMode">true</bool>
+
+    <!-- kill app long press back -->
+    <integer name="config_backKillTimeout">500</integer>
 </resources>
