@@ -2033,7 +2033,6 @@
     <string-array name="config_disabledComponents" translatable="false">
     </string-array>
 
-
     <!-- Whether doze should invert colors for notifications. If the RRO theme causes
     the NORMAL notification background to be dark and the text to be light, this boolean
     needs to be set to false, to prevent the doze notifications from being light -->
@@ -2042,4 +2041,7 @@
     <!-- The list of components which should be forced to be enabled. -->
     <string-array name="config_forceEnabledComponents" translatable="false">
     </string-array>
+
+    <!-- kill app long press back -->
+    <integer name="config_backKillTimeout">500</integer>
 </resources>

@@ -2164,4 +2164,8 @@
    <!-- Doze invert -->
   <java-symbol type="bool" name="config_invert_colors_on_doze" />
   <java-symbol type="array" name="config_forceEnabledComponents" />
+
+  <!-- kill app long press back -->
+  <java-symbol type="string" name="app_killed_message" />
+  <java-symbol type="integer" name="config_backKillTimeout" />
 </resources>
