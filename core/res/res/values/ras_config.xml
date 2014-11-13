@@ -19,7 +19,7 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- kill app long press back -->
-    <integer name="config_backKillTimeout">1500</integer>
+    <integer name="config_backKillTimeout">1000</integer>
 
     <!-- The list of components which should be automatically disabled. -->
     <string-array name="config_disabledComponents" translatable="false">
