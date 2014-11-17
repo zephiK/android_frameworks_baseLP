@@ -2162,4 +2162,5 @@
 
   <!-- Package Manager -->
   <java-symbol type="array" name="config_disabledComponents" />
+
 </resources>
