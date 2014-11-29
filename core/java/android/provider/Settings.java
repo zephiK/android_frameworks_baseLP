@@ -3177,8 +3177,14 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
 
         /**
-         * Boolean value whether to link ringtone and notification volume
          *
+         * Volume music controls
+         * @hide
+         */
+        public static final String VOLUME_MUSIC_CONTROLS = "volume_music_controls";
+
+        /**
+         * Boolean value whether to link ringtone and notification volume
          * @hide
          */
         public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
