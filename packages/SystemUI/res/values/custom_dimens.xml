@@ -8,6 +8,7 @@
 
           http://www.apache.org/licenses/LICENSE-2.0
 
+<<<<<<< HEAD
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -25,4 +26,9 @@
     <!--Padding Size for LocationTile -->
     <dimen name="detail_radio_group_padding_left">16dp</dimen>
     <dimen name="detail_radio_group_padding">8dp</dimen>
+
+    <!-- Network traffic monitor single-line text size -->
+    <dimen name="net_traffic_single_text_size">12dp</dimen>
+    <!-- Network traffic monitor multi-line text size -->
+    <dimen name="net_traffic_multi_text_size">8dp</dimen>
 </resources>

@@ -2936,13 +2936,19 @@ public final class Settings {
         public static final String VOLUME_KEY_ADJUST_SOUND = "volume_key_adjust_sound";
 
 	/*
-         * Whether to hide the clock, show it in the right or left
-         * position or show it in the center
-         * 0: don't show the clock
-         * 1: show the clock in the right position (LTR)
-         * 2: show the clock in the center
-         * 3: show the clock in the left position (LTR)
-         * default: 1
+         * Network traffic indicator, goes from least to greatest significant bitwise
+         * 0 = Display up-stream traffic if set
+         * 1 = Display down-stream traffic if set
+         * 2 = Show as Byte/s if set
+         * 16-31 = Refresh interval(ms)  min: 250  max: 32750  default: 1000
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
+
+        /**
+         * Show or hide clock
+         * 0 - hide
+         * 1 - show (default)
          * @hide
          */
         public static final String STATUS_BAR_CLOCK = "status_bar_clock";
