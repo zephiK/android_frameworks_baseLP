@@ -2701,6 +2701,7 @@ public final class Settings {
          */
         public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
 
+<<<<<<< HEAD
          /**
          * Recents Show/Hide Search Bar
          * @hide
@@ -2712,57 +2713,145 @@ public final class Settings {
 	 * 1 - show (default)
 	 * @hide
 	 */
+=======
+        /**
+         * Show or hide clock
+         * 0 - hide
+         * 1 - show (default)
+         * @hide
+         */
+>>>>>>> 8928260... Switch to fixed statusbar clock and date customization
         public static final String STATUS_BAR_CLOCK = "status_bar_clock";
 
         /**
-	 * AM/PM Style for clock options
-	 * 0 - Normal AM/PM
-	 * 1 - Small AM/PM
-	 * 2 - No AM/PM
-	 * @hide
-	 */
+         * AM/PM Style for clock options
+         * 0 - Normal AM/PM
+         * 1 - Small AM/PM
+         * 2 - No AM/PM
+         * @hide
+         */
         public static final String STATUSBAR_CLOCK_AM_PM_STYLE = "statusbar_clock_am_pm_style";
 
         /**
-	 * Style of clock
-	 * 0 - Hide Clock
-	 * 1 - Right Clock
-	 * 2 - Center Clock
-	 * @hide
-	 */
+         * Style of clock
+         * 0 - Hide Clock
+         * 1 - Right Clock
+         * 2 - Center Clock
+         * @hide
+         */
         public static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
 
         /**
-	 * Setting for clock color
-	 * @hide
-	 */
+         * Setting for clock color
+         * @hide
+         */
         public static final String STATUSBAR_CLOCK_COLOR = "statusbar_clock_color";
 
         /**
-	 * @hide
-	 * Shows custom date before clock time
-	 * 0 - No Date
-	 * 1 - Small Date
-	 * 2 - Normal Date
-	 */
+         * Shows custom date before clock time
+         * 0 - No Date
+         * 1 - Small Date
+         * 2 - Normal Date
+         * @hide
+         */
         public static final String STATUSBAR_CLOCK_DATE_DISPLAY = "statusbar_clock_date_display";
 
         /**
-	 * @hide
-	 * Sets the date string style
-	 * 0 - Regular style
-	 * 1 - Lowercase
-	 * 2 - Uppercase
-	 */
+         * Sets the date string style
+         * 0 - Regular style
+         * 1 - Lowercase
+         * 2 - Uppercase
+         * @hide
+         */
         public static final String STATUSBAR_CLOCK_DATE_STYLE = "statusbar_clock_date_style";
 
         /**
-	 * @hide
-	 * Stores the java DateFormat string for the date
-	 */
+         * Stores the java DateFormat string for the date
+         * @hide
+         */
         public static final String STATUSBAR_CLOCK_DATE_FORMAT = "statusbar_clock_date_format";
 
         /**
+<<<<<<< HEAD
+=======
+         * Height of navigation bar buttons
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
+
+        /**
+         * Volume key controls ringtone or media sound stream
+         *
+         * @hide
+         */
+        public static final String VOLUME_KEYS_CONTROL_MEDIA_STREAM = "volume_keys_control_media_stream";
+
+        /**
+         * Volume rocker wake
+         * @hide
+         */
+        public static final String VOLUME_WAKE_SCREEN = "volume_wake_screen";
+
+        /**
+	 * Whether to display app circle sidebar
+	 * @hide
+	 */
+        public static final String ENABLE_APP_CIRCLE_BAR = "enable_app_circle_bar";
+
+        /**
+	 * A list of packages to include in app circle bar
+	 * This should be a string of packages separated by |
+	 * @hide
+	 */
+        public static final String WHITELIST_APP_CIRCLE_BAR = "whitelist_app_circle_bar";
+
+        /**
+         * Width of the app circle bar trigger
+         *
+         * @hide
+         */
+        public static final String APP_CIRCLE_BAR_TRIGGER_WIDTH = "app_circle_bar_trigger_width";
+
+        /**
+         * Position of app circle bar trigger
+         *
+         * @hide
+         */
+        public static final String APP_CIRCLE_BAR_TRIGGER_TOP = "app_circle_bar_trigger_top";
+
+        /**
+         * Height of the app circle bar trigger
+         *
+         * @hide
+         */
+        public static final String APP_CIRCLE_BAR_TRIGGER_HEIGHT = "app_circle_bar_trigger_height";
+
+        /**
+         * Whether to display the trigger region or not
+         *
+         * @hide
+         */
+        public static final String APP_CIRCLE_BAR_SHOW_TRIGGER = "app_circle_bar_show_trigger";
+
+        /** Whether to allow one finger quick settings expansion on the right side of the statusbar.
+         *
+         * @hide
+         */
+        public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
+        /**
+         * Whether to show/hide status bar native battery percentage
+         * @hide
+         */
+        public static final String STATUS_BAR_NATIVE_BATTERY_PERCENTAGE = "status_bar_native_battery_percentage";
+
+       /**
+        * Volume adjust sound
+        * @hide
+        */
+        public static final String VOLUME_KEY_ADJUST_SOUND = "volume_key_adjust_sound";
+
+        /**
+>>>>>>> 8928260... Switch to fixed statusbar clock and date customization
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
