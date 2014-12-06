@@ -4997,6 +4997,21 @@ public final class Settings {
         public static final String STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD = "status_bar_locked_on_secure_keyguard";
 
         /**
+<<<<<<< HEAD
+=======
+         * Whether to use the custom quick unlock screen control
+         * @hide
+         */
+        public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
+
+        /**
+         * Whether to include options in power menu for rebooting into recovery and bootloader
+         * @hide
+         */
+        public static final String ADVANCED_REBOOT = "advanced_reboot";
+
+        /**
+>>>>>>> f0be023... Keyguard: Enable quick unlock (1/2)
          * Name of a package that the current user has explicitly allowed to see all of that
          * user's notifications.
          *
@@ -5155,7 +5170,12 @@ public final class Settings {
             UI_NIGHT_MODE,
             SLEEP_TIMEOUT,
             ADVANCED_REBOOT,
+<<<<<<< HEAD
 	    STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD
+=======
+            STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
+            LOCKSCREEN_QUICK_UNLOCK_CONTROL
+>>>>>>> f0be023... Keyguard: Enable quick unlock (1/2)
         };
 
         /**
