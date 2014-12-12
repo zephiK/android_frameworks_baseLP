@@ -121,6 +121,8 @@
 
     <!-- Action target -->
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
+    <!-- Weather -->
+    <uses-permission android:name="com.cyanogenmod.lockclock.permission.READ_WEATHER" />
 
     <application
         android:name=".SystemUIApplication"

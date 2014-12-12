@@ -122,4 +122,7 @@
     <string name="navring_choose_action_title">Choose action</string>
     <string name="select_application">Select application</string>
     <string name="lockscreen_target_empty">Empty</string>
+
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
 </resources>
