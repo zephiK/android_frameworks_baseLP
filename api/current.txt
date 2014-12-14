@@ -3721,6 +3721,7 @@ package android.app {
     field public static final int THEME_DEVICE_DEFAULT_LIGHT = 5; // 0x5
     field public static final int THEME_HOLO_DARK = 2; // 0x2
     field public static final int THEME_HOLO_LIGHT = 3; // 0x3
+    field public static final int THEME_MATERIAL_DARK = 6; // 0x6
     field public static final int THEME_TRADITIONAL = 1; // 0x1
   }
 
