@@ -65,6 +65,8 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
     private static final int STATUS_BAR_POWER_MENU_OFF = 0;
     private static final int STATUS_BAR_POWER_MENU_DEFAULT = 1;
     private static final int STATUS_BAR_POWER_MENU_INVERTED = 2;
+
+    private boolean mBatteryCharging;
     private boolean mExpanded;
     private boolean mListening;
 
@@ -132,7 +134,7 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
     private float mCurrentT;
     private boolean mShowingDetail;
 
-    private boolean mShowBatteryPercent;
+    private int mShowBatteryText;
     private int mStatusBarPowerMenuStyle;
 
     private ContentObserver mContentObserver = new ContentObserver(new Handler()) {
@@ -150,7 +152,7 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
 
     private void loadShowBatteryTextSetting() {
         ContentResolver resolver = getContext().getContentResolver();
-        mShowBatteryPercent = 0 != Settings.System.getInt(resolver,
+        mShowBatteryText = Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
     }
 
@@ -368,7 +370,8 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
             updateSignalClusterDetachment();
         }
         mEmergencyCallsOnly.setVisibility(mExpanded && mShowEmergencyCallsOnly ? VISIBLE : GONE);
-        mBatteryLevel.setVisibility((mExpanded || mShowBatteryPercent) ? View.VISIBLE : View.GONE);
+        mBatteryLevel.setVisibility(((mExpanded && (mShowBatteryText == 0 || mBatteryCharging))
+                || mShowBatteryText == 2) ? View.VISIBLE : View.GONE);
         mStatusBarPowerMenu.setVisibility(mExpanded && (mStatusBarPowerMenuStyle != STATUS_BAR_POWER_MENU_OFF) ? View.VISIBLE : View.GONE);
     }
 
@@ -437,6 +440,7 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
     @Override
     public void onBatteryLevelChanged(int level, boolean pluggedIn, boolean charging) {
         mBatteryLevel.setText(getResources().getString(R.string.battery_level_template, level));
+        mBatteryCharging = charging;
     }
 
     @Override

@@ -1,3 +1,4 @@
+
 package com.android.systemui;
 
 import android.content.Context;
@@ -29,8 +30,8 @@ public class BatteryLevelTextView extends TextView implements
     }
 
     private void loadShowBatteryTextSetting() {
-        mShow = 0 != Settings.System.getInt(
-            getContext().getContentResolver(), Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
+        mShow = 2 == Settings.System.getInt(getContext().getContentResolver(),
+                Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
     }
 
     @Override
@@ -52,7 +53,7 @@ public class BatteryLevelTextView extends TextView implements
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
-           Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT), false, mObserver);
+                "status_bar_show_battery_percent"), false, mObserver);
     }
 
     @Override

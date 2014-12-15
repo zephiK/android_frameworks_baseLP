@@ -22,16 +22,20 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.database.ContentObserver;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
+import android.content.ContentResolver;
 
 import com.android.systemui.statusbar.policy.BatteryController;
 
@@ -40,7 +44,7 @@ public class BatteryMeterView extends View implements DemoMode,
     public static final String TAG = BatteryMeterView.class.getSimpleName();
     public static final String ACTION_LEVEL_TEST = "com.android.systemui.BATTERY_LEVEL_TEST";
 
-    private static final boolean ENABLE_PERCENT = false;
+    private static final boolean ENABLE_PERCENT = true;
     private static final boolean SINGLE_DIGIT_PERCENT = false;
     private static final boolean SHOW_100_PERCENT = false;
 
@@ -50,7 +54,7 @@ public class BatteryMeterView extends View implements DemoMode,
 
     private final int[] mColors;
 
-    boolean mShowPercent = false;
+    boolean mShowPercent = true;
     private float mButtonHeightFraction;
     private float mSubpixelSmoothingLeft;
     private float mSubpixelSmoothingRight;
@@ -81,6 +85,7 @@ public class BatteryMeterView extends View implements DemoMode,
 
         // current battery status
         int level = UNKNOWN_LEVEL;
+        String percentStr;
         int plugType;
         boolean plugged;
         int health;
@@ -150,6 +155,15 @@ public class BatteryMeterView extends View implements DemoMode,
 
     BatteryTracker mTracker = new BatteryTracker();
 
+    private ContentObserver mObserver = new ContentObserver(new Handler()) {
+        public void onChange(boolean selfChange, Uri uri) {
+            mShowPercent = ENABLE_PERCENT && 1 == Settings.System.getInt(
+                    getContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
+            postInvalidate();
+        }
+    };
+
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -163,6 +177,8 @@ public class BatteryMeterView extends View implements DemoMode,
             mTracker.onReceive(getContext(), sticky);
         }
         mBatteryController.addStateChangedCallback(this);
+        getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                "status_bar_show_battery_percent"), false, mObserver);
     }
 
     @Override
@@ -201,7 +217,7 @@ public class BatteryMeterView extends View implements DemoMode,
         levels.recycle();
         colors.recycle();
         atts.recycle();
-        mShowPercent = ENABLE_PERCENT && 0 != Settings.System.getInt(
+        mShowPercent = ENABLE_PERCENT && 1 == Settings.System.getInt(
                 context.getContentResolver(), "status_bar_show_battery_percent", 0);
         mWarningString = context.getString(R.string.battery_meter_very_low_overlay_symbol);
         mCriticalLevel = mContext.getResources().getInteger(
@@ -396,8 +412,8 @@ public class BatteryMeterView extends View implements DemoMode,
         boolean pctOpaque = false;
         float pctX = 0, pctY = 0;
         String pctText = null;
-        if (!tracker.plugged && level > mCriticalLevel && mShowPercent
-                && !(tracker.level == 100 && !SHOW_100_PERCENT)) {
+        if (!tracker.plugged && level > mCriticalLevel && (mShowPercent
+                && !(tracker.level == 100 && !SHOW_100_PERCENT))) {
             mTextPaint.setColor(getColorForLevel(level));
             mTextPaint.setTextSize(height *
                     (SINGLE_DIGIT_PERCENT ? 0.75f
