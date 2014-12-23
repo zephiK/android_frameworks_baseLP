@@ -4925,6 +4925,12 @@ public final class Settings {
          */
         public static final String DOZE_ENABLED = "doze_enabled";
 
+        /**		
+         * Timeout for ambient display notification
+         * @hide
+         */
+        public static final String DOZE_TIMEOUT = "doze_timeout";		
+
         /**
          * The current night mode that has been selected by the user.  Owned
          * and controlled by UiModeManagerService.  Constants are as per
