@@ -2170,7 +2170,6 @@ public abstract class BaseStatusBar extends SystemUI implements
 
         boolean interrupt = (isFullscreen || (isHighPriority && (isNoisy || hasTicker)))
                 && isAllowed
-                && !isOngoing
                 && !accessibilityForcesLaunch
                 && mPowerManager.isScreenOn()
     	        && !isIMEShowing
