@@ -1145,7 +1145,6 @@ public abstract class BaseStatusBar extends SystemUI implements
     }
 
     public abstract void resetHeadsUpDecayTimer();
-    public abstract void hideHeadsUp();
 
     public abstract void scheduleHeadsUpOpen();
 
