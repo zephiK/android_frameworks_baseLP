@@ -53,4 +53,10 @@
         android:layout_gravity="center_horizontal|bottom"
         android:scaleType="fitXY"
         android:src="@drawable/recents_lower_gradient" />
+<<<<<<< HEAD
 </FrameLayout>
+=======
+
+    <include layout="@layout/floating_action_button" />
+</FrameLayout>
+>>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button

@@ -68,6 +68,11 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
     ArrayList<TaskStack> mStacks;
     View mSearchBar;
     RecentsViewCallbacks mCb;
+<<<<<<< HEAD
+=======
+    View mClearRecents;
+    View mFloatingButton;
+>>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button
     boolean mAlreadyLaunchingTask;
 
     public RecentsView(Context context) {
@@ -264,10 +269,45 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                     MeasureSpec.makeMeasureSpec(searchBarSpaceBounds.height(), MeasureSpec.EXACTLY));
         }
 
+<<<<<<< HEAD
+=======
+        boolean showClearAllRecents = Settings.System.getInt(mContext.getContentResolver(),
+                 Settings.System.SHOW_CLEAR_ALL_RECENTS, 0) == 1;
+
+>>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button
         Rect taskStackBounds = new Rect();
         mConfig.getTaskStackBounds(width, height, mConfig.systemInsets.top,
                 mConfig.systemInsets.right, taskStackBounds);
 
+<<<<<<< HEAD
+=======
+        if (mFloatingButton != null && showClearAllRecents) {
+            int clearRecentsLocation = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.RECENTS_CLEAR_ALL_LOCATION, Constants.DebugFlags.App.RECENTS_CLEAR_ALL_BOTTOM_RIGHT);
+            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)
+                    mFloatingButton.getLayoutParams();
+            params.topMargin = taskStackBounds.top;
+            switch (clearRecentsLocation) {
+                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_LEFT:
+                    params.gravity = Gravity.TOP | Gravity.LEFT;
+                    break;
+                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_RIGHT:
+                    params.gravity = Gravity.TOP | Gravity.RIGHT;
+                    break;
+                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_BOTTOM_LEFT:
+                    params.gravity = Gravity.BOTTOM | Gravity.LEFT;
+                    break;
+                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_BOTTOM_RIGHT:
+                default:
+                    params.gravity = Gravity.BOTTOM | Gravity.RIGHT;
+                    break;
+            }
+            mFloatingButton.setLayoutParams(params);
+        } else {
+            mFloatingButton.setVisibility(View.GONE);
+        }
+
+>>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button
         // Measure each TaskStackView with the full width and height of the window since the 
         // transition view is a child of that stack view
         int childCount = getChildCount();
@@ -284,6 +324,27 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         setMeasuredDimension(width, height);
     }
 
+<<<<<<< HEAD
+=======
+    public void noUserInteraction() {
+        if (mClearRecents != null) {
+            mClearRecents.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    protected void onAttachedToWindow () {
+        super.onAttachedToWindow();
+        mFloatingButton = ((View)getParent()).findViewById(R.id.floating_action_button);
+        mClearRecents = ((View)getParent()).findViewById(R.id.clear_recents);
+        mClearRecents.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                dismissAllTasksAnimated();
+            }
+        });
+    }
+
+>>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button
     /**
      * This is called with the full size of the window since we are handling our own insets.
      */
