@@ -29,4 +29,8 @@
     <color name="exposed_qs_user_detail_name">#66ffffff</color>
     <color name="exposed_headsup_scrim_start">#55000000</color>
     <color name="exposed_headsup_scrim_end">#00000000</color>
+
+     <!-- Floating action button -->
+    <color name="fab_color">#ff009688</color>
+    <color name="floating_action_button_icon_color">#ffffff</color>
 </resources>
