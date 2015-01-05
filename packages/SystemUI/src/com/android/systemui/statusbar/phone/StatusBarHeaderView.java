@@ -144,6 +144,9 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
     private SettingsObserver mSettingsObserver;
     private boolean mShowWeather;
 
+    private SettingsObserver mSettingsObserver;
+    private boolean mShowBatteryTextExpanded;
+
     public StatusBarHeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -177,11 +180,15 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
         mAlarmStatus.setOnClickListener(this);
         mSignalCluster = findViewById(R.id.signal_cluster);
         mSystemIcons = (LinearLayout) findViewById(R.id.system_icons);
+<<<<<<< HEAD
         mWeatherContainer = (LinearLayout) findViewById(R.id.weather_container);
         mWeatherContainer.setOnClickListener(this);
         mWeatherLine1 = (TextView) findViewById(R.id.weather_line_1);
         mWeatherLine2 = (TextView) findViewById(R.id.weather_line_2);
         mSettingsObserver = new SettingsObserver(new Handler());
+=======
+	mSettingsObserver = new SettingsObserver(new Handler());
+>>>>>>> e388224... Cleanup battery style code: Final fixes
         loadDimens();
         updateVisibilities();
         updateClockScale();
@@ -360,8 +367,13 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
         mDateExpanded.setVisibility(mExpanded && mAlarmShowing ? View.INVISIBLE : View.VISIBLE);
         mAlarmStatus.setVisibility(mExpanded && mAlarmShowing ? View.VISIBLE : View.INVISIBLE);
         mSettingsButton.setVisibility(mExpanded ? View.VISIBLE : View.INVISIBLE);
+<<<<<<< HEAD
         mWeatherContainer.setVisibility(mExpanded && mShowWeather ? View.VISIBLE : View.GONE);
         mQsDetailHeader.setVisibility(mExpanded && mShowingDetail ? View.VISIBLE : View.INVISIBLE);
+=======
+        mQsDetailHeader.setVisibility(mExpanded && mShowingDetail ? View.VISIBLE : View.INVISIBLE);
+
+>>>>>>> e388224... Cleanup battery style code: Final fixes
         if (mSignalCluster != null) {
             updateSignalClusterDetachment();
         }
@@ -400,15 +412,23 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
 
     private void updateListeners() {
         if (mListening) {
+<<<<<<< HEAD
             mSettingsObserver.observe();
+=======
+	    mSettingsObserver.observe();
+>>>>>>> e388224... Cleanup battery style code: Final fixes
             mBatteryController.addStateChangedCallback(this);
             mNextAlarmController.addStateChangedCallback(this);
             mWeatherController.addCallback(this);
         } else {
             mBatteryController.removeStateChangedCallback(this);
             mNextAlarmController.removeStateChangedCallback(this);
+<<<<<<< HEAD
             mWeatherController.removeCallback(this);
             mSettingsObserver.unobserve();
+=======
+	    mSettingsObserver.unobserve();
+>>>>>>> e388224... Cleanup battery style code: Final fixes
         }
     }
 
@@ -775,7 +795,6 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
             batteryLevelAlpha = v1.batteryLevelAlpha * (1 - t3) + v2.batteryLevelAlpha * t3;
             batteryLevelExpandedAlpha =
                     v1.batteryLevelExpandedAlpha * (1 - t3) + v2.batteryLevelExpandedAlpha * t3;
-					
             settingsAlpha = v1.settingsAlpha * (1 - t3) + v2.settingsAlpha * t3;
             dateExpandedAlpha = v1.dateExpandedAlpha * (1 - t3) + v2.dateExpandedAlpha * t3;
             dateCollapsedAlpha = v1.dateCollapsedAlpha * (1 - t3) + v2.dateCollapsedAlpha * t3;
@@ -926,7 +945,7 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
             boolean showExpandedBatteryPercentage = Settings.System.getIntForUser(resolver,
                     Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, currentUserId) == 0;
 
-            switch (batteryStyle) {
+                        switch (batteryStyle) {
                 case 4: //BATTERY_METER_GONE
                 case 6: //BATTERY_METER_TEXT
                     showExpandedBatteryPercentage = false;
