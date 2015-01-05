@@ -25,14 +25,11 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-<<<<<<< HEAD
-=======
 import android.net.Uri;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.os.UserHandle;
 import android.provider.Settings;
->>>>>>> e94aab9... SystemUI: Add double tap to sleep
 import android.util.AttributeSet;
 import android.util.MathUtils;
 import android.view.GestureDetector;
@@ -176,8 +173,6 @@ public class NotificationPanelView extends PanelView implements
     private boolean mQsTouchAboveFalsingThreshold;
     private int mQsFalsingThreshold;
 
-<<<<<<< HEAD
-=======
     private Handler mHandler = new Handler();
     private SettingsObserver mSettingsObserver;
 
@@ -186,7 +181,6 @@ public class NotificationPanelView extends PanelView implements
     private int mStatusBarHeaderHeight;
     private GestureDetector mDoubleTapGesture;
 
->>>>>>> e94aab9... SystemUI: Add double tap to sleep
     public NotificationPanelView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mSettingsObserver = new SettingsObserver(mHandler);
@@ -1869,8 +1863,6 @@ public class NotificationPanelView extends PanelView implements
     public void onScreenTurnedOn() {
         mKeyguardStatusView.refreshTime();
     }
-<<<<<<< HEAD
-=======
 
     class SettingsObserver extends ContentObserver {
         SettingsObserver(Handler handler) {
@@ -1914,5 +1906,4 @@ public class NotificationPanelView extends PanelView implements
                     UserHandle.USER_CURRENT) == 1;
         }
     }
->>>>>>> e94aab9... SystemUI: Add double tap to sleep
 }
