@@ -29,11 +29,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Handler;
-<<<<<<< HEAD
 import android.os.PowerManager;
 import android.os.UserHandle;
-=======
->>>>>>> 48d407e... SystemUI: add Settings.System toggle for quick-quick settings pulldown
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.MathUtils;
@@ -180,15 +177,11 @@ public class NotificationPanelView extends PanelView implements
 
     private Handler mHandler = new Handler();
     private SettingsObserver mSettingsObserver;
-<<<<<<< HEAD
-
     private boolean mOneFingerQuickSettingsIntercept;
     private boolean mDoubleTapToSleepEnabled;
     private int mStatusBarHeaderHeight;
     private GestureDetector mDoubleTapGesture;
-=======
     private boolean mOneFingerQuickSettingsIntercept;
->>>>>>> 48d407e... SystemUI: add Settings.System toggle for quick-quick settings pulldown
 
     public NotificationPanelView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -659,10 +652,8 @@ public class NotificationPanelView extends PanelView implements
                 && mQsExpansionEnabled) {
             mTwoFingerQsExpandPossible = true;
         }
-<<<<<<< HEAD
         if (mTwoFingerQsExpandPossible && event.getActionMasked() == MotionEvent.ACTION_POINTER_DOWN
                 && event.getPointerCount() == 2
-=======
         boolean twoFingerQsEvent = mTwoFingerQsExpandPossible
                 && (event.getActionMasked() == MotionEvent.ACTION_POINTER_DOWN
                 && event.getPointerCount() == 2);
@@ -670,7 +661,6 @@ public class NotificationPanelView extends PanelView implements
                 && event.getActionMasked() == MotionEvent.ACTION_DOWN
                 && shouldQuickSettingsIntercept(event.getX(), event.getY(), -1, false);
         if ((twoFingerQsEvent || oneFingerQsOverride)
->>>>>>> 48d407e... SystemUI: add Settings.System toggle for quick-quick settings pulldown
                 && event.getY(event.getActionIndex()) < mStatusBarMinHeight) {
             mTwoFingerQsExpand = true;
             requestPanelHeightUpdate();
@@ -1234,15 +1224,10 @@ public class NotificationPanelView extends PanelView implements
         View header = mKeyguardShowing ? mKeyguardStatusBar : mHeader;
         boolean onHeader = x >= header.getLeft() && x <= header.getRight()
                 && y >= header.getTop() && y <= header.getBottom();
-<<<<<<< HEAD
-=======
-
         final float w = getMeasuredWidth();
         float region = (w * (1.f/3.f)); // TODO overlay region fraction?
         final boolean showQsOverride = isLayoutRtl() ? (x < region) : (w - region < x)
                         && mStatusBarState == StatusBarState.SHADE;
-
->>>>>>> 48d407e... SystemUI: add Settings.System toggle for quick-quick settings pulldown
         if (mQsExpanded) {
             return onHeader || (mScrollView.isScrolledToBottom() && yDiff < 0) && isInQsArea(x, y);
         } else {
@@ -1904,15 +1889,12 @@ public class NotificationPanelView extends PanelView implements
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(Settings.System.getUriFor(
-<<<<<<< HEAD
                     Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_GESTURE),
                     false, this, UserHandle.USER_ALL);
-=======
                     Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN), false, this);
->>>>>>> 48d407e... SystemUI: add Settings.System toggle for quick-quick settings pulldown
             update();
         }
 
@@ -1933,18 +1915,14 @@ public class NotificationPanelView extends PanelView implements
 
         public void update() {
             ContentResolver resolver = mContext.getContentResolver();
-<<<<<<< HEAD
-
             mOneFingerQuickSettingsIntercept = Settings.System.getIntForUser(
                     resolver, Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1,
                     UserHandle.USER_CURRENT) == 1;
             mDoubleTapToSleepEnabled = Settings.System.getIntForUser(
                     resolver, Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 1,
                     UserHandle.USER_CURRENT) == 1;
-=======
             mOneFingerQuickSettingsIntercept = Settings.System.getInt(
                     resolver, Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1) == 1;
->>>>>>> 48d407e... SystemUI: add Settings.System toggle for quick-quick settings pulldown
         }
     }
 }
