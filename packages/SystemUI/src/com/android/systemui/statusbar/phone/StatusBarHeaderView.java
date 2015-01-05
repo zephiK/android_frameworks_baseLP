@@ -58,14 +58,7 @@ import com.android.systemui.statusbar.policy.UserInfoController;
 public class StatusBarHeaderView extends RelativeLayout implements View.OnClickListener,
         BatteryController.BatteryStateChangeCallback, NextAlarmController.NextAlarmChangeCallback {
 
-<<<<<<< HEAD
-    private static final int STATUS_BAR_POWER_MENU_OFF = 0;
-    private static final int STATUS_BAR_POWER_MENU_DEFAULT = 1;
-    private static final int STATUS_BAR_POWER_MENU_INVERTED = 2;
-
     private boolean mBatteryCharging;
-=======
->>>>>>> parent of 5f67740... status bar power menu: use constants
     private boolean mExpanded;
     private boolean mListening;
 
@@ -132,12 +125,8 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
     private float mCurrentT;
     private boolean mShowingDetail;
 
-<<<<<<< HEAD
     private int mShowBatteryText;
-    private int mStatusBarPowerMenuStyle;
-=======
     private boolean mShowBatteryPercent;
->>>>>>> parent of d764686... status bar power menu
 
     private ContentObserver mObserver = new ContentObserver(new Handler()) {
         public void onChange(boolean selfChange, Uri uri) {
@@ -151,20 +140,9 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
     }
 
     private void loadShowBatteryTextSetting() {
-<<<<<<< HEAD
         ContentResolver resolver = getContext().getContentResolver();
         mShowBatteryText = Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
-    }
-
-    private void loadShowStatusBarPowerMenuSettings() {
-        ContentResolver resolver = getContext().getContentResolver();
-        mStatusBarPowerMenuStyle = Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_POWER_MENU, 0);
-=======
-        mShowBatteryPercent = 0 != Settings.System.getInt(
-            getContext().getContentResolver(), Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
->>>>>>> parent of d764686... status bar power menu
     }
 
     @Override
@@ -371,17 +349,9 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
             updateSignalClusterDetachment();
         }
         mEmergencyCallsOnly.setVisibility(mExpanded && mShowEmergencyCallsOnly ? VISIBLE : GONE);
-<<<<<<< HEAD
         mBatteryLevel.setVisibility(((mExpanded && (mShowBatteryText == 0 || mBatteryCharging))
                 || mShowBatteryText == 2) ? View.VISIBLE : View.GONE);
-        mStatusBarPowerMenu.setVisibility(mExpanded && (mStatusBarPowerMenuStyle != STATUS_BAR_POWER_MENU_OFF) ? View.VISIBLE : View.GONE);
-=======
         mBatteryLevel.setVisibility((mExpanded || mShowBatteryPercent) ? View.VISIBLE : View.GONE);
-<<<<<<< HEAD
-        mStatusBarPowerMenu.setVisibility(mExpanded && (mStatusBarPowerMenuStyle > 0) ? View.VISIBLE : View.GONE);
->>>>>>> parent of 5f67740... status bar power menu: use constants
-=======
->>>>>>> parent of d764686... status bar power menu
     }
 
     private void updateSignalClusterDetachment() {
