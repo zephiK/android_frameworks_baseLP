@@ -62,11 +62,14 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
         View.OnLongClickListener, BatteryController.BatteryStateChangeCallback,
         NextAlarmController.NextAlarmChangeCallback {
 
+<<<<<<< HEAD
     private static final int STATUS_BAR_POWER_MENU_OFF = 0;
     private static final int STATUS_BAR_POWER_MENU_DEFAULT = 1;
     private static final int STATUS_BAR_POWER_MENU_INVERTED = 2;
 
     private boolean mBatteryCharging;
+=======
+>>>>>>> parent of 5f67740... status bar power menu: use constants
     private boolean mExpanded;
     private boolean mListening;
 
@@ -370,9 +373,14 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
             updateSignalClusterDetachment();
         }
         mEmergencyCallsOnly.setVisibility(mExpanded && mShowEmergencyCallsOnly ? VISIBLE : GONE);
+<<<<<<< HEAD
         mBatteryLevel.setVisibility(((mExpanded && (mShowBatteryText == 0 || mBatteryCharging))
                 || mShowBatteryText == 2) ? View.VISIBLE : View.GONE);
         mStatusBarPowerMenu.setVisibility(mExpanded && (mStatusBarPowerMenuStyle != STATUS_BAR_POWER_MENU_OFF) ? View.VISIBLE : View.GONE);
+=======
+        mBatteryLevel.setVisibility((mExpanded || mShowBatteryPercent) ? View.VISIBLE : View.GONE);
+        mStatusBarPowerMenu.setVisibility(mExpanded && (mStatusBarPowerMenuStyle > 0) ? View.VISIBLE : View.GONE);
+>>>>>>> parent of 5f67740... status bar power menu: use constants
     }
 
     private void updateSignalClusterDetachment() {
@@ -569,9 +577,9 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
     }
 
     private void statusBarPowerMenuAction() {
-        if (mStatusBarPowerMenuStyle == STATUS_BAR_POWER_MENU_DEFAULT) {
+        if (mStatusBarPowerMenuStyle == 1) {
             goToSleep();
-        } else if (mStatusBarPowerMenuStyle == STATUS_BAR_POWER_MENU_INVERTED) {
+        } else if (mStatusBarPowerMenuStyle == 2) {
             triggerPowerMenuDialog();
         }
     }
@@ -889,9 +897,9 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
     @Override
     public boolean onLongClick(View v) {
         if (v == mStatusBarPowerMenu) {
-            if (mStatusBarPowerMenuStyle == STATUS_BAR_POWER_MENU_DEFAULT) {
+            if (mStatusBarPowerMenuStyle == 1) {
                 triggerPowerMenuDialog();
-            } else if (mStatusBarPowerMenuStyle == STATUS_BAR_POWER_MENU_INVERTED) {
+            } else if (mStatusBarPowerMenuStyle == 2) {
                 goToSleep();
             }
         }
