@@ -177,7 +177,6 @@ public class NotificationPanelView extends PanelView implements
 
     private Handler mHandler = new Handler();
     private SettingsObserver mSettingsObserver;
-    private boolean mOneFingerQuickSettingsIntercept;
     private boolean mDoubleTapToSleepEnabled;
     private int mStatusBarHeaderHeight;
     private GestureDetector mDoubleTapGesture;
@@ -652,8 +651,6 @@ public class NotificationPanelView extends PanelView implements
                 && mQsExpansionEnabled) {
             mTwoFingerQsExpandPossible = true;
         }
-        if (mTwoFingerQsExpandPossible && event.getActionMasked() == MotionEvent.ACTION_POINTER_DOWN
-                && event.getPointerCount() == 2
         boolean twoFingerQsEvent = mTwoFingerQsExpandPossible
                 && (event.getActionMasked() == MotionEvent.ACTION_POINTER_DOWN
                 && event.getPointerCount() == 2);
@@ -1232,6 +1229,29 @@ public class NotificationPanelView extends PanelView implements
             return onHeader || (mScrollView.isScrolledToBottom() && yDiff < 0) && isInQsArea(x, y);
         } else {
             return onHeader;
+        }
+    }
+
+    /**
+     * @return Whether we should intercept a gesture to open Quick Settings.
+     */
+    private boolean shouldQuickSettingsIntercept(float x, float y, float yDiff, boolean useHeader) {
+        if (!mQsExpansionEnabled) {
+            return false;
+        }
+        View header = mKeyguardShowing ? mKeyguardStatusBar : mHeader;
+        boolean onHeader = useHeader && x >= header.getLeft() && x <= header.getRight()
+                && y >= header.getTop() && y <= header.getBottom();
+
+        final float w = getMeasuredWidth();
+        float region = (w * (1.f/3.f)); // TODO overlay region fraction?
+        final boolean showQsOverride = isLayoutRtl() ? (x < region) : (w - region < x)
+                        && mStatusBarState == StatusBarState.SHADE;
+
+        if (mQsExpanded) {
+            return onHeader || (mScrollView.isScrolledToBottom() && yDiff < 0) && isInQsArea(x, y);
+        } else {
+            return onHeader || showQsOverride;
         }
     }
 
@@ -1894,6 +1914,7 @@ public class NotificationPanelView extends PanelView implements
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_GESTURE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN), false, this);
             update();
         }
