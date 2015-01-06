@@ -2659,7 +2659,6 @@ public final class Settings {
         public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
 
         /**
-<<<<<<< HEAD
          * Volume rocker wake
          * @hide
          */
@@ -2702,7 +2701,7 @@ public final class Settings {
          * @hide
          */
         public static final String RECENTS_SHOW_HIDE_SEARCH_BAR = "recents_show_hide_search_bar";
-=======
+	/*
 	 * Show or hide clock
 	 * 0 - hide
 	 * 1 - show (default)
@@ -2757,7 +2756,6 @@ public final class Settings {
 	 * Stores the java DateFormat string for the date
 	 */
         public static final String STATUSBAR_CLOCK_DATE_FORMAT = "statusbar_clock_date_format";
->>>>>>> 7543a65... Statusbar clock and date customizations
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
