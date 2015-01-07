@@ -2701,26 +2701,18 @@ public final class Settings {
          */
         public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
 
-<<<<<<< HEAD
          /**
          * Recents Show/Hide Search Bar
          * @hide
          */
         public static final String RECENTS_SHOW_HIDE_SEARCH_BAR = "recents_show_hide_search_bar";
+
 	/*
 	 * Show or hide clock
 	 * 0 - hide
 	 * 1 - show (default)
 	 * @hide
 	 */
-=======
-        /**
-         * Show or hide clock
-         * 0 - hide
-         * 1 - show (default)
-         * @hide
-         */
->>>>>>> 8928260... Switch to fixed statusbar clock and date customization
         public static final String STATUS_BAR_CLOCK = "status_bar_clock";
 
         /**
@@ -2772,8 +2764,6 @@ public final class Settings {
         public static final String STATUSBAR_CLOCK_DATE_FORMAT = "statusbar_clock_date_format";
 
         /**
-<<<<<<< HEAD
-=======
          * Height of navigation bar buttons
          * @hide
          */
@@ -2851,7 +2841,6 @@ public final class Settings {
         public static final String VOLUME_KEY_ADJUST_SOUND = "volume_key_adjust_sound";
 
         /**
->>>>>>> 8928260... Switch to fixed statusbar clock and date customization
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
