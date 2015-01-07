@@ -479,6 +479,50 @@ public class TaskStackView extends FrameLayout implements TaskStack.TaskStackCal
         tv.dismissTask();
     }
 
+<<<<<<< HEAD
+=======
+    private boolean dismissAll() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+            Settings.System.RECENTS_CLEAR_ALL_DISMISS_ALL, 1) == 1;
+    }
+
+    public void dismissAllTasks() {
+        post(new Runnable() {
+            @Override
+            public void run() {
+                ArrayList<Task> tasks = new ArrayList<Task>();
+                tasks.addAll(mStack.getTasks());
+                if (!dismissAll() && tasks.size() > 1) {
+                    // Ignore the visible foreground task
+                    Task foregroundTask = tasks.get(tasks.size() - 1);
+                    tasks.remove(foregroundTask);
+                }
+
+                // Remove visible TaskViews
+                int childCount = getChildCount();
+                if (!dismissAll() && childCount > 1) childCount--;
+                for (int i = 0; i < childCount; i++) {
+                    TaskView tv = (TaskView) getChildAt(i);
+                    tasks.remove(tv.getTask());
+                    tv.dismissTask();
+                }
+
+                int size = tasks.size();
+
+                if (size > 0) {
+                    // Remove possible alive Tasks
+                    for (int i = 0; i < size; i++) {
+                        Task t = tasks.get(i);
+                        if (mStack.getTasks().contains(t)) {
+                            mStack.removeTask(t);
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+>>>>>>> a07d087... SystemUI: option to ignore the last app when clearing recents (1/2)
     @Override
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
