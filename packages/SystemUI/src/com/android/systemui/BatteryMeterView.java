@@ -197,16 +197,11 @@ public class BatteryMeterView extends View implements DemoMode,
         }
     }
 
-<<<<<<< HEAD
-    BatteryTracker mTracker = new BatteryTracker();
-<<<<<<< HEAD
-=======
     private final Runnable mInvalidate = new Runnable() {
         public void run() {
             invalidateIfVisible();
         }
     };
->>>>>>> c642f5d... Forward port battery icon options [1/2]
 
     private ContentObserver mObserver = new ContentObserver(new Handler()) {
         public void onChange(boolean selfChange, Uri uri) {
@@ -214,8 +209,6 @@ public class BatteryMeterView extends View implements DemoMode,
             postInvalidate();
         }
     };
-=======
->>>>>>> parent of c123a0c... status bar: native battery percentage
 
     @Override
     public void onAttachedToWindow() {
@@ -311,15 +304,6 @@ public class BatteryMeterView extends View implements DemoMode,
         levels.recycle();
         colors.recycle();
         atts.recycle();
-<<<<<<< HEAD
-<<<<<<< HEAD
-        mShowPercent = ENABLE_PERCENT && 1 == Settings.System.getInt(
-=======
-        mShowPercent = ENABLE_PERCENT && 0 != Settings.System.getInt(
->>>>>>> parent of c123a0c... status bar: native battery percentage
-                context.getContentResolver(), "status_bar_show_battery_percent", 0);
-=======
->>>>>>> c642f5d... Forward port battery icon options [1/2]
         mWarningString = context.getString(R.string.battery_meter_very_low_overlay_symbol);
         mCriticalLevel = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_criticalBatteryWarningLevel);

@@ -2759,9 +2759,6 @@ public final class Settings {
         public static final String STATUSBAR_CLOCK_DATE_STYLE = "statusbar_clock_date_style";
 
         /**
-<<<<<<< HEAD
-         * Stores the java DateFormat string for the date
-=======
          * Display style of the status bar battery information
          * 0: Display the battery an icon in portrait mode
          * 2: Display the battery as a circle
@@ -2778,14 +2775,24 @@ public final class Settings {
          * 0: Hide the battery percentage
          * 1: Display the battery percentage inside the icon
          * 2: Display the battery percentage next to the icon
->>>>>>> c642f5d... Forward port battery icon options [1/2]
+         * @hide
+         */
+	public static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+
+        /**
+         * Stores the java DateFormat string for the date
+         * Display style of the status bar battery information
+         * 0: Display the battery an icon in portrait mode
+         * 2: Display the battery as a circle
+         * 4: Hide the battery status information
+         * 5: Display the battery an icon in landscape mode
+         * 6: Display the battery as plain text
+         * default: 0
          * @hide
          */
         public static final String STATUSBAR_CLOCK_DATE_FORMAT = "statusbar_clock_date_format";
 
         /**
-=======
->>>>>>> parent of c123a0c... status bar: native battery percentage
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -2851,12 +2858,8 @@ public final class Settings {
             VIBRATE_WHEN_RINGING,
             RINGTONE,
             NOTIFICATION_SOUND,
-<<<<<<< HEAD
-            STATUS_BAR_SHOW_BATTERY_PERCENT
-=======
             STATUS_BAR_BATTERY_STYLE,
             STATUS_BAR_SHOW_BATTERY_PERCENT,
->>>>>>> c642f5d... Forward port battery icon options [1/2]
         };
 
         /**
@@ -4990,15 +4993,12 @@ public final class Settings {
           * @hide
           */
          public static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
-<<<<<<< HEAD
 
         /**
          * Whether to include options in power menu for rebooting into recovery or bootloader
          * @hide
          */
         public static final String ADVANCED_REBOOT = "advanced_reboot";
-=======
->>>>>>> c642f5d... Forward port battery icon options [1/2]
 
         /**
          * This are the settings to be backed up.

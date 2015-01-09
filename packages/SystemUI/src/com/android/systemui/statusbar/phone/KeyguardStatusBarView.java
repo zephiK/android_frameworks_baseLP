@@ -123,12 +123,8 @@ public class KeyguardStatusBarView extends RelativeLayout
         } else if (mMultiUserSwitch.getParent() == this && mKeyguardUserSwitcherShowing) {
             removeView(mMultiUserSwitch);
         }
-<<<<<<< HEAD
-        mBatteryLevel.setVisibility((mBatteryCharging || mShowBatteryText) ? View.VISIBLE : View.GONE);
-=======
         mBatteryLevel.setShowPercent(
                 (mBatteryCharging || mShowBatteryText) ? true : false);
->>>>>>> c642f5d... Forward port battery icon options [1/2]
     }
 
     private void updateSystemIconsLayoutParams() {
