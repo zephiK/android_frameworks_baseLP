@@ -36,10 +36,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.BatteryManager;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.os.Handler;
-=======
->>>>>>> parent of c123a0c... status bar: native battery percentage
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.AttributeSet;

@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Outline;
 import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
@@ -128,12 +129,14 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
     private float mCurrentT;
     private boolean mShowingDetail;
     private boolean mShowBatteryPercent;
+    private boolean mShowBatteryTextExpanded;
+    //private SettingsObserver mSettingsObserver;
 
     private ContentObserver mObserver = new ContentObserver(new Handler()) {
         public void onChange(boolean selfChange, Uri uri) {
             loadShowBatteryTextSetting();
         }
-    };
+};
 
     public StatusBarHeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -141,15 +144,8 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
     }
 
     private void loadShowBatteryTextSetting() {
-        ContentResolver resolver = getContext().getContentResolver();
-        mShowBatteryText = Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
-
-    private SettingsObserver mSettingsObserver;
-    private boolean mShowBatteryTextExpanded;
-
-    public StatusBarHeaderView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        mShowBatteryPercent = 0 != Settings.System.getInt(
+            getContext().getContentResolver(), Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
     }
 
     @Override
@@ -281,7 +277,6 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
         mClockCollapsedSize = getResources().getDimensionPixelSize(R.dimen.qs_time_collapsed_size);
         mClockExpandedSize = getResources().getDimensionPixelSize(R.dimen.qs_time_expanded_size);
         mClockCollapsedScaleFactor = (float) mClockCollapsedSize / (float) mClockExpandedSize;
-
     }
 
     public void setActivityStarter(ActivityStarter activityStarter) {
@@ -823,19 +818,6 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
         }
     };
 
-    @Override
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
-           "status_bar_show_battery_percent"), false, mObserver);
-    }
-
-    @Override
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-
-        if (mBatteryController != null) {
-            mBatteryController.removeStateChangedCallback(this);
     class SettingsObserver extends ContentObserver {
         SettingsObserver(Handler handler) {
             super(handler);
@@ -843,8 +825,6 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
 
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_SHOW_WEATHER), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_BATTERY_STYLE), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
@@ -885,10 +865,8 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
             }
 
             mShowBatteryTextExpanded = showExpandedBatteryPercentage;
-            mShowWeather = Settings.System.getInt(
-                    resolver, Settings.System.STATUS_BAR_SHOW_WEATHER, 1) == 1;
             updateVisibilities();
             requestCaptureValues();
-        }
+}
     }
 }
