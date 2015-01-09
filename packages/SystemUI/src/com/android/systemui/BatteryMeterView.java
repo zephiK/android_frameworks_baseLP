@@ -319,15 +319,8 @@ public class BatteryMeterView extends View implements DemoMode,
         switch (mode) {
             case BATTERY_METER_CIRCLE:
                 return new CircleBatteryMeterDrawable(res);
-<<<<<<< HEAD
-
             case BATTERY_METER_ICON_LANDSCAPE:
                 return new NormalBatteryMeterDrawable(res, true);
-
-=======
-            case BATTERY_METER_ICON_LANDSCAPE:
-                return new NormalBatteryMeterDrawable(res, true);
->>>>>>> 85616bd... Cleanup battery style code
             case BATTERY_METER_TEXT:
             case BATTERY_METER_GONE:
                 return null;
