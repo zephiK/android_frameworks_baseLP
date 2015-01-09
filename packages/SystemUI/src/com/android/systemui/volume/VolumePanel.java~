@@ -1433,6 +1433,13 @@ public class VolumePanel extends Handler {
 
             case MSG_TIMEOUT: {
                 if (isShowing()) {
+<<<<<<< HEAD
+                    mDialog.dismiss();
+                    clearRemoteStreamController();
+                    mActiveStreamType = -1;
+                    if (mCallback != null) {
+                        mCallback.onVisible(false);
+=======
                     hideVolumePanel();
                     if (mDialog != null) {
                         mDialog.dismiss();
@@ -1441,6 +1448,7 @@ public class VolumePanel extends Handler {
                         if (mCallback != null) {
                             mCallback.onVisible(false);
                         }
+>>>>>>> 283fb54... SystemUI: Create expandable volume panel.
                     }
                 }
                 synchronized (sSafetyWarningLock) {
