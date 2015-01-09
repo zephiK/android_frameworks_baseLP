@@ -128,9 +128,6 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
 
     private float mCurrentT;
     private boolean mShowingDetail;
-
-<<<<<<< HEAD
-    private int mShowBatteryText;
     private boolean mShowBatteryPercent;
 
     private ContentObserver mObserver = new ContentObserver(new Handler()) {
@@ -148,14 +145,12 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
         ContentResolver resolver = getContext().getContentResolver();
         mShowBatteryText = Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
-=======
+
     private SettingsObserver mSettingsObserver;
-    private boolean mShowWeather;
     private boolean mShowBatteryTextExpanded;
 
     public StatusBarHeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
->>>>>>> 5cb26b5... Next patch to fix battery. Thanks to CM
     }
 
     @Override
@@ -365,13 +360,7 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
             updateSignalClusterDetachment();
         }
         mEmergencyCallsOnly.setVisibility(mExpanded && mShowEmergencyCallsOnly ? VISIBLE : GONE);
-<<<<<<< HEAD
-        mBatteryLevel.setVisibility(((mExpanded && (mShowBatteryText == 0 || mBatteryCharging))
-                || mShowBatteryText == 2) ? View.VISIBLE : View.GONE);
-        mBatteryLevel.setVisibility((mExpanded || mShowBatteryPercent) ? View.VISIBLE : View.GONE);
-=======
         mBatteryLevelExpanded.setVisibility(mExpanded && mShowBatteryTextExpanded ? VISIBLE : GONE);
->>>>>>> 5cb26b5... Next patch to fix battery. Thanks to CM
     }
 
     private void updateSignalClusterDetachment() {
@@ -839,7 +828,6 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
         }
     };
 
-<<<<<<< HEAD
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -853,7 +841,6 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
 
         if (mBatteryController != null) {
             mBatteryController.removeStateChangedCallback(this);
-=======
     class SettingsObserver extends ContentObserver {
         SettingsObserver(Handler handler) {
             super(handler);
@@ -906,7 +893,6 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
             mShowWeather = Settings.System.getInt(
                     resolver, Settings.System.STATUS_BAR_SHOW_WEATHER, 1) == 1;
             updateVisibilities();
->>>>>>> 5cb26b5... Next patch to fix battery. Thanks to CM
         }
     }
 }
