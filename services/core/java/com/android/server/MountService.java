@@ -1470,6 +1470,16 @@ class MountService extends IMountService.Stub
         return null;
     }
 
+    private boolean hasUmsVolume() {
+        final StorageVolume[] storageVolumes = getVolumeList();
+        for(StorageVolume volume : storageVolumes) {
+            if (volume.allowMassStorage()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Constructs a new MountService instance
      *
@@ -1497,9 +1507,7 @@ class MountService extends IMountService.Stub
         userFilter.addAction(Intent.ACTION_USER_REMOVED);
         mContext.registerReceiver(mUserReceiver, userFilter, null, mHandler);
 
-        // Watch for USB changes on primary volume
-        final StorageVolume primary = getPrimaryPhysicalVolume();
-        if (primary != null && primary.allowMassStorage()) {
+        if (hasUmsVolume() || SystemProperties.getBoolean("persist.sys.ums", true)) {
             mContext.registerReceiver(
                     mUsbReceiver, new IntentFilter(UsbManager.ACTION_USB_STATE), null, mHandler);
         }
