@@ -22,7 +22,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.database.ContentObserver;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
@@ -31,7 +30,10 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.BatteryManager;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.os.Handler;
+=======
+>>>>>>> parent of c123a0c... status bar: native battery percentage
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
@@ -154,6 +156,7 @@ public class BatteryMeterView extends View implements DemoMode,
     }
 
     BatteryTracker mTracker = new BatteryTracker();
+<<<<<<< HEAD
 
     private ContentObserver mObserver = new ContentObserver(new Handler()) {
         public void onChange(boolean selfChange, Uri uri) {
@@ -163,6 +166,8 @@ public class BatteryMeterView extends View implements DemoMode,
             postInvalidate();
         }
     };
+=======
+>>>>>>> parent of c123a0c... status bar: native battery percentage
 
     @Override
     public void onAttachedToWindow() {
@@ -217,7 +222,11 @@ public class BatteryMeterView extends View implements DemoMode,
         levels.recycle();
         colors.recycle();
         atts.recycle();
+<<<<<<< HEAD
         mShowPercent = ENABLE_PERCENT && 1 == Settings.System.getInt(
+=======
+        mShowPercent = ENABLE_PERCENT && 0 != Settings.System.getInt(
+>>>>>>> parent of c123a0c... status bar: native battery percentage
                 context.getContentResolver(), "status_bar_show_battery_percent", 0);
         mWarningString = context.getString(R.string.battery_meter_very_low_overlay_symbol);
         mCriticalLevel = mContext.getResources().getInteger(
