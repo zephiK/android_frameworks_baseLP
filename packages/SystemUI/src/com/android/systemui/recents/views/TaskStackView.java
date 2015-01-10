@@ -21,6 +21,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.graphics.Matrix;
 import android.graphics.Rect;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;

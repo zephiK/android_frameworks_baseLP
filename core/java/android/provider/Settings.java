@@ -2836,24 +2836,6 @@ public final class Settings {
         public static final String RECENTS_CLEAR_ALL_DISMISS_ALL = "recents_clear_all_dismiss_all";
 
         /**
-        * Volume adjust sound
-        * @hide
-        */
-        public static final String VOLUME_KEY_ADJUST_SOUND = "volume_key_adjust_sound";
-
-        /**
-         * Volume rocker wake
-         * @hide
-         */
-        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
-
-        /**
-         *  Enable statusbar double tap gesture on to put device to sleep
-         * @hide
-         */
-        public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
-
-        /**
          * The delay when killing the app on long press takes place
          *
          * @hide
@@ -2865,12 +2847,6 @@ public final class Settings {
          * @hide
          */
         public static final String VOLUME_MUSIC_CONTROLS = "volume_music_controls";
-
-        /** Whether to vibrate when quick settings tile is pressed.
-         *
-         * @hide
-         */
-        public static final String QUICK_SETTINGS_TILES_VIBRATE = "quick_settings_vibrate";
 
         /**
          * This preference enables showing the power menu on LockScreen.
