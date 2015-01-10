@@ -37,22 +37,4 @@
         <item>157</item><item>334</item>
         <item>0</item>  <item>334</item>
     </array>
-<<<<<<< HEAD
-=======
-
-    <array name="batterymeter_inverted_bolt_points" translatable="false">
-        <item>743</item><item>73</item>
-        <item>743</item><item>292</item>
-        <item>442</item><item>201</item>
-        <item>442</item><item>400</item>
-        <item>0</item><item>20</item>
-        <item>369</item><item>157</item>
-        <item>369</item><item>0</item>
-    </array>
-
-    <string-array name="telephony_data_type_sim">
-        <!--NETWORK_TYPE_HSPAP-->
-        <item>drawable/stat_sys_data_fully_connected_hp</item>
-    </string-array>
->>>>>>> 207ee15... Status bar: Add HSPA+ icons
 </resources>
