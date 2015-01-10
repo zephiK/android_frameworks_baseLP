@@ -698,6 +698,17 @@
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">false</bool>
 
+    <!-- Does the notification LED support multiple colors?
+         Used to decide if the user can change the colors -->
+    <bool name="config_multiColorNotificationLed">false</bool>
+
+    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveBatteryLed">false</bool>
+
+    <!-- Does the battery LED support multiple colors?
+         Used to decide if the user can change the colors -->
+    <bool name="config_multiColorBatteryLed">false</bool>
+
     <!-- Default value for LED off time when the battery is low on charge in miliseconds -->
     <integer name="config_notificationsBatteryLedOff">2875</integer>
 
@@ -1318,6 +1329,9 @@
          turned off and the screen off animation has been performed. -->
     <bool name="config_dozeAfterScreenOff">false</bool>
 
+    <!-- Wether doze feature is enabled by default in settings. -->
+    <bool name="config_doze_enabled_by_default">true</bool>
+
     <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
          device from the display on/off state.
 
@@ -1564,6 +1578,16 @@
         <item>100</item>
     </integer-array>
 
+    <!-- Vibrator pattern to be used as for notifications while alerts
+         are disabled (e.g. during phone calls) if enabled by the user.
+     -->
+    <integer-array name="config_notificationNoAlertsVibePattern">
+        <item>0</item>
+        <item>50</item>
+        <item>100</item>
+        <item>50</item>
+    </integer-array>
+
     <!-- Flag indicating if the speed up audio on mt call code should be executed -->
     <bool name="config_speed_up_audio_on_mt_calls">false</bool>
 
@@ -1644,10 +1668,6 @@
     <string-array translatable="false" name="config_operatorConsideredNonRoaming">
     </string-array>
 
-    <!-- Threshold (in ms) under which a screen off / screen on will be considered a reset of the
-         immersive mode confirmation prompt.-->
-    <integer name="config_immersive_mode_confirmation_panic">5000</integer>
-
     <!-- For some operators, PDU has garbages. To fix it, need to use valid index -->
     <integer name="config_valid_wappush_index">-1</integer>
 
@@ -1713,8 +1733,11 @@
          -->
     <string-array translatable="false" name="config_globalActionsList">
         <item>power</item>
+        <item>reboot</item>
+        <item>airplane</item>
         <item>bugreport</item>
         <item>users</item>
+        <item>silent</item>
     </string-array>
 
     <!-- default telephony hardware configuration for this platform.
@@ -1854,7 +1877,6 @@
 
     <bool name="config_sms_force_7bit_encoding">false</bool>
 
-<<<<<<< HEAD
     <!-- This config is used to check if the carrier requires converting destination
          number before sending out a SMS.
          Formats for this configuration as below:
@@ -1870,26 +1892,10 @@
     <string-array translatable="false" name="config_sms_convert_destination_number_support">
         <item>false</item>
     </string-array>
-=======
-    <!-- set this value to true to set network mode as global during boot up -->
-    <bool name="config_global_phone_enabled">false</bool>
 
-    <!-- Configuartion to support SIM refresh in STK command for dual mode card.-->
-    <bool name="config_sim_refresh_for_dual_mode_card">true</bool>
-
-    <!-- Configuration that determines if ACTIVATE_REJECT_GGSN is to be treated as
-         a permanent error -->
-    <bool name="config_reject_ggsn_perm_failure">true</bool>
-    <!-- Configuration that determines if PROTOCOL_ERRORS is to be treated as a
-         permanent error -->
-    <bool name="config_protocol_errors_perm_failure">true</bool>
-
-    <!-- Configuration to restart radio upon PDP_DEACTIVATE with
-         error cause as Regular deactivation(36). -->
-    <bool name="config_radio_reset_on_regular_deactivation">true</bool>
+    <!-- Configuartion to set zen mode when silent mode is on -->
+    <bool name="config_setZenModeWhenSilentModeOn">false</bool>
 
     <!-- bool value to for enabling motion accelerometer -->
     <bool name="use_motion_accel">false</bool>
-
->>>>>>> e0c02b1... Sensor: Enable the motion accelerometer for screen orientation change
 </resources>
