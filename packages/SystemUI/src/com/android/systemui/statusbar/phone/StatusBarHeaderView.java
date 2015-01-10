@@ -20,11 +20,8 @@ package com.android.systemui.statusbar.phone;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-<<<<<<< HEAD
 import android.content.ContentResolver;
-=======
 import android.content.ContentUris;
->>>>>>> 0cd2128... SystemUI: make clock and time clickable in statusbar
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
