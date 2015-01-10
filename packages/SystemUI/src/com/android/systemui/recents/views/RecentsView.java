@@ -68,11 +68,9 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
     ArrayList<TaskStack> mStacks;
     View mSearchBar;
     RecentsViewCallbacks mCb;
-<<<<<<< HEAD
-=======
     View mClearRecents;
     View mFloatingButton;
->>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button
+
     boolean mAlreadyLaunchingTask;
 
     public RecentsView(Context context) {
@@ -269,18 +267,13 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                     MeasureSpec.makeMeasureSpec(searchBarSpaceBounds.height(), MeasureSpec.EXACTLY));
         }
 
-<<<<<<< HEAD
-=======
         boolean showClearAllRecents = Settings.System.getInt(mContext.getContentResolver(),
                  Settings.System.SHOW_CLEAR_ALL_RECENTS, 0) == 1;
 
->>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button
         Rect taskStackBounds = new Rect();
         mConfig.getTaskStackBounds(width, height, mConfig.systemInsets.top,
                 mConfig.systemInsets.right, taskStackBounds);
 
-<<<<<<< HEAD
-=======
         if (mFloatingButton != null && showClearAllRecents) {
             int clearRecentsLocation = Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, Constants.DebugFlags.App.RECENTS_CLEAR_ALL_BOTTOM_RIGHT);
@@ -307,7 +300,6 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
             mFloatingButton.setVisibility(View.GONE);
         }
 
->>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button
         // Measure each TaskStackView with the full width and height of the window since the 
         // transition view is a child of that stack view
         int childCount = getChildCount();
@@ -324,8 +316,6 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         setMeasuredDimension(width, height);
     }
 
-<<<<<<< HEAD
-=======
     public void noUserInteraction() {
         if (mClearRecents != null) {
             mClearRecents.setVisibility(View.VISIBLE);
@@ -344,7 +334,6 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         });
     }
 
->>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button
     /**
      * This is called with the full size of the window since we are handling our own insets.
      */

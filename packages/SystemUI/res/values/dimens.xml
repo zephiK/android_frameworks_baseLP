@@ -507,16 +507,6 @@
     <dimen name="fake_shadow_inset">1dp</dimen>
 
     <dimen name="fake_shadow_size">8dp</dimen>
-<<<<<<< HEAD
-=======
-
-    <!-- Network traffic monitor single-line text size -->
-    <dimen name="net_traffic_single_text_size">12dp</dimen>
-
-    <!-- Network traffic monitor multi-line text size -->
-    <dimen name="net_traffic_multi_text_size">8dp</dimen>
-
-    <dimen name="weather_text_size">12sp</dimen>
 
     <!-- Floating action button -->
     <dimen name="floating_action_button_height">54dp</dimen>
@@ -524,5 +514,4 @@
     <dimen name="floating_action_button_translation_z">12dp</dimen>
     <dimen name="floating_action_button_margin_side">42dp</dimen>
     <dimen name="floating_action_button_margin_bottom">38dp</dimen>
->>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button
 </resources>

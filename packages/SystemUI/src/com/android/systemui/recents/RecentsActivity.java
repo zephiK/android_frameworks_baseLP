@@ -245,18 +245,13 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
             }
             mEmptyView.setVisibility(View.VISIBLE);
             mRecentsView.setSearchBarVisibility(View.GONE);
-<<<<<<< HEAD
-=======
+
             findViewById(R.id.floating_action_button).setVisibility(View.GONE);
->>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button
         } else {
             if (mEmptyView != null) {
                 mEmptyView.setVisibility(View.GONE);
             }
-<<<<<<< HEAD
-=======
             findViewById(R.id.floating_action_button).setVisibility(View.VISIBLE);
->>>>>>> 06eb83b... SystemUI: replace recents clear all button with a fab button
             if (mRecentsView.hasSearchBar()) {
 
                 if (Settings.System.getInt(getContentResolver(),
