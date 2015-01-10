@@ -31,11 +31,8 @@ import android.net.Uri;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
-<<<<<<< HEAD
-=======
 import android.view.ViewAnimationUtils;
 import android.view.Gravity;
->>>>>>> ec98514... Framework: Add Fade in and Fade out effect to Recents FAB
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowInsets;
