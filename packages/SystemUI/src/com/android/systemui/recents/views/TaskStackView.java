@@ -479,8 +479,6 @@ public class TaskStackView extends FrameLayout implements TaskStack.TaskStackCal
         tv.dismissTask();
     }
 
-<<<<<<< HEAD
-=======
     private boolean dismissAll() {
         return Settings.System.getInt(mContext.getContentResolver(),
             Settings.System.RECENTS_CLEAR_ALL_DISMISS_ALL, 1) == 1;
@@ -522,7 +520,6 @@ public class TaskStackView extends FrameLayout implements TaskStack.TaskStackCal
         });
     }
 
->>>>>>> a07d087... SystemUI: option to ignore the last app when clearing recents (1/2)
     @Override
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
