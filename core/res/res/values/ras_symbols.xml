@@ -16,6 +16,15 @@
   <java-symbol type="drawable" name="material_bg_blue_grey" />
   <java-symbol type="color" name="material_blue_grey" />
 
+    <!-- Power menu reboot -->
+    <java-symbol type="array" name="shutdown_reboot_options" />
+    <java-symbol type="array" name="shutdown_reboot_actions" />
+    <java-symbol type="drawable" name="ic_lock_power_reboot" />
+    <java-symbol type="string" name="reboot_confirm" />
+    <java-symbol type="string" name="reboot_title"/>
+    <java-symbol type="string" name="reboot_progress" />
+    <java-symbol type="string" name="global_action_reboot" />
+
   <!-- motion accelerometer -->
   <java-symbol type="bool" name="use_motion_accel" />
 </resources>
