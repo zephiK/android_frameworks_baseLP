@@ -2965,6 +2965,12 @@ public final class Settings {
          */
         public static final String NAVIGATION_BAR_TINT = "navigation_bar_tint";
 
+        /** Whether to show the brightness slider in quick settings panel.
+         *
+         * @hide
+         */
+        public static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
+
         /**
          * Show or hide clock
          * 0 - hide
