@@ -2761,12 +2761,6 @@ public final class Settings {
          */
         public static final String RECENTS_SHOW_HIDE_SEARCH_BAR = "recents_show_hide_search_bar";
 
-        /** Whether to vibrate when quick settings tile is pressed.
-         *
-         * @hide
-         */
-        public static final String QUICK_SETTINGS_TILES_VIBRATE = "quick_settings_vibrate";
-
 	/*
 	 * Show or hide clock
 	 * 0 - hide
