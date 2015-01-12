@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- kill app long press back -->
-    <java-symbol name="app_killed_message" type="string" />
-    <java-symbol name="config_backKillTimeout" type="integer" />
+  <!-- kill app long press back -->
+  <java-symbol name="app_killed_message" type="string" />
+  <java-symbol name="config_backKillTimeout" type="integer" />
 
-    <!-- Package Manager -->
-    <java-symbol type="array" name="config_disabledComponents" />
+  <!-- Package Manager -->
+  <java-symbol type="array" name="config_disabledComponents" />
 
   <!-- Themes and styles -->
   <java-symbol type="style" name="Theme.Material.Dialog.Dark" />
@@ -27,4 +27,8 @@
 
   <!-- motion accelerometer -->
   <java-symbol type="bool" name="use_motion_accel" />
+
+  <!-- Package Manager -->
+  <java-symbol type="array" name="config_disabledComponents" />
+
 </resources>
