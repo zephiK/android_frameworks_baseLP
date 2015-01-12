@@ -176,14 +176,14 @@ public class NotificationPanelView extends PanelView implements
     private boolean mQsTouchAboveFalsingThreshold;
     private int mQsFalsingThreshold;
 
-    private LockPatternUtils = mLockPatternUtils;
+    private LockPatternUtils mLockPatternUtils;
     private Handler mHandler = new Handler();
     private SettingsObserver mSettingsObserver;
     private boolean mDoubleTapToSleepEnabled;
     private int mStatusBarHeaderHeight;
     private GestureDetector mDoubleTapGesture;
     private boolean mOneFingerQuickSettingsIntercept;
-    private mStatusBarLockedOnSecureKeyguard;
+    private boolean mStatusBarLockedOnSecureKeyguard;
 
     public NotificationPanelView(Context context, AttributeSet attrs) {
         super(context, attrs);
