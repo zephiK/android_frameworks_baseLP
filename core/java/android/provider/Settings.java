@@ -1961,7 +1961,6 @@ public final class Settings {
         public static final String LOCK_PATTERN_TACTILE_FEEDBACK_ENABLED =
             "lock_pattern_tactile_feedback_enabled";
 
-
         /**
          * A formatted string of the next alarm that is set, or the empty string
          * if there is no alarm set.
@@ -2515,6 +2514,12 @@ public final class Settings {
         public static final String DOCK_SOUNDS_ENABLED = Global.DOCK_SOUNDS_ENABLED;
 
         /**
+         * Check the proximity sensor during wakeup
+         * @hide
+         */
+        public static final String PROXIMITY_ON_WAKE = "proximity_on_wake";
+
+        /**
          * Whether to play sounds when the keyguard is shown and dismissed.
          * @hide
          */
@@ -2843,14 +2848,7 @@ public final class Settings {
         public static final String VOLUME_MUSIC_CONTROLS = "volume_music_controls";
 
         /**
-         * This preference enables showing the power menu on LockScreen.
-         * @hide
-         */
-        public static final String LOCKSCREEN_ENABLE_POWER_MENU = "lockscreen_enable_power_menu";
-	
-        /**
 	 * Display style of the status bar battery information
->>>>>>> a07d087... SystemUI: option to ignore the last app when clearing recents (1/2)
          * 0: Display the battery an icon in portrait mode
          * 2: Display the battery as a circle
          * 4: Hide the battery status information
@@ -4997,21 +4995,13 @@ public final class Settings {
         public static final String STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD = "status_bar_locked_on_secure_keyguard";
 
         /**
-<<<<<<< HEAD
-=======
          * Whether to use the custom quick unlock screen control
          * @hide
          */
-        public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
+        public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL =
+	"lockscreen_quick_unlock_control";
 
-        /**
-         * Whether to include options in power menu for rebooting into recovery and bootloader
-         * @hide
-         */
-        public static final String ADVANCED_REBOOT = "advanced_reboot";
-
-        /**
->>>>>>> f0be023... Keyguard: Enable quick unlock (1/2)
+/*
          * Name of a package that the current user has explicitly allowed to see all of that
          * user's notifications.
          *
@@ -5170,12 +5160,8 @@ public final class Settings {
             UI_NIGHT_MODE,
             SLEEP_TIMEOUT,
             ADVANCED_REBOOT,
-<<<<<<< HEAD
-	    STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD
-=======
             STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
             LOCKSCREEN_QUICK_UNLOCK_CONTROL
->>>>>>> f0be023... Keyguard: Enable quick unlock (1/2)
         };
 
         /**
