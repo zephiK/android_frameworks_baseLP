@@ -55,7 +55,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
-import android.provider.Settings;
 
 import com.android.systemui.R;
 import com.android.systemui.screenshot.DeleteScreenshot;
@@ -582,9 +581,7 @@ class GlobalScreenshot {
             @Override
             public void run() {
                 // Play the shutter sound to notify that we've taken a screenshot
-                if (Settings.System.getInt(mContext.getContentResolver(),
-            			Settings.System.SCREENSHOT_SOUND, 0) == 1)
-            		mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
 
                 mScreenshotView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
                 mScreenshotView.buildLayer();

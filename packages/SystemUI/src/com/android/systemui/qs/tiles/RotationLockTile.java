@@ -20,7 +20,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
-import android.provider.Settings;
 
 import com.android.systemui.R;
 import com.android.systemui.qs.QSTile;
@@ -29,7 +28,7 @@ import com.android.systemui.statusbar.policy.RotationLockController.RotationLock
 
 /** Quick settings tile: Rotation **/
 public class RotationLockTile extends QSTile<QSTile.BooleanState> {
-    private static final Intent DISPLAY_SETTINGS = new Intent(Settings.ACTION_DISPLAY_SETTINGS);
+    Intent intent = new Intent(Intent.ACTION_MAIN);
     private final RotationLockController mController;
 
     public RotationLockTile(Host host) {
@@ -59,7 +58,9 @@ public class RotationLockTile extends QSTile<QSTile.BooleanState> {
 
     @Override
     protected void handleLongClick() {
-        mHost.startSettingsActivity(DISPLAY_SETTINGS);
+	intent.setClassName("com.android.settings",
+				"com.android.settings.Settings$DisplayRotationSettingsActivity");
+        mHost.startSettingsActivity(intent);
     }
 
     @Override
@@ -68,19 +69,35 @@ public class RotationLockTile extends QSTile<QSTile.BooleanState> {
         final boolean rotationLocked = mController.isRotationLocked();
         state.visible = mController.isRotationLockAffordanceVisible();
         final Resources res = mContext.getResources();
-        state.value = rotationLocked;
+        if (state.value != rotationLocked) {
+            state.value = rotationLocked;
+            final AnimationDrawable d = (AnimationDrawable) res.getDrawable(rotationLocked
+                    ? R.drawable.ic_qs_rotation_locked
+                    : R.drawable.ic_qs_rotation_unlocked);
+            state.icon = d;
+            mUiHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    d.start();
+                }
+            });
+        }
         if (rotationLocked) {
-            final boolean portrait = res.getConfiguration().orientation
-                    != Configuration.ORIENTATION_LANDSCAPE;
-            final int label = portrait ? R.string.quick_settings_rotation_locked_portrait_label
-                    : R.string.quick_settings_rotation_locked_landscape_label;
-            final int icon = portrait ? R.drawable.ic_qs_rotation_portrait
-                    : R.drawable.ic_qs_rotation_landscape;
+            final int lockOrientation = mController.getRotationLockOrientation();
+            final int label = lockOrientation == Configuration.ORIENTATION_PORTRAIT
+                    ? R.string.quick_settings_rotation_locked_portrait_label
+                    : lockOrientation == Configuration.ORIENTATION_LANDSCAPE
+                    ? R.string.quick_settings_rotation_locked_landscape_label
+                    : R.string.quick_settings_rotation_locked_label;
             state.label = mContext.getString(label);
-            state.icon = mContext.getDrawable(icon);
+            if (state.icon == null) {
+                state.icon = res.getDrawable(R.drawable.ic_qs_rotation_15);
+            }
         } else {
             state.label = mContext.getString(R.string.quick_settings_rotation_unlocked_label);
-            state.icon = res.getDrawable(R.drawable.ic_qs_rotation_unlocked);
+            if (state.icon == null) {
+                state.icon = res.getDrawable(R.drawable.ic_qs_rotation_01);
+            }
         }
         state.contentDescription = getAccessibilityString(
                 R.string.accessibility_rotation_lock_on_portrait,
