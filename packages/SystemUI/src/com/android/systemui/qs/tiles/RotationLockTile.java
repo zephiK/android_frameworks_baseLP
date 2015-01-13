@@ -20,10 +20,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
-<<<<<<< HEAD
-import android.provider.Settings;
-=======
->>>>>>> 8ecf079... SystemUI: Bring back animated rotation tile
 
 import com.android.systemui.R;
 import com.android.systemui.qs.QSTile;
