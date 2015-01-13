@@ -275,6 +275,7 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
         if (Settings.System.getInt(getContentResolver(),
                     Settings.System.RECENTS_SHOW_HIDE_SEARCH_BAR, 1) != 0) {
         RecentsConfiguration.searchBarSpaceHeightPx = 0;
+
 		}
 
         if (Settings.System.getInt(getContentResolver(),

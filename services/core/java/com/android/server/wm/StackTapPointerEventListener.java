@@ -70,6 +70,7 @@ public class StackTapPointerEventListener implements PointerEventListener {
                 if (mPointerId == motionEvent.getPointerId(index)) {
                     final int x = (int)motionEvent.getX(index);
                     final int y = (int)motionEvent.getY(index);
+<<<<<<< HEAD
                     synchronized(this) {
                         if ((motionEvent.getEventTime() - motionEvent.getDownTime())
                                 < TAP_TIMEOUT_MSEC
@@ -79,6 +80,15 @@ public class StackTapPointerEventListener implements PointerEventListener {
                             mService.mH.obtainMessage(H.TAP_OUTSIDE_STACK, x, y,
                                     mDisplayContent).sendToTarget();
                         }
+=======
+                    if ((motionEvent.getEventTime() - motionEvent.getDownTime())
+                            < TAP_TIMEOUT_MSEC
+                            && Math.abs(x - mDownX) < mMotionSlop
+                            && Math.abs(y - mDownY) < mMotionSlop
+                            && !mTouchExcludeRegion.contains(x, y)) {
+                        mService.mH.obtainMessage(H.TAP_OUTSIDE_STACK, x, y,
+                                mDisplayContent).sendToTarget();
+>>>>>>> 0479289... Measure absolute value of pointer motion distance
                     }
                     mPointerId = -1;
                 }
