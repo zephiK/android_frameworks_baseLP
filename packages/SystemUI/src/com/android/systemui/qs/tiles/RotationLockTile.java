@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
+import android.provider.Settings;
 
 import com.android.systemui.R;
 import com.android.systemui.qs.QSTile;
