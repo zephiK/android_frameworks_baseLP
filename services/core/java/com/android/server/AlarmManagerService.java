@@ -1909,6 +1909,7 @@ class AlarmManagerService extends SystemService {
         public ClockReceiver() {
             IntentFilter filter = new IntentFilter();
             filter.addAction(Intent.ACTION_TIME_TICK);
+            filter.addAction(Intent.ACTION_TIME_CHANGED);
             filter.addAction(Intent.ACTION_DATE_CHANGED);
             getContext().registerReceiver(this, filter);
         }
@@ -1920,6 +1921,11 @@ class AlarmManagerService extends SystemService {
                     Slog.v(TAG, "Received TIME_TICK alarm; rescheduling");
                 }
                 scheduleTimeTickEvent();
+            } else if (intent.getAction().equals(Intent.ACTION_TIME_CHANGED)) {
+                if (DEBUG_BATCH) {
+                    Slog.v(TAG, "Received TIME_CHANGED alarm; reschedule date changed event.");
+                }
+                scheduleDateChangedEvent();
             } else if (intent.getAction().equals(Intent.ACTION_DATE_CHANGED)) {
                 // Since the kernel does not keep track of DST, we need to
                 // reset the TZ information at the beginning of each day
@@ -1948,7 +1954,7 @@ class AlarmManagerService extends SystemService {
         public void scheduleDateChangedEvent() {
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(System.currentTimeMillis());
-            calendar.set(Calendar.HOUR, 0);
+            calendar.set(Calendar.HOUR_OF_DAY, 0);
             calendar.set(Calendar.MINUTE, 0);
             calendar.set(Calendar.SECOND, 0);
             calendar.set(Calendar.MILLISECOND, 0);
