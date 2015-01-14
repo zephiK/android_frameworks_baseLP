@@ -70,11 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // database gets upgraded properly. At a minimum, please confirm that 'upgradeVersion'
     // is properly propagated through your change.  Not doing so will result in a loss of user
     // settings.
-<<<<<<< HEAD
-    private static final int DATABASE_VERSION = 113;
-=======
     private static final int DATABASE_VERSION = 116;
->>>>>>> 20af04c... Implement linked volumes and add upgrade path.
 
     private Context mContext;
     private int mUserHandle;
@@ -1831,8 +1827,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             upgradeVersion = 113;
         }
 
-<<<<<<< HEAD
-=======
         /************* The following are CM-12.0 changes ************/
 
         if (upgradeVersion < 114) {
@@ -1859,7 +1853,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             upgradeVersion = 116;
         }
 
->>>>>>> 20af04c... Implement linked volumes and add upgrade path.
         // *** Remember to update DATABASE_VERSION above!
 
         if (upgradeVersion != currentVersion) {

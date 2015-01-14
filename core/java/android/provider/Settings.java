@@ -1240,11 +1240,7 @@ public final class Settings {
             MOVED_TO_SECURE.add(Secure.WIFI_WATCHDOG_PING_COUNT);
             MOVED_TO_SECURE.add(Secure.WIFI_WATCHDOG_PING_DELAY_MS);
             MOVED_TO_SECURE.add(Secure.WIFI_WATCHDOG_PING_TIMEOUT_MS);
-<<<<<<< HEAD
-=======
-            MOVED_TO_SECURE.add(Secure.STATS_COLLECTION);
             MOVED_TO_SECURE.add(Secure.VOLUME_LINK_NOTIFICATION);
->>>>>>> 20af04c... Implement linked volumes and add upgrade path.
 
             // At one time in System, then Global, but now back in Secure
             MOVED_TO_SECURE.add(Secure.INSTALL_NON_MARKET_APPS);
@@ -5118,21 +5114,6 @@ public final class Settings {
         public static final String ADVANCED_REBOOT = "advanced_reboot";
 
         /**
-<<<<<<< HEAD
-=======
-         * Whether to display a menu containing 'Wipe data', 'Force close' and other options
-         * in the notification area and in the recent app list
-         * @hide
-         */
-        public static final String DEVELOPMENT_SHORTCUT = "development_shortcut";
-
-        /**
-         * Global stats collection
-         * @hide
-         */
-        public static final String STATS_COLLECTION = "stats_collection";
-
-        /**
          * Boolean value whether to link ringtone and notification volume
          *
          * @hide
@@ -5140,20 +5121,6 @@ public final class Settings {
         public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
 
         /**
-         * Performance profile
-         * @see config_perf_profile_prop in frameworks/base/core/res/res/values/config.xml
-         * @hide
-         */
-        public static final String PERFORMANCE_PROFILE = "performance_profile";
-
-        /**
-         * App-based performance profile selection
-         * @hide
-         */
-        public static final String APP_PERFORMANCE_PROFILES_ENABLED = "app_perf_profiles_enabled";
-
-        /**
->>>>>>> 20af04c... Implement linked volumes and add upgrade path.
          * This are the settings to be backed up.
          *
          * NOTE: Settings are backed up and restored in the order they appear
