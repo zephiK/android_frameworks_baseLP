@@ -157,6 +157,7 @@ import com.android.systemui.statusbar.policy.BatteryController.BatteryStateChang
 import com.android.systemui.statusbar.policy.BluetoothControllerImpl;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController;
 import com.android.systemui.statusbar.policy.CastControllerImpl;
+import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.policy.FlashlightController;
 import com.android.systemui.statusbar.policy.HeadsUpNotificationView;
 import com.android.systemui.statusbar.policy.HotspotControllerImpl;
@@ -298,6 +299,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     // [+>
     View mMoreIcon;
+    TextView mClockView;
+    Clock mClockController;
+    private int mClockLocation;
 
     // expanded notifications
     NotificationPanelView mNotificationPanel; // the sliding/resizing panel within the notification window
@@ -401,6 +405,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SCREEN_BRIGHTNESS_MODE), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_CLOCK), false, this);
             update();
         }
 
@@ -418,6 +424,42 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             mAutomaticBrightness = mode != Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL;
             mBrightnessControl = Settings.System.getInt(
                     resolver, Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1;
+            mClockLocation = Settings.System.getInt(
+                    resolver, Settings.System.STATUS_BAR_CLOCK, Clock.STYLE_CLOCK_RIGHT);
+            updateClockView();
+        }
+
+        void updateClockView() {
+            mClockView.setVisibility(View.GONE);
+
+        switch (mClockLocation) {
+            default:
+            case Clock.STYLE_HIDE_CLOCK:
+                mClockView = (TextView) mStatusBarView.findViewById(R.id.clock);
+                // Don't set visibility here...
+                break;
+            case Clock.STYLE_CLOCK_RIGHT:
+                mClockView = (TextView) mStatusBarView.findViewById(R.id.clock);
+                mClockView.setVisibility(View.VISIBLE);
+                break;
+            case Clock.STYLE_CLOCK_CENTER:
+                mClockView = (TextView) mStatusBarView.findViewById(R.id.center_clock);
+                mClockView.setVisibility(View.VISIBLE);
+                break;
+            case Clock.STYLE_CLOCK_LEFT:
+                mClockView = (TextView) mStatusBarView.findViewById(R.id.left_clock);
+                mClockView.setVisibility(View.VISIBLE);
+                break;
+        }
+
+        setClockAndDateStatus();
+        mClockController.updateClockView(mClockView);
+    }
+
+    public void setClockAndDateStatus() {
+        if (mNotificationIcons != null) {
+            mNotificationIcons.setClockAndDateStatus(mClockLocation);
+>>>>>>> e087cb3... Status Bar Clock: rewrite for lollipop and add left clock (1/2)
         }
     }
 
@@ -785,6 +827,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mMoreIcon = mStatusBarView.findViewById(R.id.moreIcon);
         mNotificationIcons.setOverflowIndicator(mMoreIcon);
         mStatusBarContents = (LinearLayout)mStatusBarView.findViewById(R.id.status_bar_contents);
+
+        mClockView = (TextView) mStatusBarView.findViewById(R.id.clock);
+        mClockLocation = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK, Clock.STYLE_CLOCK_RIGHT);
+        if (mClockController == null) mClockController = new Clock(mContext, mClockView);
+        updateClockView();
 
         mStackScroller = (NotificationStackScrollLayout) mStatusBarWindow.findViewById(
                 R.id.notification_stack_scroller);
@@ -1790,6 +1838,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         updateCarrierLabelVisibility(false);
     }
 
+    public void showClock(boolean show) {
+        mClockView.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
     public void findAndUpdateMediaNotifications() {
         boolean metaDataChanged = false;
 
@@ -2031,14 +2083,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
     }
 
-    public void showClock(boolean show) {
-        if (mStatusBarView == null) return;
-        View clock = mStatusBarView.findViewById(R.id.clock);
-        if (clock != null) {
-            clock.setVisibility(show ? View.VISIBLE : View.GONE);
-        }
-    }
-
     private int adjustDisableFlags(int state) {
         if (!mLaunchTransitionFadingAway
                 && (mExpandedVisible || mBouncerShowing || mWaitingForKeyguardExit)) {
@@ -2088,9 +2132,18 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         if ((diff & StatusBarManager.DISABLE_SYSTEM_INFO) != 0) {
             mSystemIconArea.animate().cancel();
+            mClockView.animate().cancel();
             if ((state & StatusBarManager.DISABLE_SYSTEM_INFO) != 0) {
+                if (mClockLocation == Clock.STYLE_CLOCK_CENTER
+                        || mClockLocation == Clock.STYLE_CLOCK_LEFT) {
+                    animateStatusBarHide(mClockView, animate);
+                }
                 animateStatusBarHide(mSystemIconArea, animate);
             } else {
+                if (mClockLocation == Clock.STYLE_CLOCK_CENTER
+                        || mClockLocation == Clock.STYLE_CLOCK_LEFT) {
+                    animateStatusBarShow(mClockView, animate);
+                }
                 animateStatusBarShow(mSystemIconArea, animate);
             }
         }
@@ -2990,19 +3043,25 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             if (!mTickerEnabled) return;
             mTicking = true;
             mStatusBarContents.setVisibility(View.GONE);
+            mStatusBarContents.startAnimation(loadAnim(com.android.internal.R.anim.push_up_out,
+                    null));
             mTickerView.setVisibility(View.VISIBLE);
             mTickerView.startAnimation(loadAnim(com.android.internal.R.anim.push_up_in, null));
-            mStatusBarContents.startAnimation(loadAnim(com.android.internal.R.anim.push_up_out, null));
+            mClockView.setVisibility(View.GONE);
+            mClockView.startAnimation(loadAnim(com.android.internal.R.anim.push_up_out, null));
         }
 
         @Override
         public void tickerDone() {
             if (!mTickerEnabled) return;
             mStatusBarContents.setVisibility(View.VISIBLE);
+            mStatusBarContents.startAnimation(loadAnim(com.android.internal.R.anim.push_down_in,
+                    null));
             mTickerView.setVisibility(View.GONE);
-            mStatusBarContents.startAnimation(loadAnim(com.android.internal.R.anim.push_down_in, null));
             mTickerView.startAnimation(loadAnim(com.android.internal.R.anim.push_down_out,
-                        mTickingDoneListener));
+                    mTickingDoneListener));
+            mClockView.setVisibility(View.VISIBLE);
+            mClockView.startAnimation(loadAnim(com.android.internal.R.anim.push_down_in, null));
         }
 
         public void tickerHalting() {
@@ -3011,13 +3070,15 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mStatusBarContents.setVisibility(View.VISIBLE);
                 mStatusBarContents
                         .startAnimation(loadAnim(com.android.internal.R.anim.fade_in, null));
+                mClockView.setVisibility(View.VISIBLE);
+                mClockView.startAnimation(loadAnim(com.android.internal.R.anim.fade_in, null));
             }
             mTickerView.setVisibility(View.GONE);
             // we do not animate the ticker away at this point, just get rid of it (b/6992707)
         }
     }
 
-    Animation.AnimationListener mTickingDoneListener = new Animation.AnimationListener() {;
+    Animation.AnimationListener mTickingDoneListener = new Animation.AnimationListener() {
         public void onAnimationEnd(Animation animation) {
             mTicking = false;
         }
