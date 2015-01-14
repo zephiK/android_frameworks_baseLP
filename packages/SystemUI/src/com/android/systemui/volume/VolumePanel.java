@@ -518,13 +518,10 @@ public class VolumePanel extends Handler {
             @Override
             public void onInteraction() {
                 resetTimeout();
-<<<<<<< HEAD
-=======
                 if (mZenPanelCallback != null) {
                     mZenPanelCallback.onInteraction();
                     mZenPanel.clearAnimation();
                 }
->>>>>>> 283fb54... SystemUI: Create expandable volume panel.
             }
 
             @Override
