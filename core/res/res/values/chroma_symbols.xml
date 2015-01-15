@@ -34,8 +34,11 @@
   <java-symbol name="reboot_title" type="string" />
   <java-symbol name="ic_lock_power_reboot" type="drawable" />
   <java-symbol name="global_action_reboot" type="string" />
-  <java-symbol name="ic_lock_power_screenshot" type="drawable" />
-  <java-symbol name="global_action_screenshot" type="string" />
+  <java-symbol type="string" name="reboot_progress" />
+  <java-symbol type="drawable" name="ic_lock_screenshot" />
+  <java-symbol type="string" name="global_action_screenshot" />
+  <java-symbol type="drawable" name="ic_lock_settings" />
+  <java-symbol type="drawable" name="ic_lock_user" />
 
   <!-- Notification and battery light -->
   <java-symbol type="bool" name="config_intrusiveNotificationLed" />
