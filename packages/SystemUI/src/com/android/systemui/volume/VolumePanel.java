@@ -518,10 +518,6 @@ public class VolumePanel extends Handler {
             @Override
             public void onInteraction() {
                 resetTimeout();
-                if (mZenPanelCallback != null) {
-                    mZenPanelCallback.onInteraction();
-                    mZenPanel.clearAnimation();
-                }
             }
 
             @Override

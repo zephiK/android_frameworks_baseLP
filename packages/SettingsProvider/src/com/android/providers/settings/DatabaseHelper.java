@@ -1830,21 +1830,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         /************* The following are CM-12.0 changes ************/
 
         if (upgradeVersion < 114) {
-            // Artificially bump our upgrade version to handle
-            // migration path from cm-11.0 to cm-12.0
-            // without this, heads up would never work if
-            // a user did not wipe data
-            upgradeHeadsUpSettingFromNone(db);
-            upgradeDeviceNameFromNone(db);
-
             upgradeVersion = 114;
-        }
-
-        // From here on out, we can assume the user is coming from CM and will have these rows
-        if (upgradeVersion < 115) {
-            moveSettingsToNewTable(db, TABLE_SYSTEM, TABLE_SECURE,
-                    new String[] { Settings.Secure.STATS_COLLECTION }, true);
-            upgradeVersion = 115;
         }
 
         if (upgradeVersion < 116) {
