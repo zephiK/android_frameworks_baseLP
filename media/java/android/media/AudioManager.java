@@ -26,6 +26,7 @@ import android.bluetooth.BluetoothDevice;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.RemoteController.OnClientUpdateListener;
 import android.media.audiopolicy.AudioPolicy;
 import android.media.audiopolicy.AudioPolicyConfig;
@@ -42,9 +43,13 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
+import android.view.Surface;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -727,21 +732,30 @@ public class AudioManager {
                  * Adjust the volume in on key down since it is more
                  * responsive to the user.
                  */
+                int direction = keyCode == KeyEvent.KEYCODE_VOLUME_UP ? ADJUST_RAISE
+                        : ADJUST_LOWER;
+                final WindowManager windowService = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+                if (windowService != null) {
+                    final int rotation = windowService.getDefaultDisplay().getRotation();
+                    final Configuration config = mContext.getResources().getConfiguration();
+                    final boolean swapKeys = Settings.System.getIntForUser(mContext.getContentResolver(),
+                            Settings.System.SWAP_VOLUME_BUTTONS, 0, Process.myUserHandle().getIdentifier()) == 1;
+
+                    if (swapKeys
+                            && (rotation == Surface.ROTATION_90 || rotation == Surface.ROTATION_180)
+                            && config.getLayoutDirection() == View.LAYOUT_DIRECTION_LTR) {
+                         direction = keyCode == KeyEvent.KEYCODE_VOLUME_UP
+                                 ? ADJUST_LOWER
+                                 : ADJUST_RAISE;
+                    }
+                }
+
                 int flags = FLAG_SHOW_UI | FLAG_VIBRATE;
 
                 if (mUseMasterVolume) {
-                    adjustMasterVolume(
-                            keyCode == KeyEvent.KEYCODE_VOLUME_UP
-                                    ? ADJUST_RAISE
-                                    : ADJUST_LOWER,
-                            flags);
+                adjustMasterVolume(direction, flags);
                 } else {
-                    adjustSuggestedStreamVolume(
-                            keyCode == KeyEvent.KEYCODE_VOLUME_UP
-                                    ? ADJUST_RAISE
-                                    : ADJUST_LOWER,
-                            stream,
-                            flags);
+                adjustSuggestedStreamVolume(direction, stream, flags);
                 }
                 break;
             case KeyEvent.KEYCODE_VOLUME_MUTE:
@@ -764,6 +778,8 @@ public class AudioManager {
                  * Play a sound. This is done on key up since we don't want the
                  * sound to play when a user holds down volume down to mute.
                  */
+                if (mUseVolumeKeySounds && Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.VOLUME_KEY_ADJUST_SOUND, 1, Process.myUserHandle().getIdentifier()) == 1) {
                 if (mUseMasterVolume) {
                     adjustMasterVolume(ADJUST_SAME, FLAG_PLAY_SOUND);
                 } else {
@@ -780,6 +796,7 @@ public class AudioManager {
                 break;
         }
     }
+}
 
     /**
      * Indicates if the device implements a fixed volume policy.
