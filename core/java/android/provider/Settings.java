@@ -2997,6 +2997,12 @@ public final class Settings {
         * @hide
         */
         public static final String VOLUME_KEY_ADJUST_SOUND = "volume_key_adjust_sound";
+        
+        /**
+         * Change volume up and down handlign based on rotation
+         * @hide
+         */
+        public static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
 
 	/*
          * Whether to hide the clock, show it in the right or left
