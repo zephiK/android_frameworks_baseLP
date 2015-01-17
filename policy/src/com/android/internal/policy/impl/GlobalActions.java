@@ -1,9 +1,5 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
-<<<<<<< HEAD
-=======
- * Copyright (C) 2010-2015 CyanogenMod Project
->>>>>>> f54744a... Power menu customizations [1/2]
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -104,7 +100,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
 
     private static final boolean SHOW_SILENT_TOGGLE = true;
 
-<<<<<<< HEAD
     /* Valid settings for global actions keys.
      * see config.xml config_globalActionList */
     private static final String GLOBAL_ACTION_KEY_POWER = "power";
@@ -116,8 +111,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private static final String GLOBAL_ACTION_KEY_SETTINGS = "settings";
     private static final String GLOBAL_ACTION_KEY_LOCKDOWN = "lockdown";
 
-=======
->>>>>>> f54744a... Power menu customizations [1/2]
     private final Context mContext;
     private final WindowManagerFuncs mWindowManagerFuncs;
     private final AudioManager mAudioManager;
@@ -328,40 +321,11 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 mItems.add(getSettingsAction());
             } else if (GLOBAL_ACTION_KEY_LOCKDOWN.equals(actionKey)) {
                 mItems.add(getLockdownAction());
-<<<<<<< HEAD
-=======
-            } else if (GLOBAL_ACTION_KEY_PROFILE.equals(actionKey)) {
-                if (!mProfilesEnabled) continue;
-                mItems.add(
-                        new ProfileChooseAction() {
-                            public void onPress() {
-                                createProfileDialog();
-                            }
-
-                            public boolean onLongPress() {
-                                return true;
-                            }
-
-                            public boolean showDuringKeyguard() {
-                                return false;
-                            }
-
-                            public boolean showBeforeProvisioning() {
-                                return false;
-                            }
-
-                            public CharSequence getLabelForAccessibility(Context context) {
-                                return null;
-                            }
-
-                        });
->>>>>>> f54744a... Power menu customizations [1/2]
-            } else {
-                Log.e(TAG, "Invalid global action key " + actionKey);
             }
             // Add here so we don't add more than one.
             addedKeys.add(actionKey);
         }
+
 
         mAdapter = new MyAdapter();
 
@@ -394,93 +358,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         return dialog;
     }
 
-<<<<<<< HEAD
-=======
-    private void createProfileDialog(){
-        final ProfileManager profileManager = (ProfileManager) mContext.getSystemService(Context.PROFILE_SERVICE);
-
-        final Profile[] profiles = profileManager.getProfiles();
-        UUID activeProfile = profileManager.getActiveProfile().getUuid();
-        final CharSequence[] names = new CharSequence[profiles.length];
-
-        int i=0;
-        int checkedItem = 0;
-
-        for(Profile profile : profiles) {
-            if(profile.getUuid().equals(activeProfile)) {
-                checkedItem = i;
-                mChosenProfile = profile;
-            }
-            names[i++] = profile.getName();
-        }
-
-        final AlertDialog.Builder ab = new AlertDialog.Builder(mContext);
-
-        AlertDialog dialog = ab
-                .setTitle(R.string.global_action_choose_profile)
-                .setSingleChoiceItems(names, checkedItem, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                       if (which < 0)
-                            return;
-                        mChosenProfile = profiles[which];
-                    }
-                })
-                .setPositiveButton(com.android.internal.R.string.yes,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                profileManager.setActiveProfile(mChosenProfile.getUuid());
-                            }
-                        })
-                .setNegativeButton(com.android.internal.R.string.no,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                }).create();
-        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG);
-        dialog.show();
-    }
-
-     /**
-     * A single press action maintains no state, just responds to a press
-     * and takes an action.
-     */
-    private abstract class ProfileChooseAction implements Action {
-        private ProfileManager mProfileManager;
-
-        protected ProfileChooseAction() {
-            mProfileManager = (ProfileManager)mContext.getSystemService(Context.PROFILE_SERVICE);
-        }
-
-        public boolean isEnabled() {
-            return true;
-        }
-
-        abstract public void onPress();
-
-        public View create(Context context, View convertView, ViewGroup parent, LayoutInflater inflater) {
-            View v = inflater.inflate(R.layout.global_actions_item, parent, false);
-
-            ImageView icon = (ImageView) v.findViewById(R.id.icon);
-            TextView messageView = (TextView) v.findViewById(R.id.message);
-
-            TextView statusView = (TextView) v.findViewById(R.id.status);
-            if (statusView != null) {
-                statusView.setVisibility(View.VISIBLE);
-                statusView.setText(mProfileManager.getActiveProfile().getName());
-            }
-            if (icon != null) {
-                icon.setImageDrawable(context.getDrawable(R.drawable.ic_lock_profile));
-            }
-            if (messageView != null) {
-                messageView.setText(R.string.global_action_choose_profile);
-            }
-
-            return v;
-        }
-    }
-
->>>>>>> f54744a... Power menu customizations [1/2]
     private final class PowerAction extends SinglePressAction implements LongPressAction {
         private PowerAction() {
             super(com.android.internal.R.drawable.ic_lock_power_off,
@@ -1281,8 +1158,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         ContentResolver resolver = mContext.getContentResolver();
         mActions = Settings.Global.getStringForUser(resolver,
                 Settings.Global.POWER_MENU_ACTIONS, UserHandle.USER_CURRENT);
-        mProfilesEnabled = Settings.System.getInt(resolver,
-                Settings.System.SYSTEM_PROFILES_ENABLED, 1) != 0;
     }
 
     PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
