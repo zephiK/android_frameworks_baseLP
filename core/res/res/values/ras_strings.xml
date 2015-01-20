@@ -27,6 +27,4 @@
     <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
     <string name="reboot_bootloader">Bootloader</string>
     
-    <string name="default_string">Default</string>
-
 </resources>
