@@ -1248,6 +1248,7 @@ public final class Settings {
             MOVED_TO_SECURE.add(Secure.VOLUME_LINK_NOTIFICATION);
             MOVED_TO_SECURE.add(Secure.QS_TILES);
             MOVED_TO_SECURE.add(Secure.QS_USE_MAIN_TILES);
+            MOVED_TO_SECURE.add(Secure.QS_SHOW_BRIGHTNESS_SLIDER);
         }
 
         private static final HashSet<String> MOVED_TO_GLOBAL;
@@ -2969,6 +2970,7 @@ public final class Settings {
          *
          * @hide
          */
+        @Deprecated
         public static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
 
         /**
@@ -5384,6 +5386,13 @@ public final class Settings {
          * @hide
          */
         public static final String QS_LOCATION_ADVANCED = "qs_location_advanced";
+
+        /** Whether to show the brightness slider in quick settings panel.
+         *
+         * @hide
+         */
+        public static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
+
 
         /**
          * List of QS tile names
