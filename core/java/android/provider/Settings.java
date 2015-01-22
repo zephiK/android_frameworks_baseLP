@@ -1820,12 +1820,6 @@ public final class Settings {
          */
         public static final int ADVANCED_SETTINGS_DEFAULT = 0;
 
-         /**
-         * @hide
-         */
-        public static final String QS_LOCATION_ADVANCED = "qs_location_advanced";
-
-
         /**
          * Navigation controls to Use
          * @hide
@@ -5378,6 +5372,12 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
+
+         /**
+         * Whether detail view for the location tile is enabled
+         * @hide
+         */
+        public static final String QS_LOCATION_ADVANCED = "qs_location_advanced";
 
         /**
          * This are the settings to be backed up.
