@@ -267,8 +267,6 @@ public class QSTileHost implements QSTile.Host {
                 return new WifiTile(this);
             case QSConstants.TILE_BLUETOOTH:
                 return new BluetoothTile(this);
-            case QSConstants.TILE_INVERSION:
-                return new ColorInversionTile(this);
             case QSConstants.TILE_CELLULAR:
                 return new CellularTile(this);
             case QSConstants.TILE_AIRPLANE:
