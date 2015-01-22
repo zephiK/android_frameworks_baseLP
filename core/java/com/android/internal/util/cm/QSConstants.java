@@ -32,6 +32,8 @@ public class QSConstants {
     public static final String TILE_HOTSPOT = "hotspot";
     public static final String TILE_NOTIFICATIONS = "notifications";
     public static final String TILE_SYNC = "sync";
+    public static final String TILE_SCREENSHOT = "screenshot";
+    public static final String TILE_LTE = "lte";
 
     // Order matters
     protected static final ArrayList<String> TILES_DEFAULT = new ArrayList<String>();
@@ -55,5 +57,14 @@ public class QSConstants {
         TILES_AVAILABLE.add(TILE_NOTIFICATIONS);
         TILES_AVAILABLE.add(TILE_SCREENSHOT);
         TILES_AVAILABLE.add(TILE_SYNC);
+        TILES_AVAILABLE.add(TILE_DATA);
+        TILES_AVAILABLE.add(TILE_ROAMING);
+        TILES_AVAILABLE.add(TILE_DDS);
+        TILES_AVAILABLE.add(TILE_APN);
+        TILES_AVAILABLE.add(TILE_NFC);
+        TILES_AVAILABLE.add(TILE_COMPASS);
+        TILES_AVAILABLE.add(TILE_LOCKSCREEN);
+        TILES_AVAILABLE.add(TILE_LTE);
+	TILES_AVAILABLE.add(TILE_SCREEN_TIMEOUT);
     }
 }
