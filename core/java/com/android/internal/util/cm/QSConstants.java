@@ -32,10 +32,7 @@ public class QSConstants {
     public static final String TILE_CAST = "cast";
     public static final String TILE_HOTSPOT = "hotspot";
     public static final String TILE_NOTIFICATIONS = "notifications";
-    public static final String TILE_DATA = "data";
-    public static final String TILE_ROAMING = "roaming";
-    public static final String TILE_DDS = "dds";
-    public static final String TILE_APN = "apn";
+    public static final String TILE_LTE = "lte";
     public static final String TILE_SCREEN_TIMEOUT = "screen_timeout";
     public static final String TILE_BRIGHTNESS = "brightness";
     public static final String TILE_BATTERY_SAVER = "battery_saver";
@@ -66,10 +63,6 @@ public class QSConstants {
         TILES_AVAILABLE.add(TILE_INVERSION);
         TILES_AVAILABLE.add(TILE_HOTSPOT);
         TILES_AVAILABLE.add(TILE_NOTIFICATIONS);
-        TILES_AVAILABLE.add(TILE_DATA);
-        TILES_AVAILABLE.add(TILE_ROAMING);
-        TILES_AVAILABLE.add(TILE_DDS);
-        TILES_AVAILABLE.add(TILE_APN);
     	TILES_AVAILABLE.add(TILE_SCREEN_TIMEOUT);
         TILES_AVAILABLE.add(TILE_BRIGHTNESS);
         TILES_AVAILABLE.add(TILE_BATTERY_SAVER);
@@ -78,5 +71,6 @@ public class QSConstants {
         TILES_AVAILABLE.add(TILE_SCREENSHOT);
     	TILES_AVAILABLE.add(TILE_HEADS_UP);
         TILES_AVAILABLE.add(TILE_MUSIC);
+        TILES_AVAILABLE.add(TILE_LTE);
     }
 }
