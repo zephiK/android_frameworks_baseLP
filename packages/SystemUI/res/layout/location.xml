@@ -49,7 +49,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="8dp"
             android:paddingBottom="8dp"
-            android:textSize="20sp"
+            android:textSize="@style/TextAppearance.QS.DetailItemPrimar"
             android:text="@string/quick_settings_location_detail_mode_high_accuracy_title" />
         <RadioButton android:id="@+id/radio_battery_saving"
             android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="8dp"
             android:paddingBottom="8dp"
-            android:textSize="20sp"
+            android:textSize="@style/TextAppearance.QS.DetailItemPrimar"
             android:text="@string/quick_settings_location_detail_mode_battery_saving_title" />
         <RadioButton android:id="@+id/radio_sensors_only"
             android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="8dp"
             android:paddingBottom="8dp"
-            android:textSize="20sp"
+            android:textSize="@style/TextAppearance.QS.DetailItemPrimar"
             android:text="@string/quick_settings_location_detail_mode_sensors_only_title" />
         </RadioGroup>
     </LinearLayout>
