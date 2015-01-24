@@ -40,6 +40,8 @@
     <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
     <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
 
+    <string name="quick_settings_screen_timeout_detail_title">Screen timeout</string>
+
     <!-- Dialog title for navigation bar button selection -->
     <string name="navbar_dialog_title">Choose action to assign</string>
     <string name="navbar_home_button">Home button</string>
