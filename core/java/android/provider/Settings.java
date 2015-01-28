@@ -2966,58 +2966,21 @@ public final class Settings {
         public static final String RECENTS_SHOW_HIDE_SEARCH_BAR = "recents_show_hide_search_bar";
 
 	/*
-	 * Show or hide clock
-	 * 0 - hide
-	 * 1 - show (default)
-	 * @hide
-	 */
-        public static final String STATUS_BAR_CLOCK = "status_bar_clock";
-
-        /**
-         * AM/PM Style for clock options
-         * 0 - Normal AM/PM
-         * 1 - Small AM/PM
-         * 2 - No AM/PM
+         * Height of navigation bar buttons
          * @hide
          */
-        public static final String STATUSBAR_CLOCK_AM_PM_STYLE = "statusbar_clock_am_pm_style";
+        public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
 
         /**
-         * Style of clock
-         * 0 - Hide Clock
-         * 1 - Right Clock
-         * 2 - Center Clock
+         * Volume key controls ringtone or media sound stream
+         *
          * @hide
          */
-        public static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
+        public static final String VOLUME_KEYS_CONTROL_MEDIA_STREAM = "volume_keys_control_media_stream";
 
         /**
-         * Setting for clock color
+         * Volume rocker wake
          * @hide
-         */
-        public static final String STATUSBAR_CLOCK_COLOR = "statusbar_clock_color";
-
-        /**
-         * Shows custom date before clock time
-         * 0 - No Date
-         * 1 - Small Date
-         * 2 - Normal Date
-         * @hide
-         */
-        public static final String STATUSBAR_CLOCK_DATE_DISPLAY = "statusbar_clock_date_display";
-
-        /**
-         * Sets the date string style
-         * 0 - Regular style
-         * 1 - Lowercase
-         * 2 - Uppercase
-         * @hide
-         */
-        public static final String STATUSBAR_CLOCK_DATE_STYLE = "statusbar_clock_date_style";
-
-	/*
-         * show clear all recents button
-         *  @hide
          */
         public static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
 
