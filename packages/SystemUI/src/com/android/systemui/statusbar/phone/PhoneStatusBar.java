@@ -461,7 +461,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     public void setClockAndDateStatus() {
         if (mNotificationIcons != null) {
             mNotificationIcons.setClockAndDateStatus(mClockLocation);
->>>>>>> e087cb3... Status Bar Clock: rewrite for lollipop and add left clock (1/2)
         }
     }
 

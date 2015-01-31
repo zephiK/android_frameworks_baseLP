@@ -2973,12 +2973,6 @@ public final class Settings {
         public static final String STATUS_BAR_DATE_FORMAT = "status_bar_date_format";
 
         /**
-         * Height of navigation bar buttons
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
-
-        /**
          * Volume rocker wake
          * @hide
          */
