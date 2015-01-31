@@ -61,4 +61,7 @@
   <java-symbol type="drawable" name="stat_notify_privacy_guard_off_plus" />
   <java-symbol type="drawable" name="stat_notify_privacy_guard_custom_plus" />
   <java-symbol type="drawable" name="stat_notify_privacy_guard_custom_plus_light" />
+
+  <java-symbol type="string" name="global_action_current_user" />
+  <java-symbol type="dimen" name="global_actions_avatar_size" />
 </resources>

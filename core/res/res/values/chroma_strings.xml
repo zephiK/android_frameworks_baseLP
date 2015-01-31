@@ -61,4 +61,7 @@
     <string name="privacy_guard_notification">Privacy guard active</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> will not be able to access personal data</string>
     <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> will not be able to access custom permissions</string>
+
+    <!-- label for current user in phone options dialog -->
+    <string name="global_action_current_user">Current</string>
 </resources>
