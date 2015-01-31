@@ -79,4 +79,9 @@
 
     <!-- Screenshot qs tile -->
     <string name="quick_settings_screenshot">Screenshot</string>
+
+    <!-- Sync qs tile -->
+    <string name="quick_settings_sync">Sync</string>
+    <string name="quick_settings_sync_off">Sync off</string>
+
 </resources>
