@@ -20,8 +20,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
-    android:orientation="vertical" >
 <!-- exposed bg for theming -->
     <FrameLayout
         android:id="@+id/slider_panel"
