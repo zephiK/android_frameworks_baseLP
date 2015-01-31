@@ -90,4 +90,7 @@
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off</string>
     <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on</string>
+
+    <!-- Screenshot qs tile -->
+    <string name="quick_settings_screenshot">Screenshot</string>
 </resources>
