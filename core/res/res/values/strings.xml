@@ -5182,6 +5182,9 @@
 
     <!-- label for item that reboots the phone in phone options dialog -->
     <string name="global_action_reboot">Reboot</string>
+    
+    <!-- label for current user in phone options dialog -->
+    <string name="global_action_current_user">Current</string>
 
     <!-- label for item that screenshots in phone options dialog -->
     <string name="global_action_screenshot">Screenshot</string>
