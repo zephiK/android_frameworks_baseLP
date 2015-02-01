@@ -507,15 +507,4 @@
     <dimen name="fake_shadow_inset">1dp</dimen>
 
     <dimen name="fake_shadow_size">8dp</dimen>
-
-    <!-- Floating action button -->
-    <dimen name="floating_action_button_height">54dp</dimen>
-    <dimen name="floating_action_button_width">54dp</dimen>
-    <dimen name="floating_action_button_translation_z">12dp</dimen>
-    <dimen name="floating_action_button_margin_side">32dp</dimen>
-    <dimen name="floating_action_button_margin_bottom">45dp</dimen>
-
-    <!--Padding Size for LocationTile -->
-    <dimen name="detail_radio_group_padding_left">16dp</dimen>
-    <dimen name="detail_radio_group_padding">8dp</dimen>
 </resources>
