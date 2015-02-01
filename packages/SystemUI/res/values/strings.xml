@@ -648,7 +648,6 @@
     <!-- QuickSettings: Flashlight [CHAR LIMIT=NONE] -->
     <string name="quick_settings_flashlight_label">Flashlight</string>
     <!-- QuickSettings: Cellular detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_visualizer_label">Visualizer</string>
     <string name="quick_settings_cellular_detail_title">Cellular data</string>
     <!-- QuickSettings: Cellular detail panel, data usage title [CHAR LIMIT=NONE] -->
     <string name="quick_settings_cellular_detail_data_usage">Data usage</string>
