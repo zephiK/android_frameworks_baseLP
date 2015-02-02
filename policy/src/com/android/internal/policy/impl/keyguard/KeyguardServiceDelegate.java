@@ -140,6 +140,7 @@ public class KeyguardServiceDelegate {
             }
             if (mKeyguardState.bootCompleted) {
                 mKeyguardService.onBootCompleted();
+                sendStateChangeBroadcast(true);
             }
         }
 
@@ -321,6 +322,7 @@ public class KeyguardServiceDelegate {
             mKeyguardService.onBootCompleted();
         }
         mKeyguardState.bootCompleted = true;
+        sendStateChangeBroadcast(true);
     }
 
     public void onActivityDrawn() {
