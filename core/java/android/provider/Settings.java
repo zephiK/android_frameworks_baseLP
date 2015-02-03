@@ -2979,6 +2979,19 @@ public final class Settings {
         public static final String NAVIGATION_BAR_TINT = "navigation_bar_tint";
 
 	/*
+        * Volume rocker wake
+         * @hide
+         */
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
+        /**
+         * Whether or not volume button music controls should be enabled to seek media tracks
+         * Navigation bar button color
+         * @hide
+          */
+-        public static final String VOLUME_ROCKER_MUSIC_CONTROLS = "volume_rocker_music_controls";
+
+	/*
          * Whether to show/hide status bar native battery percentage
          * @hide
          */
