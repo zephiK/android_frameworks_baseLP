@@ -2989,7 +2989,7 @@ public final class Settings {
          * Navigation bar button color
          * @hide
           */
--        public static final String VOLUME_ROCKER_MUSIC_CONTROLS = "volume_rocker_music_controls";
+        public static final String VOLUME_ROCKER_MUSIC_CONTROLS = "volume_rocker_music_controls";
 
 	/*
          * Whether to show/hide status bar native battery percentage
