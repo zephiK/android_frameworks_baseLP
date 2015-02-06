@@ -256,14 +256,15 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
 
                 if (Settings.System.getInt(getContentResolver(),
                     Settings.System.RECENTS_SHOW_HIDE_SEARCH_BAR, 1) != 1) {
-                    mRecentsView.setSearchBarVisibility(View.VISIBLE);
+                    //mRecentsView.setSearchBarVisibility(View.VISIBLE);
+		    mRecentsView.setSearchBarVisibility(View.GONE);
                 } else {
                     mRecentsView.setSearchBarVisibility(View.GONE);
                    }
                 } else {
                 if (Settings.System.getInt(getContentResolver(),
                     Settings.System.RECENTS_SHOW_HIDE_SEARCH_BAR, 1) != 1) {
-                    addSearchBarAppWidgetView();
+                    //addSearchBarAppWidgetView();
             } else {
                }
                 }
@@ -280,7 +281,8 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
 
         if (Settings.System.getInt(getContentResolver(),
                     Settings.System.RECENTS_SHOW_HIDE_SEARCH_BAR, 1) != 1) {
-	RecentsConfiguration.searchBarSpaceHeightPx = reso.getDimensionPixelSize(R.dimen.recents_search_bar_space_height);
+	RecentsConfiguration.searchBarSpaceHeightPx = 0;
+	//RecentsConfiguration.searchBarSpaceHeightPx = reso.getDimensionPixelSize(R.dimen.recents_search_bar_space_height);
 		}
 
         // Animate the SystemUI scrims into view
