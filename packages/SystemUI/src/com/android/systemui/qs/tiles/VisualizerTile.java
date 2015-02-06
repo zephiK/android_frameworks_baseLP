@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Canvas;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.media.audiofx.AudioEffect;
@@ -33,7 +34,9 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
 import com.android.systemui.R;
 import com.android.systemui.qs.QSTile;
 import com.android.systemui.qs.QSTileView;
@@ -42,6 +45,7 @@ import com.pheelicks.visualizer.FFTData;
 import com.pheelicks.visualizer.VisualizerView;
 import com.pheelicks.visualizer.renderer.Renderer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,22 +58,11 @@ public class VisualizerTile extends QSTile<QSTile.State>
     private VisualizerView mVisualizer;
     private boolean mLinked;
     private boolean mTileVisible;
-    private boolean mListening;
 
     public VisualizerTile(Host host) {
         super(host);
         mMediaSessionManager = (MediaSessionManager)
                 mContext.getSystemService(Context.MEDIA_SESSION_SERVICE);
-
-        // initialize state
-        List<MediaController> activeSessions = mMediaSessionManager.getActiveSessions(null);
-        for (MediaController activeSession : activeSessions) {
-            PlaybackState playbackState = activeSession.getPlaybackState();
-            if (playbackState != null && playbackState.getState() == PlaybackState.STATE_PLAYING) {
-                mTileVisible = true;
-                break;
-            }
-        }
     }
 
     @Override
@@ -125,8 +118,6 @@ public class VisualizerTile extends QSTile<QSTile.State>
 
     @Override
     public void setListening(boolean listening) {
-        if (mListening == listening) return;
-        mListening = listening;
         if (listening) {
             mMediaSessionManager.addOnActiveSessionsChangedListener(this, null);
             AsyncTask.execute(mLinkVisualizer);
@@ -148,12 +139,13 @@ public class VisualizerTile extends QSTile<QSTile.State>
     }
 
     @Override
-    protected void handleDestroy() {
-        super.handleDestroy();
+    public void destroy() {
+        super.destroy();
         for (Map.Entry<MediaSession.Token, CallbackInfo> entry : mCallbacks.entrySet()) {
-            entry.getValue().unregister();
+            entry.getValue().destroy();
         }
         mCallbacks.clear();
+        mCallbacks = null;
     }
 
     private final Runnable mLinkVisualizer = new Runnable() {
@@ -204,12 +196,14 @@ public class VisualizerTile extends QSTile<QSTile.State>
             mCallback = new MediaController.Callback() {
                 @Override
                 public void onSessionDestroyed() {
+                    super.onSessionDestroyed();
                     destroy();
                     checkIfPlaying();
                 }
 
                 @Override
                 public void onPlaybackStateChanged(@NonNull PlaybackState state) {
+                    super.onPlaybackStateChanged(state);
                     mIsPlaying = state.getState() == PlaybackState.STATE_PLAYING;
                     checkIfPlaying();
                 }
@@ -221,13 +215,8 @@ public class VisualizerTile extends QSTile<QSTile.State>
             return mIsPlaying;
         }
 
-        public void unregister() {
-            mController.unregisterCallback(mCallback);
-            mIsPlaying = false;
-        }
-
         public void destroy() {
-            unregister();
+            mController.unregisterCallback(mCallback);
             mCallbacks.remove(mController.getSessionToken());
             mController = null;
             mCallback = null;
