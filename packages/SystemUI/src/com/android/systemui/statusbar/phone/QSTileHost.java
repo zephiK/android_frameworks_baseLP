@@ -47,7 +47,6 @@ import com.android.systemui.qs.tiles.NotificationsTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.SyncTile;
-import com.android.systemui.qs.tiles.VisualizerTile;
 import com.android.systemui.qs.tiles.HeadsupTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.settings.CurrentUserTracker;
@@ -294,8 +293,6 @@ public class QSTileHost implements QSTile.Host {
                 return new SyncTile(this);
             case QSConstants.TILE_LTE:
                 return new LteTile(this);
-            case QSConstants.TILE_VISUALIZER:
-                return new VisualizerTile(this);
 	    case QSConstants.TILE_HEADS_UP:
 		return new HeadsupTile(this);
             default:
