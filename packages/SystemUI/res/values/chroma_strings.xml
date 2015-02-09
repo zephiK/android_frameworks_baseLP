@@ -91,4 +91,8 @@
     <!-- Battery saver -->
     <string name="quick_settings_battery_saver">Battery saver</string>
     <string name="quick_settings_battery_saver_off">Battery saver off</string>
+
+    <!-- expanded tile -->
+    <string name="quick_settings_expanded_desktop">Expanded</string>
+    <string name="quick_settings_expanded_desktop_off">Normal</string>
 </resources>
