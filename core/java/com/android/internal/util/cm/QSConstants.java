@@ -34,6 +34,7 @@ public class QSConstants {
     public static final String TILE_SYNC = "sync";
     public static final String TILE_SCREENSHOT = "screenshot";
     public static final String TILE_LTE = "lte";
+    public static final String TILE_EXPANDED_DESKTOP = "expanded_desktop";
     public static final String TILE_HEADS_UP = "toggleHeadsUp";
 
     // Order matters
@@ -59,6 +60,7 @@ public class QSConstants {
         TILES_AVAILABLE.add(TILE_SCREENSHOT);
         TILES_AVAILABLE.add(TILE_SYNC);
         TILES_AVAILABLE.add(TILE_LTE);
+        TILES_AVAILABLE.add(TILE_EXPANDED_DESKTOP);
 	TILES_AVAILABLE.add(TILE_HEADS_UP);
     }
 }
