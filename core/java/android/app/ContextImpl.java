@@ -19,13 +19,8 @@ package android.app;
 import android.app.usage.IUsageStatsManager;
 import android.app.usage.UsageStatsManager;
 import android.appwidget.AppWidgetManager;
-<<<<<<< HEAD
-=======
-import android.content.res.IThemeService;
-import android.content.res.ThemeManager;
 import android.hardware.ITorchService;
 import android.hardware.TorchManager;
->>>>>>> edc541a... frameworks: implement system-wide Torch service
 import android.os.Build;
 
 import android.service.persistentdata.IPersistentDataBlockService;
