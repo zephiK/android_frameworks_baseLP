@@ -314,6 +314,7 @@ public class WindowManagerPolicyControl {
         return sImmersiveStatusFilter != null || sImmersiveNavigationFilter != null;
     }
 
+	public static void dump(String prefix, PrintWriter pw) {
         dump("sImmersiveStatusFilter", sImmersiveStatusFilter, prefix, pw);
         dump("sImmersiveNavigationFilter", sImmersiveNavigationFilter, prefix, pw);
         dump("sImmersivePreconfirmationsFilter", sImmersivePreconfirmationsFilter, prefix, pw);
