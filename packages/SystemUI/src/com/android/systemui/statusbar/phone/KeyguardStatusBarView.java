@@ -71,7 +71,6 @@ public class KeyguardStatusBarView extends RelativeLayout
         mMultiUserAvatar = (ImageView) findViewById(R.id.multi_user_avatar);
         mBatteryLevel = (BatteryLevelTextView) findViewById(R.id.battery_level_text);
         mCarrierLabel = (TextView) findViewById(R.id.keyguard_carrier_text);
-        mBatteryLevel = (BatteryLevelTextView) findViewById(R.id.battery_level_text);
         loadDimens();
         mFastOutSlowInInterpolator = AnimationUtils.loadInterpolator(getContext(),
                 android.R.interpolator.fast_out_slow_in);
