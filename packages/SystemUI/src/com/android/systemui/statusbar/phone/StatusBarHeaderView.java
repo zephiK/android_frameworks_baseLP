@@ -132,24 +132,10 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
 
     private float mCurrentT;
     private boolean mShowingDetail;
-    private boolean mShowBatteryPercent;
     private boolean mShowBatteryTextExpanded;
-    //private SettingsObserver mSettingsObserver;
-
-    private ContentObserver mObserver = new ContentObserver(new Handler()) {
-        public void onChange(boolean selfChange, Uri uri) {
-            loadShowBatteryTextSetting();
-        }
-};
 
     public StatusBarHeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        loadShowBatteryTextSetting();
-    }
-
-    private void loadShowBatteryTextSetting() {
-        mShowBatteryPercent = 0 != Settings.System.getInt(
-            getContext().getContentResolver(), Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
     }
 
     @Override
