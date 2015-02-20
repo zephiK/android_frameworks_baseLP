@@ -3120,7 +3120,13 @@ public final class Settings {
          * @hide
          */
         public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
-	
+
+         /**
+         * Enable navigation bar double tap gesture on to put device to sleep
+         * @hide
+         */
+        public static final String DOUBLE_TAP_SLEEP_NAVBAR = "double_tap_sleep_navbar";
+
         /**
 	 * Display style of the status bar battery information
          * 0: Display the battery an icon in portrait mode
