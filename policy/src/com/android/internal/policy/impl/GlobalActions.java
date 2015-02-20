@@ -119,11 +119,9 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private boolean mIsWaitingForEcmExit = false;
     private boolean mHasTelephony;
     private boolean mHasVibrator;
-    private final boolean mShowSilentToggle;
 
     // Power menu customizations
     String mActions;
-    boolean mProfilesEnabled;
 
     /**
      * @param context everything needs a context :(
@@ -156,9 +154,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 mAirplaneModeObserver);
         Vibrator vibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         mHasVibrator = vibrator != null && vibrator.hasVibrator();
-
-        mShowSilentToggle = SHOW_SILENT_TOGGLE && !mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_useFixedVolume);
 
         updatePowerMenuActions();
     }
@@ -291,12 +286,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 mItems.add(getScreenshotAction());
             } else if (GLOBAL_ACTION_KEY_AIRPLANE.equals(actionKey)) {
                 mItems.add(mAirplaneModeOn);
-            } else if (GLOBAL_ACTION_KEY_USERS.equals(actionKey)) {
-                List<UserInfo> users = ((UserManager) mContext.getSystemService(
-                        Context.USER_SERVICE)).getUsers();
-                if (users.size() > 1) {
-                    addUsersToMenu(mItems);
-                }
             }
             // Add here so we don't add more than one.
             addedKeys.add(actionKey);
@@ -406,110 +395,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
 
             public boolean showBeforeProvisioning() {
                 return true;
-            }
-        };
-    }
-
-    private Action getBugReportAction() {
-        return new SinglePressAction(com.android.internal.R.drawable.ic_lock_bugreport,
-                R.string.bugreport_title) {
-
-            public void onPress() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                builder.setTitle(com.android.internal.R.string.bugreport_title);
-                builder.setMessage(com.android.internal.R.string.bugreport_message);
-                builder.setNegativeButton(com.android.internal.R.string.cancel, null);
-                builder.setPositiveButton(com.android.internal.R.string.report,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // don't actually trigger the bugreport if we are running stability
-                                // tests via monkey
-                                if (ActivityManager.isUserAMonkey()) {
-                                    return;
-                                }
-                                // Add a little delay before executing, to give the
-                                // dialog a chance to go away before it takes a
-                                // screenshot.
-                                mHandler.postDelayed(new Runnable() {
-                                    @Override public void run() {
-                                        try {
-                                            ActivityManagerNative.getDefault()
-                                                    .requestBugReport();
-                                        } catch (RemoteException e) {
-                                        }
-                                    }
-                                }, 500);
-                            }
-                        });
-                AlertDialog dialog = builder.create();
-                dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
-                dialog.show();
-            }
-
-            public boolean showDuringKeyguard() {
-                return true;
-            }
-
-            public boolean showBeforeProvisioning() {
-                return false;
-            }
-
-            @Override
-            public String getStatus() {
-                return mContext.getString(
-                        com.android.internal.R.string.bugreport_status,
-                        Build.VERSION.RELEASE,
-                        Build.ID);
-            }
-        };
-    }
-
-    private Action getSettingsAction() {
-        return new SinglePressAction(com.android.internal.R.drawable.ic_lock_settings,
-                R.string.global_action_settings) {
-
-            @Override
-            public void onPress() {
-                Intent intent = new Intent(Settings.ACTION_SETTINGS);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public boolean showDuringKeyguard() {
-                return true;
-            }
-
-            @Override
-            public boolean showBeforeProvisioning() {
-                return true;
-            }
-        };
-    }
-
-    private Action getLockdownAction() {
-        return new SinglePressAction(com.android.internal.R.drawable.ic_lock_lock,
-                R.string.global_action_lockdown) {
-
-            @Override
-            public void onPress() {
-                new LockPatternUtils(mContext).requireCredentialEntry(UserHandle.USER_ALL);
-                try {
-                    WindowManagerGlobal.getWindowManagerService().lockNow(null);
-                } catch (RemoteException e) {
-                    Log.e(TAG, "Error while trying to lock device.", e);
-                }
-            }
-
-            @Override
-            public boolean showDuringKeyguard() {
-                return true;
-            }
-
-            @Override
-            public boolean showBeforeProvisioning() {
-                return false;
             }
         };
     }
@@ -653,10 +538,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         mAirplaneModeOn.updateState(mAirplaneState);
         mAdapter.notifyDataSetChanged();
         mDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
-        if (mShowSilentToggle) {
-            IntentFilter filter = new IntentFilter(AudioManager.RINGER_MODE_CHANGED_ACTION);
-            mContext.registerReceiver(mRingerModeReceiver, filter);
-        }
     }
 
     private void refreshSilentMode() {
@@ -670,14 +551,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
 
     /** {@inheritDoc} */
     public void onDismiss(DialogInterface dialog) {
-        if (mShowSilentToggle) {
-            try {
-                mContext.unregisterReceiver(mRingerModeReceiver);
-            } catch (IllegalArgumentException ie) {
-                // ignore this
-                Log.w(TAG, ie);
-            }
-        }
+    // do nothing
     }
 
     /** {@inheritDoc} */
