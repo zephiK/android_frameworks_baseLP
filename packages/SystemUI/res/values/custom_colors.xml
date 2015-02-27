@@ -51,6 +51,9 @@
     <color name="navring_edit_fill">#FF558B2F</color>
     <color name="navring_edit_tint">#FF689F38</color>
 
+     <!-- Floating action button -->
+    <color name="fab_color">#ff009688</color>
+    <color name="floating_action_button_icon_color">#ffffff</color>
 
     <!-- Network speed indicator -->
     <color name="status_bar_traffic_color">#FFFFFFFF</color>
