@@ -95,8 +95,6 @@
             android:orientation="horizontal"
             >
 
-            <include layout="@layout/system_icons" />
-
             <com.android.systemui.BatteryLevelTextView android:id="@+id/battery_level_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,6 +109,8 @@
                 android:layout_height="match_parent"
                 android:singleLine="false"
                 android:gravity="right|center_vertical"/>
+
+            <include layout="@layout/system_icons" />
 
             <TextView
                 android:id="@+id/clock"
