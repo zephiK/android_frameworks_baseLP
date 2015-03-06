@@ -76,8 +76,7 @@ import java.text.NumberFormat;
  * The view to manage the header area in the expanded status bar.
  */
 public class StatusBarHeaderView extends RelativeLayout implements View.OnClickListener, View.OnLongClickListener,
-        BatteryController.BatteryStateChangeCallback, NextAlarmController.NextAlarmChangeCallback,
-        WeatherController.Callback {
+        NextAlarmController.NextAlarmChangeCallback, WeatherController.Callback {
 
     private boolean mExpanded;
     private boolean mListening;
