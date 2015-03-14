@@ -2777,12 +2777,6 @@ public final class Settings {
          * @hide
          */
         public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
-
-        /**
-         * Volume music controls
-         * @hide
-         */
-        public static final String VOLUME_MUSIC_CONTROLS = "volume_music_controls";
 	
         /**
 	 * Display style of the status bar battery information
