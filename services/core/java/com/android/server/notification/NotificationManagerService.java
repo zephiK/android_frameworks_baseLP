@@ -2859,7 +2859,7 @@ public class NotificationManagerService extends SystemService {
             mNotificationLight.turnOff();
             mStatusBar.notificationLightOff();
         } else {
-            final Notification ledno = ledNotification.sbn.getNotification();
+            final Notification ledno = mLedNotification.sbn.getNotification();
             final NotificationLedValues ledValues = getLedValuesForNotification(mLedNotification);
             int ledARGB;
             int ledOnMS;
