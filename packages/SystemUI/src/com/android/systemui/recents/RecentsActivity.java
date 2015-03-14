@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.conttent.res.Resources;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.os.UserHandle;
@@ -50,6 +51,7 @@ import com.android.systemui.recents.views.DebugOverlayView;
 import com.android.systemui.recents.views.RecentsView;
 import com.android.systemui.recents.views.SystemBarScrimViews;
 import com.android.systemui.recents.views.ViewAnimation;
+import com.android.systemui.recents.RecentsConfiguration;
 
 import com.android.systemui.statusbar.phone.PhoneStatusBar;
 import com.android.systemui.SystemUIApplication;
@@ -253,18 +255,33 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
 
                 if (Settings.System.getInt(getContentResolver(),
                     Settings.System.RECENTS_SHOW_HIDE_SEARCH_BAR, 1) != 1) {
-                    mRecentsView.setSearchBarVisibility(View.VISIBLE);
+                    //mRecentsView.setSearchBarVisibility(View.VISIBLE);
+                    mRecentsView.setSearchBarVisibility(View.GONE);
                 } else {
                     mRecentsView.setSearchBarVisibility(View.GONE);
                    }
                 } else {
                 if (Settings.System.getInt(getContentResolver(),
                     Settings.System.RECENTS_SHOW_HIDE_SEARCH_BAR, 1) != 1) {
-                    addSearchBarAppWidgetView();
+                    //addSearchBarAppWidgetView();
             } else {
                }
                 }
         }
+
+	// Update search bar space height
+        Resources reso = getResources();
+
+        if (Settings.System.getInt(getContentResolver(),
+                    Settings.System.RECENTS_SHOW_HIDE_SEARCH_BAR, 1) != 0) {
+        RecentsConfiguration.searchBarSpaceHeightPx = 0;
+
+		}
+
+        if (Settings.System.getInt(getContentResolver(),
+                    Settings.System.RECENTS_SHOW_HIDE_SEARCH_BAR, 1) != 1) {
+	RecentsConfiguration.searchBarSpaceHeightPx = reso.getDimensionPixelSize(R.dimen.recents_search_bar_space_height);
+		}
 
         // Animate the SystemUI scrims into view
         mScrimViews.prepareEnterRecentsAnimation();
