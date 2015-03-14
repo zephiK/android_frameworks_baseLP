@@ -41,7 +41,6 @@ import android.os.INetworkManagementService;
 import android.os.Looper;
 import android.os.Message;
 import android.os.RemoteException;
-import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
@@ -640,9 +639,6 @@ public class Tethering extends BaseNetworkObserver {
     public void checkDunRequired() {
         int secureSetting = 2;
         TelephonyManager tm = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
-        // Allow override of TETHER_DUN_REQUIRED via prop
-        int prop = SystemProperties.getInt("persist.sys.dun.override", -1);
-        secureSetting = ((prop < 3) && (prop >= 0)) ? prop : secureSetting;
         if (tm != null) {
             secureSetting = tm.getTetherApnRequired();
         }
