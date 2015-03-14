@@ -2230,7 +2230,8 @@ public class NotificationManagerService extends SystemService {
         // light
         // release the light
         boolean wasShowLights = mLights.remove(record.getKey());
-        if ((notification.flags & Notification.FLAG_SHOW_LIGHTS) != 0 && aboveThreshold) {
+        final boolean canInterruptWithLight = canInterrupt || isLedNotificationForcedOn(record);
+        if ((notification.flags & Notification.FLAG_SHOW_LIGHTS) != 0 && canInterruptWithLight) {
             mLights.add(record.getKey());
             updateLightsLocked();
             if (mUseAttentionLight) {
@@ -2831,10 +2832,7 @@ public class NotificationManagerService extends SystemService {
     void updateLightsLocked()
     {
         // handle notification lights
-        NotificationRecord ledNotification = null;
-        while (ledNotification == null && !mLights.isEmpty()) {
-            final String owner = mLights.get(mLights.size() - 1);
-            ledNotification = mNotificationsByKey.get(owner);
+        if (mLedNotification == null) {
             // use most recent light with highest score
             for (int i = mLights.size(); i > 0; i--) {
                 NotificationRecord r = mNotificationsByKey.get(mLights.get(i - 1));
