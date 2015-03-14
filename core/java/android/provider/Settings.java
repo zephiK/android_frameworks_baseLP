@@ -2779,6 +2779,13 @@ public final class Settings {
         public static final String VOLUME_KEY_ADJUST_SOUND = "volume_key_adjust_sound";
 
         /**
+         * Change volume up and down handlign based on rotation
+         * @hide
+         */
+        public static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
+
+
+        /**
          *  Enable statusbar double tap gesture on to put device to sleep
          * @hide
          */
