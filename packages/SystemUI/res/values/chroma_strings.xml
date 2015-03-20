@@ -110,4 +110,8 @@
     <!-- Heads up toast -->
     <string name="heads_up_enabled">Heads up notifications are enabled</string>
     <string name="heads_up_disabled">Heads up notifications are disabled</string>
+
+    <!-- Music Tile -->
+    <string name="quick_settings_music_play">Play</string>
+    <string name="quick_settings_music_pause">Pause</string>
 </resources>
