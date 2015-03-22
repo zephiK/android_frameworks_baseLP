@@ -41,8 +41,7 @@
             android:id="@+id/one"
             android:layout_height="40dp"
             android:layout_width="match_parent"
-            android:layout_weight="0"
-            android:scaleType="centerInside" />
+            android:layout_weight="0" />
         <com.android.systemui.statusbar.policy.KeyButtonView
             android:id="@+id/dpad_left"
             android:visibility="gone"
@@ -68,8 +67,7 @@
             android:layout_height="80dp"
             android:layout_width="match_parent"
             android:layout_weight="0"
-            systemui:keyRepeat="true"
-            android:scaleType="centerInside" />
+            systemui:keyRepeat="true" />
         <View
             android:layout_height="0dp"
             android:layout_width="match_parent"
@@ -80,8 +78,7 @@
             android:layout_height="80dp"
             android:layout_width="match_parent"
             systemui:keyRepeat="true"
-            android:layout_weight="0"
-            android:scaleType="centerInside" />
+            android:layout_weight="0" />
         <View
             android:layout_height="0dp"
             android:layout_width="match_parent"
@@ -92,8 +89,7 @@
             android:layout_height="80dp"
             android:layout_width="match_parent"
             android:layout_weight="0"
-            systemui:keyRepeat="true"
-            android:scaleType="centerInside" />
+            systemui:keyRepeat="true" />
         <View
             android:layout_height="0dp"
             android:layout_width="match_parent"
@@ -104,8 +100,7 @@
             android:layout_height="80dp"
             android:layout_width="match_parent"
             android:layout_weight="0"
-            systemui:keyRepeat="true"
-            android:scaleType="centerInside" />
+            systemui:keyRepeat="true" />
     </LinearLayout>
     <FrameLayout
             android:layout_width="match_parent"
@@ -123,8 +118,7 @@
             android:layout_height="40dp"
             android:layout_width="match_parent"
             android:layout_weight="0"
-            systemui:keyRepeat="true"
-            android:scaleType="centerInside" />
+            systemui:keyRepeat="true" />
     </FrameLayout>
 
 </LinearLayout>
