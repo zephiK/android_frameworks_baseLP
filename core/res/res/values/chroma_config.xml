@@ -20,4 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Doze: force using accelerometer as pick up sensor -->
     <bool name="config_dozeUseAccelerometer">false</bool>
+
+   <!-- kill app long press back -->
+   <integer name="config_backKillTimeout">500</integer>
 </resources>
