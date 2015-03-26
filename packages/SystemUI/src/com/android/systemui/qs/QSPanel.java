@@ -82,7 +82,6 @@ public class QSPanel extends ViewGroup {
     private boolean mUseMainTiles = false;
 
     private boolean mBrightnessSliderEnabled;
-    private boolean mVibrationEnabled;
 
     private Record mDetailRecord;
     private Callback mCallback;
@@ -131,22 +130,6 @@ public class QSPanel extends ViewGroup {
                 closeDetail();
             }
         });
-    }
-
-    /**
-     * Enable/disable brightness slider.
-     */
-    private boolean showBrightnessSlider() {
-        ToggleSlider brightnessSlider = (ToggleSlider) findViewById(R.id.brightness_slider);
-        if (mBrightnessSliderEnabled) {
-            mBrightnessView.setVisibility(VISIBLE);
-            brightnessSlider.setVisibility(VISIBLE);
-        } else {
-            mBrightnessView.setVisibility(GONE);
-            brightnessSlider.setVisibility(GONE);
-        }
-        updateResources();
-        return mBrightnessSliderEnabled;
     }
 
     private void updateDetailText() {
@@ -684,9 +667,6 @@ public class QSPanel extends ViewGroup {
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER),
                     false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.Secure.getUriFor(
-            Settings.System.QUICK_SETTINGS_TILES_VIBRATE),
-                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -711,9 +691,6 @@ public class QSPanel extends ViewGroup {
             mBrightnessSliderEnabled = Settings.Secure.getIntForUser(
             mContext.getContentResolver(), Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER,
                 1, UserHandle.USER_CURRENT) == 1;
-            mVibrationEnabled = Settings.System.getIntForUser(
-            mContext.getContentResolver(), Settings.System.QUICK_SETTINGS_TILES_VIBRATE,
-                0, UserHandle.USER_CURRENT) == 1;
         }
     }
 }
