@@ -1245,7 +1245,6 @@ public final class Settings {
             MOVED_TO_SECURE.add(Secure.INSTALL_NON_MARKET_APPS);
 
             /* CM12 CHANGES */
-            MOVED_TO_SECURE.add(Secure.VOLUME_LINK_NOTIFICATION);
             MOVED_TO_SECURE.add(Secure.QS_TILES);
             MOVED_TO_SECURE.add(Secure.QS_USE_MAIN_TILES);
             MOVED_TO_SECURE.add(Secure.QS_SHOW_BRIGHTNESS_SLIDER);
