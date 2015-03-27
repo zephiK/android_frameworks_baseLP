@@ -343,7 +343,7 @@ public class ResolverActivity extends Activity implements AdapterView.OnItemClic
                     }
 
                     final Intent intent = intentForDisplayResolveInfo(dri);
-                    onIntentSelected(dri.ri, intent, false);
+                    onIntentSelected(dri.ri, intent, mAlwaysUseOption);
                     finish();
                 }
             });
