@@ -307,7 +307,6 @@ public abstract class QSTile<TState extends State> implements Listenable {
         ZenModeController getZenModeController();
         HotspotController getHotspotController();
         CastController getCastController();
-        FlashlightController getFlashlightController();
         KeyguardMonitor getKeyguardMonitor();
 
         public interface Callback {
