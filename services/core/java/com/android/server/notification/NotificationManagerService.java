@@ -1003,6 +1003,7 @@ public class NotificationManagerService extends SystemService {
         }
         mZenModeHelper.readZenModeFromSetting();
         mZenModeHelper.readSilentModeFromSetting();
+        mZenModeHelper.readLightsAllowedModeFromSetting();
         mInterruptionFilter = mZenModeHelper.getZenModeListenerInterruptionFilter();
 
         mUserProfiles.updateCache(getContext());
@@ -2240,7 +2241,8 @@ public class NotificationManagerService extends SystemService {
         // light
         // release the light
         boolean wasShowLights = mLights.remove(record.getKey());
-        final boolean canInterruptWithLight = canInterrupt || isLedNotificationForcedOn(record);
+        final boolean canInterruptWithLight = canInterrupt || isLedNotificationForcedOn(record)
+                || (!canInterrupt && mZenModeHelper.getAreLightsAllowed());
         if ((notification.flags & Notification.FLAG_SHOW_LIGHTS) != 0 && canInterruptWithLight) {
             mLights.add(record.getKey());
             updateLightsLocked();
@@ -2846,15 +2848,9 @@ public class NotificationManagerService extends SystemService {
         while (ledNotification == null && !mLights.isEmpty()) {
             final String owner = mLights.get(mLights.size() - 1);
             ledNotification = mNotificationsByKey.get(owner);
-	for (int i = mLights.size(); i > 0; i--) {
-		NotificationRecord r = mNotificationsByKey.get(mLights.get(i - 1));
-            if (ledNotification == null
-		 || r.sbn.getScore() > ledNotification.sbn.getScore()) {
-                    ledNotification = r;
+if (ledNotification == null) {
                 Slog.wtfStack(TAG, "LED Notification does not exist: " + owner);
                 mLights.remove(owner);
-       
-                }
             }
         }
 
