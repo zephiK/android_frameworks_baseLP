@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/*
-** Copyright 2009, The Android Open Source Project
+/* //device/apps/common/assets/res/any/colors.xml
+**
+** Copyright 2014, The Euphoria-OS Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -16,16 +17,10 @@
 ** limitations under the License.
 */
 -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="telephony_data_type_sim">
+        <!--NETWORK_TYPE_HSPAP-->
+        <item>drawable/stat_sys_data_fully_connected_hp</item>
+    </string-array>
 
-<!-- These resources are around just to allow their values to be customized
-     for different hardware and product builds. -->
-<resources>
-   
-   <!-- Doze: shake accelerometer threshold minimum is 2 and maximum is 10-->
-   <integer name="doze_shake_accelerometer_threshold">10</integer> 
-
-    <!-- Control whether status bar should distinguish HSPAP data icon form HSPA
-    data icon on devices -->
-    <bool name="config_hspap_data_distinguishable">true</bool>
 </resources>
-

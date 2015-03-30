@@ -795,6 +795,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
                             datatype.equals("e") ? TelephonyIcons.E :
                             datatype.equals("g") ? TelephonyIcons.G :
                             datatype.equals("h") ? TelephonyIcons.H :
+                            datatype.equals("hp") ? TelephonyIcons.HP :
                             datatype.equals("lte") ? TelephonyIcons.LTE :
                             datatype.equals("roam") ? TelephonyIcons.ROAMING :
                             TelephonyIcons.UNKNOWN;
@@ -1172,6 +1173,10 @@ public class NetworkControllerImpl extends BroadcastReceiver
             mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSDPA, hGroup);
             mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSUPA, hGroup);
             mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSPA, hGroup);
+
+            if (mConfig.hspaDataDistinguishable && mConfig.hspapDataDistinguishable) {
+                hGroup = TelephonyIcons.HP;
+            }
             mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSPAP, hGroup);
 
             if (mConfig.show4gForLte) {
@@ -1806,6 +1811,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
         boolean alwaysShowCdmaRssi = false;
         boolean show4gForLte = false;
         boolean hspaDataDistinguishable;
+        boolean hspapDataDistinguishable;
 
         static Config readConfig(Context context) {
             Config config = new Config();
@@ -1817,6 +1823,8 @@ public class NetworkControllerImpl extends BroadcastReceiver
             config.show4gForLte = res.getBoolean(R.bool.config_show4GForLTE);
             config.hspaDataDistinguishable =
                     res.getBoolean(R.bool.config_hspa_data_distinguishable);
+            config.hspapDataDistinguishable =
+                    res.getBoolean(R.bool.config_hspap_data_distinguishable);
             return config;
         }
     }
