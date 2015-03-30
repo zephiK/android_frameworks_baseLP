@@ -1635,7 +1635,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mVolumeRockerWake = Settings.System.getIntForUser(resolver,
                     Settings.System.VOLUME_ROCKER_WAKE, 0, UserHandle.USER_CURRENT) == 1;
 
-            PolicyControl.reloadFromSetting(mContext);
             WindowManagerPolicyControl.reloadFromSetting(mContext);
         }
         if (updateRotation) {
