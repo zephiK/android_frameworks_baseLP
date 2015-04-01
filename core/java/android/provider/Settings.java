@@ -5476,12 +5476,6 @@ public final class Settings {
         public static final String STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD = "status_bar_locked_on_secure_keyguard";
 
         /**
-         * Whether to use the custom quick unlock screen control
-         * @hide
-         */
-        public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
-
-         /**
          * Whether detail view for the location tile is enabled
          * @hide
          */
