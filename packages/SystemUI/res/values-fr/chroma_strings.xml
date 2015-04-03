@@ -81,4 +81,18 @@
     <string name="navring_choose_action_title">Choisir l\'action</string>
     <string name="select_application">Sélectionner l\'application</string>
     <string name="lockscreen_target_empty">Vide</string>
+    
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_HP">HSPA+</string>
+
+    <!-- Brightness tile -->
+    <string name="quick_settings_brightness">Luminosité</string>
+
+    <!-- Battery saver -->
+    <string name="quick_settings_battery_saver">Économiseur de batterie</string>
+    <string name="quick_settings_battery_saver_off">Économiseur de batterie éteint</string>
+
+    <!-- expanded tile -->
+    <string name="quick_settings_expanded_desktop">Étendu</string>
+    <string name="quick_settings_expanded_desktop_off">Normal</string>
 </resources>
