@@ -125,11 +125,6 @@ public final class BroadcastQueue {
      */
     BroadcastRecord mPendingBroadcast = null;
 
-     /**
-      * Intent broadcast that we are currently processing
-      */
-    BroadcastRecord mCurrentBroadcast = null;
-
     /**
      * The receiver index that is pending, to restart the broadcast if needed.
      */
@@ -543,10 +538,6 @@ public final class BroadcastQueue {
         }
     }
 
-    BroadcastRecord getProcessingBroadcast() {
-        return mCurrentBroadcast;
-    }
-
     final void processNextBroadcast(boolean fromMsg) {
         synchronized(mService) {
             BroadcastRecord r;
@@ -567,7 +558,6 @@ public final class BroadcastQueue {
                 r = mParallelBroadcasts.remove(0);
                 r.dispatchTime = SystemClock.uptimeMillis();
                 r.dispatchClockTime = System.currentTimeMillis();
-                mCurrentBroadcast = r;
                 final int N = r.receivers.size();
                 if (DEBUG_BROADCAST_LIGHT) Slog.v(TAG, "Processing parallel broadcast ["
                         + mQueueName + "] " + r);
@@ -579,7 +569,6 @@ public final class BroadcastQueue {
                     deliverToRegisteredReceiverLocked(r, (BroadcastFilter)target, false);
                 }
                 addBroadcastToHistoryLocked(r);
-                mCurrentBroadcast = null;
                 if (DEBUG_BROADCAST_LIGHT) Slog.v(TAG, "Done with parallel broadcast ["
                         + mQueueName + "] " + r);
             }
@@ -629,7 +618,6 @@ public final class BroadcastQueue {
                     return;
                 }
                 r = mOrderedBroadcasts.get(0);
-                mCurrentBroadcast = r;
                 boolean forceReceive = false;
 
                 // Ensure that even if something goes awry with the timeout
@@ -703,7 +691,6 @@ public final class BroadcastQueue {
                     // ... and on to the next...
                     addBroadcastToHistoryLocked(r);
                     mOrderedBroadcasts.remove(0);
-                    mCurrentBroadcast = null;
                     r = null;
                     looped = true;
                     continue;
