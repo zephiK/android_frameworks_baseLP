@@ -383,14 +383,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mHasSoftInput = false;
     boolean mTranslucentDecorEnabled = true;
 
-    boolean mVolumeRockerWake;
     int mBackKillTimeout;
-    int mPointerLocationMode = 0; // guarded by mLock
 
     // During wakeup by volume keys, we still need to capture subsequent events
     // until the key is released. This is required since the beep sound is produced
     // post keypressed.
     boolean mVolumeWakeTriggered;
+
+    int mPointerLocationMode = 0; // guarded by mLock
 
     // The last window we were told about in focusChanged.
     WindowState mFocusedWindow;
@@ -566,6 +566,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private boolean mScreenshotChordPowerKeyTriggered;
     private long mScreenshotChordPowerKeyTime;
 
+    private boolean mVolumeWakeScreen;
     private boolean mVolumeMusicControls;
     private boolean mIsLongPress;
 
@@ -711,12 +712,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Global.getUriFor(
                     Settings.Global.POLICY_CONTROL), false, this,
-		    UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.NAVIGATION_BAR_HEIGHT), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.ACCELEROMETER_ROTATION_ANGLES), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NAVIGATION_BAR_HEIGHT), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.VOLUME_ROCKER_WAKE), false, this,
@@ -1283,6 +1284,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 com.android.internal.R.bool.config_lidControlsSleep);
         mTranslucentDecorEnabled = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_enableTranslucentDecor);
+
         mAllowTheaterModeWakeFromKey = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_allowTheaterModeWakeFromKey);
         mAllowTheaterModeWakeFromPowerKey = mAllowTheaterModeWakeFromKey
@@ -1310,6 +1312,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 com.android.internal.R.integer.config_doublePressOnPowerBehavior);
         mTriplePressOnPowerBehavior = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_triplePressOnPowerBehavior);
+
         mBackKillTimeout = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_backKillTimeout);
         readConfigurationDependentBehaviors();
@@ -1567,8 +1570,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 mWakeGestureEnabledSetting = wakeGestureEnabledSetting;
                 updateWakeGestureListenerLp();
             }
-
-            // navigation bar custom height
+            // Navigation bar custom height
             int  mNavigationBarHeight = Settings.System.getInt(resolver,
                     Settings.System.NAVIGATION_BAR_HEIGHT, 48);
             mNavigationBarHeightForRotation[mPortraitRotation] =
@@ -1601,12 +1603,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 updateOrientationListenerLp();
             }
 
-            mUserRotationAngles = Settings.System.getIntForUser(resolver,
-                    Settings.System.ACCELEROMETER_ROTATION_ANGLES, -1,
-                    UserHandle.USER_CURRENT);
+            mVolumeWakeScreen = Settings.System.getIntForUser(resolver,
+                    Settings.System.VOLUME_ROCKER_WAKE, 0, UserHandle.USER_CURRENT) != 0;
 
             mVolumeMusicControls = Settings.System.getIntForUser(resolver,
                     Settings.System.VOLUME_MUSIC_CONTROLS, 1, UserHandle.USER_CURRENT) != 0;
+
+            mUserRotationAngles = Settings.System.getIntForUser(resolver,
+                    Settings.System.ACCELEROMETER_ROTATION_ANGLES, -1,
+                    UserHandle.USER_CURRENT);
 
             if (mSystemReady) {
                 int pointerLocation = Settings.System.getIntForUser(resolver,
@@ -1630,10 +1635,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             if (mImmersiveModeConfirmation != null) {
                 mImmersiveModeConfirmation.loadSetting(mCurrentUserId);
             }
-
-            // volume rocker wake
-            mVolumeRockerWake = Settings.System.getIntForUser(resolver,
-                    Settings.System.VOLUME_ROCKER_WAKE, 0, UserHandle.USER_CURRENT) == 1;
 
             WindowManagerPolicyControl.reloadFromSetting(mContext);
         }
@@ -2473,12 +2474,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     @Override
     public long interceptKeyBeforeDispatching(WindowState win, KeyEvent event, int policyFlags) {
         final boolean keyguardOn = keyguardOn();
+        final int keyCode = event.getKeyCode();
         final int repeatCount = event.getRepeatCount();
         final int metaState = event.getMetaState();
         final int flags = event.getFlags();
         final boolean down = event.getAction() == KeyEvent.ACTION_DOWN;
         final boolean canceled = event.isCanceled();
-        int keyCode = event.getKeyCode();
 
         if (DEBUG_INPUT) {
             Log.d(TAG, "interceptKeyTi keyCode=" + keyCode + " down=" + down + " repeatCount="
@@ -4637,8 +4638,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         // Basic policy based on interactive state.
         int result;
+
+        final boolean isVolumeWakeKey = !isScreenOn()
+                && mVolumeWakeScreen
+                && (keyCode == KeyEvent.KEYCODE_VOLUME_UP
+                || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN);
+
         boolean isWakeKey = (policyFlags & WindowManagerPolicy.FLAG_WAKE) != 0
-                || event.isWakeKey();
+                || event.isWakeKey()
+                || isVolumeWakeKey;
+
         if (interactive || (isInjected && !isWakeKey)) {
             // When the device is interactive or the key is injected pass the
             // key to the application.
@@ -4678,9 +4687,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case KeyEvent.KEYCODE_VOLUME_DOWN:
             case KeyEvent.KEYCODE_VOLUME_UP:
             case KeyEvent.KEYCODE_VOLUME_MUTE: {
-		// Eat all down & up keys when using volume wake.
+                // Eat all down & up keys when using volume wake.
                 // This disables volume control, music control, and "beep" on key up.
-                if (isWakeKey && mVolumeRockerWake) {
+                if (isWakeKey && mVolumeWakeScreen) {
                     mVolumeWakeTriggered = true;
                     break;
                 } else if (mVolumeWakeTriggered && !down) {
@@ -4688,6 +4697,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     mVolumeWakeTriggered = false;
                     break;
                 }
+
                 if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
                     if (down) {
                         if (interactive && !mScreenshotChordVolumeDownKeyTriggered
@@ -4749,25 +4759,17 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     }
                 }
 
-		// Disable music and volume control when used as wake key
                 if ((result & ACTION_PASS_TO_USER) == 0) {
                     boolean mayChangeVolume = false;
 
                     if (isMusicActive()) {
-                        if (mVolumeMusicControls) {
+                        if (mVolumeMusicControls && (keyCode != KeyEvent.KEYCODE_VOLUME_MUTE)) {
                             // Detect long key presses.
                             if (down) {
                                 mIsLongPress = false;
-                                // Map MUTE key to MEDIA_PLAY_PAUSE
-                                int newKeyCode = KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE;
-                                switch (keyCode) {
-                                    case KeyEvent.KEYCODE_VOLUME_DOWN:
-                                        newKeyCode = KeyEvent.KEYCODE_MEDIA_PREVIOUS;
-                                        break;
-                                    case KeyEvent.KEYCODE_VOLUME_UP:
-                                        newKeyCode = KeyEvent.KEYCODE_MEDIA_NEXT;
-                                        break;
-                                }
+                                // TODO: Long press of MUTE could be mapped to KEYCODE_MEDIA_PLAY_PAUSE
+                                int newKeyCode = event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP ?
+                                        KeyEvent.KEYCODE_MEDIA_NEXT : KeyEvent.KEYCODE_MEDIA_PREVIOUS;
                                 scheduleLongPressKeyEvent(event, newKeyCode);
                                 // Consume key down events of all presses.
                                 break;
@@ -4784,6 +4786,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             // Long key press detection not applicable, change volume only
                             // on key down events
                             mayChangeVolume = down;
+                        }
+                        if (!isScreenOn() && !mVolumeWakeScreen) {
+                            // If we aren't passing to the user and no one else
+                            // handled it send it to the session manager to figure
+                            // out.
+                            MediaSessionLegacyHelper.getHelper(mContext)
+                                    .sendVolumeKeyEvent(KeyEvent.changeAction(event,
+                                    KeyEvent.ACTION_DOWN), true);
                         }
                     }
 
@@ -4979,8 +4989,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             // ignore volume keys unless docked
             case KeyEvent.KEYCODE_VOLUME_UP:
             case KeyEvent.KEYCODE_VOLUME_DOWN:
+                if (mVolumeWakeScreen) {
+                    return true;
+                }
             case KeyEvent.KEYCODE_VOLUME_MUTE:
-                return mVolumeRockerWake || mDockMode != Intent.EXTRA_DOCK_STATE_UNDOCKED;
+                return mDockMode != Intent.EXTRA_DOCK_STATE_UNDOCKED;
 
             // ignore media and camera keys
             case KeyEvent.KEYCODE_MUTE:
