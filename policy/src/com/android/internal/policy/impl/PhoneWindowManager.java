@@ -4751,7 +4751,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                                 break;
                             }
                         }
-                        if (!isWakeKey) {
+                        if (!isScreenOn() && !mVolumeRockerWake) {
                             // If we aren't passing to the user and no one else
                             // handled it send it to the session manager to figure
                             // out.
