@@ -4752,10 +4752,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
                 if ((result & ACTION_PASS_TO_USER) == 0) {
 
-                // Disable music and volume control when used as wake key
-                if ((result & ACTION_PASS_TO_USER) == 0 && !mVolumeRockerWake) {
-                    boolean mayChangeVolume = false;
-
                     if (isMusicActive()) {
                         if (mVolumeMusicControls && (keyCode != KeyEvent.KEYCODE_VOLUME_MUTE)) {
                             // Detect long key presses.
@@ -4766,10 +4762,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                                         KeyEvent.KEYCODE_MEDIA_NEXT : KeyEvent.KEYCODE_MEDIA_PREVIOUS;
                                 scheduleLongPressKeyEvent(event, newKeyCode);
                                 // Consume key down events of all presses.
-                                }
-                                // Change volume only on key up events of short presses.
-                                mayChangeVolume = true;
-                            break;
+                                break;
                             } else {
                                 mHandler.removeMessages(MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK);
                                 // Consume key up events of long presses only.
