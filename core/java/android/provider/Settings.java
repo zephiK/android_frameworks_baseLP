@@ -3155,13 +3155,6 @@ public final class Settings {
         public static final String RECENTS_SHOW_HIDE_SEARCH_BAR = "recents_show_hide_search_bar";
 
         /**
-         * Volume music controls
-         * @hide
-         */
-        public static final String VOLUME_MUSIC_CONTROLS = "volume_music_controls";
-
-	
-        /**
     	* Network traffic indicator, goes from least to greatest significant bitwise
 	    * 0 = Display up-stream traffic if set
     	* 1 = Display down-stream traffic if set
