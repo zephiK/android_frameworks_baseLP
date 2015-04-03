@@ -1619,7 +1619,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             if (mImmersiveModeConfirmation != null) {
                 mImmersiveModeConfirmation.loadSetting(mCurrentUserId);
             }
-            PolicyControl.reloadFromSetting(mContext);
             WindowManagerPolicyControl.reloadFromSetting(mContext);
         }
         if (updateRotation) {
@@ -4742,7 +4741,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                                 break;
                             }
                         }
-                        if (!isScreenOn() && !mVolumeRockerWake) {
+                        if (!isScreenOn()) {
                             // If we aren't passing to the user and no one else
                             // handled it send it to the session manager to figure
                             // out.
