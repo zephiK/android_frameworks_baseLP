@@ -95,4 +95,19 @@
     <!-- expanded tile -->
     <string name="quick_settings_expanded_desktop">Étendu</string>
     <string name="quick_settings_expanded_desktop_off">Normal</string>
+
+    <!-- Heads up qs tile -->
+    <string name="quick_settings_heads_up_on">Notifications flottantes activées</string>
+    <string name="quick_settings_heads_up_off">Notifications flottantes désactivées</string>
+
+    <!-- Screenshot qs tile -->
+    <string name="quick_settings_screenshot">Capture d\'écran</string>
+
+    <!-- Sync qs tile -->
+    <string name="quick_settings_sync">Synchronisation</string>
+    <string name="quick_settings_sync_off">Synchronisation éteinte</string>    
+
+    <!-- Heads up toast -->
+    <string name="heads_up_enabled">Les notifications flottantes sont activées</string>
+    <string name="heads_up_disabled">Les notifications flottantes sont désactivées</string>
 </resources>
