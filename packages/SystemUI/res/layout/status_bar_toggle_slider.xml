@@ -57,7 +57,7 @@
         android:layout_centerVertical="true"
         android:gravity="center"
         android:paddingTop="26dp"
-        android:textColor="@color/exposed_toggle"
+        android:textColor="@color/toggle_text"
         android:textSize="12sp"
         android:visibility="gone"
         />
