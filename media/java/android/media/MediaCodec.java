@@ -401,9 +401,6 @@ final public class MediaCodec {
 
                 case CB_OUTPUT_FORMAT_CHANGE:
                 {
-                    synchronized(mBufferLock) {
-                        cacheBuffers(false /* input */);
-                    }
                     mCallback.onOutputFormatChanged(mCodec,
                             new MediaFormat((Map<String, Object>) msg.obj));
                     break;
