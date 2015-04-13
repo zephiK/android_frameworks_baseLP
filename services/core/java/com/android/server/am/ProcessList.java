@@ -183,8 +183,8 @@ final class ProcessList {
     // These are the high-end OOM level limits.  This is appropriate for a
     // 1280x800 or larger screen with around 1GB RAM.  Values are in KB.
     private final int[] mOomMinFreeHigh = new int[] {
-            73728, 92160, 110592,
-            129024, 147456, 184320
+            61440, 76800, 92160,
+            107520, 137660, 174948
     };
     // The actual OOM killer memory levels we are using.
     private final int[] mOomMinFree = new int[mOomAdj.length];
