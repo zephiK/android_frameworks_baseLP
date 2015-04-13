@@ -3122,6 +3122,12 @@ public final class Settings {
         public static final String VOLUME_KEY_ADJUST_SOUND = "volume_key_adjust_sound";
 
         /**
+         * Duration in for ambient display
+         * @hide
+         */
+        public static final String DOZE_PULSE_DURATION_IN = "doze_pulse_duration_in";
+
+        /**
          * Change volume up and down handlign based on rotation
          * @hide
          */
