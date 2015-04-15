@@ -110,4 +110,8 @@
     <!-- Heads up toast -->
     <string name="heads_up_enabled">Les notifications flottantes sont activées</string>
     <string name="heads_up_disabled">Les notifications flottantes sont désactivées</string>
+    
+    <!-- Music Tile -->
+    <string name="quick_settings_music_play">Jouer</string>
+    <string name="quick_settings_music_pause">Pause</string>
 </resources>
