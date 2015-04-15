@@ -38,6 +38,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.UserHandle;
 import android.provider.Settings.Global;
+import android.provider.Settings.System;
 import android.provider.Settings.Secure;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.ZenModeConfig;
@@ -79,6 +80,7 @@ public class ZenModeHelper implements AudioManagerInternal.RingerModeDelegate {
     private AudioManagerInternal mAudioManager;
     private int mPreviousRingerMode = -1;
     private boolean mEffectsSuppressed;
+    private boolean mNoneIsSilent;
     private int mPreviousZenMode = -1;
 
     public ZenModeHelper(Context context, Looper looper) {
@@ -168,7 +170,11 @@ public class ZenModeHelper implements AudioManagerInternal.RingerModeDelegate {
         }
         switch (mZenMode) {
             case Global.ZEN_MODE_NO_INTERRUPTIONS:
-                // #notevenalarms
+                if (mNoneIsSilent && isAlarm(record)) {
+                    ZenLog.traceNotIntercepted(record, "alarm");
+                    // Alarms should sound in Silent mode
+                    return false;
+                }
                 ZenLog.traceIntercepted(record, "none");
                 return true;
             case Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS:
@@ -245,6 +251,21 @@ public class ZenModeHelper implements AudioManagerInternal.RingerModeDelegate {
         setZenMode(newMode, "setting");
     }
 
+    public boolean getIsNoneSilent() {
+        return mNoneIsSilent;
+    }
+
+    public void readSilentModeFromSetting() {
+        boolean noneIsSilent = System.getIntForUser(mContext.getContentResolver(),
+                System.NONE_IS_SILENT, 0, UserHandle.USER_CURRENT) == 1;
+        setNoneIsSilent(noneIsSilent);
+    }
+
+    private void setNoneIsSilent(boolean noneIsSilent) {
+        mNoneIsSilent = noneIsSilent;
+        applyRestrictions();
+    }
+
     private void applyRestrictions() {
         final boolean zen = mZenMode != Global.ZEN_MODE_OFF;
 
@@ -257,7 +278,8 @@ public class ZenModeHelper implements AudioManagerInternal.RingerModeDelegate {
         applyRestrictions(muteCalls, USAGE_NOTIFICATION_RINGTONE);
 
         // alarm restrictions
-        final boolean muteAlarms = mZenMode == Global.ZEN_MODE_NO_INTERRUPTIONS;
+        final boolean muteAlarms = mZenMode == Global.ZEN_MODE_NO_INTERRUPTIONS
+                && !mNoneIsSilent;
         applyRestrictions(muteAlarms, USAGE_ALARM);
     }
 
@@ -279,6 +301,7 @@ public class ZenModeHelper implements AudioManagerInternal.RingerModeDelegate {
         pw.print(prefix); pw.print("mPreviousRingerMode="); pw.println(mPreviousRingerMode);
         pw.print(prefix); pw.print("mDefaultPhoneApp="); pw.println(mDefaultPhoneApp);
         pw.print(prefix); pw.print("mEffectsSuppressed="); pw.println(mEffectsSuppressed);
+        pw.print(prefix); pw.print("mNoneIsSilent="); pw.println(mNoneIsSilent);
     }
 
     public void readXml(XmlPullParser parser) throws XmlPullParserException, IOException {
@@ -515,6 +538,7 @@ public class ZenModeHelper implements AudioManagerInternal.RingerModeDelegate {
 
     private class SettingsObserver extends ContentObserver {
         private final Uri ZEN_MODE = Global.getUriFor(Global.ZEN_MODE);
+        private final Uri NONE_IS_SILENT = System.getUriFor(System.NONE_IS_SILENT);
 
         public SettingsObserver(Handler handler) {
             super(handler);
@@ -523,6 +547,7 @@ public class ZenModeHelper implements AudioManagerInternal.RingerModeDelegate {
         public void observe() {
             final ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(ZEN_MODE, false /*notifyForDescendents*/, this);
+            resolver.registerContentObserver(NONE_IS_SILENT, false /*notifyForDescendents*/, this);
             update(null);
         }
 
@@ -534,6 +559,8 @@ public class ZenModeHelper implements AudioManagerInternal.RingerModeDelegate {
         public void update(Uri uri) {
             if (ZEN_MODE.equals(uri)) {
                 readZenModeFromSetting();
+            } else if (NONE_IS_SILENT.equals(uri)) {
+                readSilentModeFromSetting();
             }
         }
     }
