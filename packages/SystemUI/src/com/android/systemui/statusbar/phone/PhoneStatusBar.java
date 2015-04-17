@@ -4116,12 +4116,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
         boolean animate = !mDozing && mDozeScrimController.isPulsing();
         mNotificationPanel.setDozing(mDozing, animate);
-        if (mDozing) {
-            mStackScroller.setDark(mContext.getResources().getBoolean(R.bool.config_invert_colors_on_doze),
-                                    animate, mScreenOnTouchLocation);       
-        } else {
-            mStackScroller.setDark(false, animate, mScreenOnTouchLocation);   
-        }
+        mStackScroller.setDark(mDozing, animate, mScreenOnTouchLocation);
         mScrimController.setDozing(mDozing);
         mDozeScrimController.setDozing(mDozing, animate);
     }
