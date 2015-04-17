@@ -2160,4 +2160,7 @@
 
   <!-- Package Manager -->
   <java-symbol type="array" name="config_disabledComponents" />
+
+   <!-- Doze invert -->
+  <java-symbol type="bool" name="config_invert_colors_on_doze" />
 </resources>
