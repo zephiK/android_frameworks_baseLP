@@ -5425,6 +5425,8 @@ public class PackageManagerService extends IPackageManager.Stub {
             if ((compareSignatures(pkg.mSignatures, s1) == PackageManager.SIGNATURE_MATCH)) {
                 throw new PackageManagerException(INSTALL_FAILED_INVALID_INSTALL_LOCATION,
                         "Cannot install platform packages to user storage!");
+            }
+        }
 
         // If we're only installing presumed-existing packages, require that the
         // scanned APK is both already known and at the path previously established
@@ -6550,6 +6552,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                 if (ps.primaryCpuAbiString == null) {
                     continue;
                 }
+        
 
                 final String instructionSet = VMRuntime.getInstructionSet(ps.primaryCpuAbiString);
                 if (requiredInstructionSet != null && !instructionSet.equals(requiredInstructionSet)) {
