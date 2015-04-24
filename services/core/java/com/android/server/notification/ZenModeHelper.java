@@ -256,7 +256,7 @@ public class ZenModeHelper implements AudioManagerInternal.RingerModeDelegate {
 
     public void readSilentModeFromSetting() {
         boolean noneIsSilent = System.getIntForUser(mContext.getContentResolver(),
-                System.NONE_IS_SILENT, 1, UserHandle.USER_CURRENT) == 1;
+                System.NONE_IS_SILENT, 0, UserHandle.USER_CURRENT) == 1;
         setNoneIsSilent(noneIsSilent);
     }
 
