@@ -75,17 +75,9 @@ public class DozeParameters {
     }
 
     public int getPulseInDuration(boolean pickup) {
-        if (getOverwriteValue()) {
-            return pickup
-                    ? getInt("doze.pulse.duration.in.pickup", R.integer.doze_pulse_duration_in_pickup)
-                    : Settings.System.getIntForUser(mContext.getContentResolver(),
-                        Settings.System.DOZE_PULSE_DURATION_IN, 1000,
-                            UserHandle.USER_CURRENT);
-        } else {
-            return pickup
-                    ? getInt("doze.pulse.duration.in.pickup", R.integer.doze_pulse_duration_in_pickup)
-                    : getInt("doze.pulse.duration.in", R.integer.doze_pulse_duration_in);
-        }
+        return pickup
+                ? getInt("doze.pulse.duration.in.pickup", R.integer.doze_pulse_duration_in_pickup)
+                : getInt("doze.pulse.duration.in", R.integer.doze_pulse_duration_in);
     }
 
     public int getPulseInDelay(boolean pickup) {
@@ -95,10 +87,6 @@ public class DozeParameters {
     }
 
     public int getPulseVisibleDuration() {
-        return getInt("doze.pulse.duration.visible", R.integer.doze_pulse_duration_visible);
-    }
-
-    public int getPulseOutDuration() {
         return getInt("doze.pulse.duration.visible", R.integer.doze_pulse_duration_visible);
     }
 
