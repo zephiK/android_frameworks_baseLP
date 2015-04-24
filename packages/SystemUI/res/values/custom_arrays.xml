@@ -22,5 +22,4 @@
         <!--NETWORK_TYPE_HSPAP-->
         <item>drawable/stat_sys_data_fully_connected_hp</item>
     </string-array>
-
 </resources>

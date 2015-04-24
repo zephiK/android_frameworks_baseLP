@@ -24,9 +24,6 @@
   <java-symbol type="bool" name="config_multiColorBatteryLed" />
   <java-symbol type="array" name="notification_light_package_mapping" />
 
-    <!-- Doze Settings -->
-   <java-symbol type="bool" name="config_dozeUseAccelerometer" />
-
   <!-- Notification and battery light -->
   <java-symbol type="bool" name="config_intrusiveNotificationLed" />
   <java-symbol type="bool" name="config_multiColorNotificationLed" />
