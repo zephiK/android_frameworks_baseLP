@@ -20,10 +20,6 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
-   
-   <!-- Doze: shake accelerometer threshold minimum is 2 and maximum is 10-->
-   <integer name="doze_shake_accelerometer_threshold">10</integer> 
-
     <!-- Control whether status bar should distinguish HSPAP data icon form HSPA
     data icon on devices -->
     <bool name="config_hspap_data_distinguishable">true</bool>
