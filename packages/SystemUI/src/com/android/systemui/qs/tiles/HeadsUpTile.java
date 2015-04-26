@@ -25,6 +25,8 @@ import com.android.systemui.qs.GlobalSetting;
 import com.android.systemui.qs.QSTile;
 import com.android.systemui.R;
 
+import android.widget.Toast;
+
 /** Quick settings tile: Heads up **/
 public class HeadsUpTile extends QSTile<QSTile.BooleanState> {
 
@@ -50,9 +52,10 @@ public class HeadsUpTile extends QSTile<QSTile.BooleanState> {
 
     @Override
     protected void handleClick() {
-        setEnabled(!mState.value);
+        toggleState();
         refreshState();
 	mHost.collapsePanels(); /* dismissShade */
+	toast();
     }
 
     @Override
@@ -60,42 +63,45 @@ public class HeadsUpTile extends QSTile<QSTile.BooleanState> {
         mHost.startSettingsActivity(NOTIFICATION_SETTINGS);
     }
 
-    private void setEnabled(boolean enabled) {
-        Settings.Global.putInt(mContext.getContentResolver(),
-                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED,
-                enabled ? 1 : 0);
+    protected void toggleState() {
+         Settings.Global.putInt(mContext.getContentResolver(),
+                        Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, !headsupEnabled() ? 1 : 0);
     }
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-        final int value = arg instanceof Integer ? (Integer)arg : mSetting.getValue();
-        final boolean headsUp = value != 0;
-        state.value = headsUp;
         state.visible = true;
-        state.label = mContext.getString(R.string.quick_settings_heads_up_label);
-        if (headsUp) {
-            state.icon = ResourceIcon.get(R.drawable.ic_qs_heads_up_on);
-            state.contentDescription =  mContext.getString(
-                    R.string.accessibility_quick_settings_heads_up_on);
-        } else {
-            state.icon = ResourceIcon.get(R.drawable.ic_qs_heads_up_off);
-            state.contentDescription =  mContext.getString(
-                    R.string.accessibility_quick_settings_heads_up_off);
-        }
-    }
+	if (headsupEnabled()) {
+        state.icon = ResourceIcon.get(R.drawable.ic_qs_heads_up_on);
+        state.label = mContext.getString(R.string.accessibility_quick_settings_heads_up_on);
+	} else {
+        state.icon = ResourceIcon.get(R.drawable.ic_qs_heads_up_off);
+        state.label = mContext.getString(R.string.accessibility_quick_settings_heads_up_off);
+	    }
+	}
 
-    @Override
-    protected String composeChangeAnnouncement() {
-        if (mState.value) {
-            return mContext.getString(R.string.accessibility_quick_settings_heads_up_changed_on);
-        } else {
-            return mContext.getString(R.string.accessibility_quick_settings_heads_up_changed_off);
-        }
+    private boolean headsupEnabled() {
+        return Settings.Global.getInt(mContext.getContentResolver(),
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 1) == 1;
     }
 
     @Override
     public void setListening(boolean listening) {
         // Do nothing
     }
+
+    protected void toast() {
+  	/* show a toast */
+        String enabled = mContext.getString(R.string.accessibility_quick_settings_heads_up_on);
+        String disabled = mContext.getString(R.string.accessibility_quick_settings_heads_up_off);
+        int duration = Toast.LENGTH_SHORT;
+        if (headsupEnabled()) {
+            Toast toast = Toast.makeText(mContext, enabled, duration);
+            toast.show();
+        } else {
+            Toast toast = Toast.makeText(mContext, disabled, duration);
+            toast.show();
+        	}
+	}
 }
 
