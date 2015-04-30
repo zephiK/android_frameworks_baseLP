@@ -336,7 +336,7 @@ public class CommandQueue extends IStatusBar.Stub {
                     break;
                 case MSG_SHOW_SCREEN_PIN_REQUEST:
                     mCallbacks.showScreenPinningRequest();
-                    break;
+		    break;
                 case MSG_HIDE_HEADS_UP:
                     mCallbacks.scheduleHeadsUpClose();
                     break;
