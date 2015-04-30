@@ -737,7 +737,7 @@ public class VolumePanel extends Handler implements DemoMode {
                 sc.icon.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-			            resetVolPanelTimeout();
+			            resetTimeout();
                         toggleRinger(sc);
                         if (!mVolumeLinkNotification) {
                             updateStates();
