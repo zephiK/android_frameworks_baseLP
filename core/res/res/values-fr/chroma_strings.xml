@@ -31,4 +31,26 @@
     <string name="permlab_accessTorchService">Service d\'accès de la torche</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_accessTorchService">Permet à une application d\'accéder au service de la torche. Il ne devrait jamais être nécessaire pour les applications normales.</string>
+
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_security">Sécurité</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_security">Permissions relatives à l\'information de sécurité de l\'appareil.</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_readPhoneBlacklist">Lire la liste noire téléphonique</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_readPhoneBlacklist">Permet a une application de lire des informations sur les numéros de téléphone qui sont bloqués pour les appels ou les messages entrants.</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_changePhoneBlacklist">Changer la liste noire du téléphone</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_changePhoneBlacklist">Permet à une application de modifier les numéros de téléphone qui sont bloqués pour les appels ou les messages entrants.</string>
+
+    <!-- Notification which notifies user flashlight is enabled -->
+    <string name="quick_settings_tile_flashlight_not_title">Lampe torche allumée</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Appuyer pour éteindre</string>
+
+    <string name="silent_mode_priority">Priorité</string>
+    <string name="silent_mode_none">Aucune</string>
 </resources>
