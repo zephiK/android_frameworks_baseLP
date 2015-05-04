@@ -1795,6 +1795,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 loadIntegerSetting(stmt, Settings.Secure.SLEEP_TIMEOUT,
                         R.integer.def_sleep_timeout);
                 db.setTransactionSuccessful();
+
+            loadStringSetting(stmt, Settings.Secure.QS_TILES,
+                    com.android.internal.R.string.config_defaultQuickSettingsTiles);
             } finally {
                 db.endTransaction();
                 if (stmt != null) stmt.close();

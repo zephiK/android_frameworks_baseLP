@@ -56,4 +56,7 @@
   <!-- global actions -->
   <java-symbol type="id" name="option4" />
   <java-symbol type="id" name="option5" />
+
+  <!-- Quick Settings tile defaults -->
+  <java-symbol type="string" name="config_defaultQuickSettingsTiles" />
 </resources>

@@ -25,4 +25,6 @@
     <!-- kill app long press back -->
     <integer name="config_backKillTimeout">1000</integer>
 
+    <!-- Default, comma-delimited, quick settings tiles. See QSConstants.java for a list of all available tiles -->
+    <string name="config_defaultQuickSettingsTiles">wifi,bt,cell,airplane,rotation,flashlight,location,cast</string>
 </resources>
