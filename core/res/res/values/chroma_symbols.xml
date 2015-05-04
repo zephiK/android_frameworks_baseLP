@@ -64,4 +64,7 @@
 
   <java-symbol type="string" name="global_action_current_user" />
   <java-symbol type="dimen" name="global_actions_avatar_size" />
+
+  <!-- Quick Settings tile defaults -->
+  <java-symbol type="string" name="config_defaultQuickSettingsTiles" />
 </resources>
