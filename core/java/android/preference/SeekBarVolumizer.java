@@ -55,6 +55,7 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
     private final AudioManager mAudioManager;
     private final int mStreamType;
     private final int mMaxStreamVolume;
+    private final boolean mVoiceCapable;
     private boolean mAffectedByRingerMode;
     private boolean mNotificationOrRing;
     private boolean mIsRing;
@@ -87,6 +88,8 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
             mRingerMode = mAudioManager.getRingerModeInternal();
         }
         mMaxStreamVolume = mAudioManager.getStreamMaxVolume(mStreamType);
+        mVoiceCapable = context.getResources().getBoolean(
+                            com.android.internal.R.bool.config_voice_capable);
         mCallback = callback;
         mOriginalStreamVolume = mAudioManager.getStreamVolume(mStreamType);
         mMuted = mAudioManager.isStreamMute(mStreamType);
@@ -111,7 +114,7 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
     }
 
     private boolean isNotificationStreamLinked() {
-        return Settings.System.getInt(mContext.getContentResolver(),
+        return mVoiceCapable && Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.VOLUME_LINK_NOTIFICATION, 1) == 1;
     }
 
