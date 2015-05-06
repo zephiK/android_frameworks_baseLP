@@ -25,7 +25,6 @@ import android.net.nsd.NsdServiceInfo;
 import android.net.nsd.DnsSdTxtRecord;
 import android.net.nsd.INsdManager;
 import android.net.nsd.NsdManager;
-import android.net.wifi.WifiManager;
 import android.os.Binder;
 import android.os.Message;
 import android.os.Messenger;
@@ -82,8 +81,6 @@ public class NsdService extends INsdManager.Stub {
     private static final int BASE = Protocol.BASE_NSD_MANAGER;
     private static final int CMD_TO_STRING_COUNT = NsdManager.RESOLVE_SERVICE - BASE + 1;
     private static String[] sCmdToString = new String[CMD_TO_STRING_COUNT];
-
-    private WifiManager.MulticastLock mMulticastLock;
 
     static {
         sCmdToString[NsdManager.DISCOVER_SERVICES - BASE] = "DISCOVER";
@@ -688,11 +685,6 @@ public class NsdService extends INsdManager.Stub {
 
     private boolean startMDnsDaemon() {
         if (DBG) Slog.d(TAG, "startMDnsDaemon");
-        if (mMulticastLock == null) {
-            mMulticastLock = ((WifiManager) mContext.getSystemService(Context.WIFI_SERVICE)).
-                    createMulticastLock(TAG);
-            if (mMulticastLock != null) mMulticastLock.acquire();
-        }
         try {
             mNativeConnector.execute("mdnssd", "start-service");
         } catch(NativeDaemonConnectorException e) {
@@ -704,10 +696,6 @@ public class NsdService extends INsdManager.Stub {
 
     private boolean stopMDnsDaemon() {
         if (DBG) Slog.d(TAG, "stopMDnsDaemon");
-        if (mMulticastLock != null) {
-            mMulticastLock.release();
-            mMulticastLock = null;
-        }
         try {
             mNativeConnector.execute("mdnssd", "stop-service");
         } catch(NativeDaemonConnectorException e) {
