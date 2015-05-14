@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot delete -->
+    <string name="screenshot_delete_action">Удалить</string>
+    <string name="screenshot_delete_confirmation">Скриншот удалён.</string>
+
+    <!-- The text for the button in the notification window-shade that clears
+         all of the currently visible notifications. [CHAR LIMIT=10]-->
+    <string name="clear_recents">Закрыть все надавние</string>
+
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+
+    <!-- Dialog title for navigation bar button selection -->
+    <string name="navbar_dialog_title">Выберите действие для назначения</string>
+    <string name="navbar_home_button">Домой</string>
+    <string name="navbar_recent_button">Недавние</string>
+    <string name="navbar_search_button">Поиск</string>
+    <string name="navbar_back_button">Назад</string>
+    <string name="navbar_empty_button">Пустая кнопка</string>
+    <string name="navbar_menu_conditional_button">Кнопка (автоскрытие) меню</string>
+    <string name="navbar_menu_always_button">Кнопка (всегда показывать) меню</string>
+    <string name="navbar_menu_big_button">Кнопка меню</string>
+
+    <string name="accessibility_dpad_left">Курсор влево</string>
+    <string name="accessibility_dpad_right">Курсор вправо</string>
+
+    <!-- QS location sensors -->
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_battery_saving">Местоположение: режим энергосбережения.</string>
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_gps_only">Местоположение: по спутникам GPS.</string>
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_high_accuracy">Местоположение: по всем источникам.</string>
+
+    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_title">Местоположение</string>
+    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_battery_saving_label">Энергосбережение</string>
+    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_gps_only_label">По спутникам GPS</string>
+    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_high_accuracy_label">По всем источникам</string>
+    <string name="quick_settings_screen_timeout_detail_title">Таймаут экрана</string>
+
+    <!-- Lockscreen shortcuts -->
+    <string name="left_shortcut_hint">Проведите вправо для %1$s</string>
+    <string name="right_shortcut_hint">Проведите влево для %1$s</string>
+
+    <!-- Navigation ring shortcuts -->
+    <string name="navigation_ring_title">Ярлыки быстрого запуска</string>
+    <string name="navring_target_reset_message">Удалить все назначенные пользоватем ярлыки и вернуть значения по умолчанию?</string>
+    <string name="navring_target_reset">Ярлыки панели навигации по умолчанию</string>
+    <string name="navring_action_open_ime_switcher">Открыть изменение способа ввода</string>
+    <string name="navring_action_kill_app">Закрыть приложение</string>
+    <string name="navring_action_none">Ничего</string>
+    <string name="navring_action_take_screenshot">Сделать скриншот</string>
+    <string name="navring_action_ring_vibrate">Звонок/Вибрация</string>
+    <string name="navring_action_ring_silent">Звонок/Беззвучный</string>
+    <string name="navring_action_ring_vibrate_silent">Звонок/Вибрация/Беззвучный</string>
+    <string name="navring_action_screen_off">Выключение экрана</string>
+    <string name="navring_action_torch">Включение фонарика</string>
+    <string name="navring_action_google_now">Google Now</string>
+    <string name="navring_choose_action_title">Выберите действие</string>
+    <string name="select_application">Выберите приложение</string>
+    <string name="lockscreen_target_empty">Пусто</string>
+
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_HP">HSPA+</string>
+
+    <!-- Brightness tile -->
+    <string name="quick_settings_brightness">Яркость</string>
+
+    <!-- Battery saver -->
+    <string name="quick_settings_battery_saver">Энергосбережение</string>
+    <string name="quick_settings_battery_saver_off">Энергосбережение выкл</string>
+
+    <!-- expanded tile -->
+    <string name="quick_settings_expanded_desktop">Расширенный экран</string>
+    <string name="quick_settings_expanded_desktop_off">Расширенный экран выкл</string>
+
+    <!-- Sync qs tile -->
+    <string name="quick_settings_sync">Синхронизация</string>
+    <string name="quick_settings_sync_off">Синхронизация выкл</string>
+
+    <!-- Screenshot qs tile -->
+    <string name="quick_settings_screenshot">Скриншот</string>
+
+    <!-- Heads up tile -->
+    <string name="quick_settings_heads_up_on">Всплывающие уведомления вкл</string>
+    <string name="quick_settings_heads_up_off">Всплывающие уведомления выкл</string>
+
+    <!-- Heads up toast -->
+    <string name="heads_up_enabled">Всплывающие уведомления включены</string>
+    <string name="heads_up_disabled">Всплывающие уведомления выключены</string>
+
+    <!-- Music Tile -->
+    <string name="quick_settings_music_play">Играть</string>
+    <string name="quick_settings_music_pause">Пауза</string>
+
+    <!-- Interruption level: None. [CHAR LIMIT=20] -->
+    <string name="interruption_level_silent">Без звука</string>
+
+    <!-- Zen mode: No interruptions title, with a warning about alarms. [CHAR LIMIT=60] -->
+    <string name="zen_silent_with_warning">Без звука, кроме будильника.</string>
+</resources>
