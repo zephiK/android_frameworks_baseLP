@@ -79,7 +79,7 @@
     <string name="navring_action_torch">Включение фонарика</string>
     <string name="navring_action_google_now">Google Now</string>
     <string name="navring_choose_action_title">Выберите действие</string>
-    <string name="select_application">Виберите приложение</string>
+    <string name="select_application">Выберите приложение</string>
     <string name="lockscreen_target_empty">Пусто</string>
 
     <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
