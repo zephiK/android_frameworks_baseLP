@@ -25,7 +25,6 @@ import android.os.Process;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
-import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
 
@@ -34,24 +33,17 @@ import com.android.internal.util.cm.QSUtils;
 import com.android.systemui.R;
 import com.android.systemui.qs.QSTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
-import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
-import com.android.systemui.qs.tiles.BrightnessTile;
 import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
-import com.android.systemui.qs.tiles.ExpandedDesktopTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.NotificationsTile;
-import com.android.systemui.qs.tiles.MusicTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
-import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.ScreenTimeoutTile;
-import com.android.systemui.qs.tiles.SyncTile;
-import com.android.systemui.qs.tiles.HeadsupTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.settings.CurrentUserTracker;
 import com.android.systemui.statusbar.policy.BluetoothController;
@@ -285,20 +277,6 @@ public class QSTileHost implements QSTile.Host {
                 return new NotificationsTile(this);
     	    case QSConstants.TILE_SCREEN_TIMEOUT:
                 return new ScreenTimeoutTile(this);
-            case QSConstants.TILE_BRIGHTNESS:
-                return new BrightnessTile(this);
-            case QSConstants.TILE_BATTERY_SAVER:
-                return new BatterySaverTile(this);
-            case QSConstants.TILE_EXPANDED_DESKTOP:
-                return new ExpandedDesktopTile(this);
-            case QSConstants.TILE_SYNC:
-                return new SyncTile(this);
-            case QSConstants.TILE_SCREENSHOT:
-                return new ScreenshotTile(this);
-    	    case QSConstants.TILE_HEADS_UP:
-        		return new HeadsupTile(this);
-            case QSConstants.TILE_MUSIC:
-                return new MusicTile(this);
             default:
                 throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
         }
@@ -307,8 +285,8 @@ public class QSTileHost implements QSTile.Host {
     private List<String> loadTileSpecs() {
         final Resources res = mContext.getResources();
         final String defaultTileList = res.getString(R.string.quick_settings_tiles_default);
-        String tileList = Settings.Secure.getStringForUser(mContext.getContentResolver(),
-                Settings.Secure.QS_TILES, UserHandle.USER_CURRENT);
+        String tileList = Settings.Secure.getString(mContext.getContentResolver(),
+                Settings.Secure.QS_TILES);
         if (DEBUG) Log.d(TAG, "Config string: "+tileList);
         if (tileList == null) {
             tileList = res.getString(R.string.quick_settings_tiles);

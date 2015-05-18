@@ -85,9 +85,6 @@
     <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_data_connection_HP">HSPA+</string>
 
-    <!-- Brightness tile -->
-    <string name="quick_settings_brightness">Brightness</string>
-
     <!-- Battery saver -->
     <string name="quick_settings_battery_saver">Battery saver</string>
     <string name="quick_settings_battery_saver_off">Battery saver off</string>
