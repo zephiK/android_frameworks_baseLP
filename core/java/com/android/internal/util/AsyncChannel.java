@@ -462,8 +462,10 @@ public class AsyncChannel {
         } catch(Exception e) {
         }
         // Tell source we're disconnected.
-        replyDisconnected(STATUS_SUCCESSFUL);
-        mSrcHandler = null;
+        if (mSrcHandler != null) {
+            replyDisconnected(STATUS_SUCCESSFUL);
+            mSrcHandler = null;
+        }
         // Unlink only when bindService isn't used
         if (mConnection == null && mDstMessenger != null && mDeathMonitor!= null) {
             mDstMessenger.getBinder().unlinkToDeath(mDeathMonitor, 0);
@@ -869,8 +871,6 @@ public class AsyncChannel {
      * @param status to be stored in msg.arg1
      */
     private void replyDisconnected(int status) {
-        // Can't reply if already disconnected. Avoid NullPointerException.
-        if (mSrcHandler == null) return;
         Message msg = mSrcHandler.obtainMessage(CMD_CHANNEL_DISCONNECTED);
         msg.arg1 = status;
         msg.obj = this;
