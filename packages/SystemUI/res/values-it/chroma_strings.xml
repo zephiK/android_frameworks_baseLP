@@ -26,7 +26,7 @@
     <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
     <string name="quick_settings_location_battery_saving_label">Risparmio batteria</string>
     <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Solo dspositivo</string>
+    <string name="quick_settings_location_gps_only_label">Solo dispositivo</string>
     <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
     <string name="quick_settings_location_high_accuracy_label">Alta precisione</string>
     <string name="quick_settings_screen_timeout_detail_title">Screen timeout</string>
