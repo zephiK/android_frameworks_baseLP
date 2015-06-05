@@ -363,9 +363,6 @@ public class Mesh extends BaseObj {
                     alloc = Allocation.createTyped(mRS, entry.t, mUsage);
                 } else if(entry.e != null) {
                     alloc = Allocation.createSized(mRS, entry.e, entry.size, mUsage);
-                } else {
-                    // Should never happen because the builder will always set one
-                    throw new IllegalStateException("Builder corrupt, no valid element in entry.");
                 }
                 vertexBuffers[ct] = alloc;
                 vtx[ct] = alloc.getID(mRS);
@@ -378,9 +375,6 @@ public class Mesh extends BaseObj {
                     alloc = Allocation.createTyped(mRS, entry.t, mUsage);
                 } else if(entry.e != null) {
                     alloc = Allocation.createSized(mRS, entry.e, entry.size, mUsage);
-                } else {
-                    // Should never happen because the builder will always set one
-                    throw new IllegalStateException("Builder corrupt, no valid element in entry.");
                 }
                 long allocID = (alloc == null) ? 0 : alloc.getID(mRS);
                 indexBuffers[ct] = alloc;
