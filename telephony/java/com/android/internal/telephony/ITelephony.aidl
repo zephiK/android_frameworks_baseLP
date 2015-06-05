@@ -511,12 +511,6 @@ interface ITelephony {
      */
     void setCellInfoListRate(int rateInMillis);
 
-
-    /**
-     * Return if the current radio is LTE on GSM
-     */
-    int getLteOnGsmMode();
-
     /**
      * get default sim
      * @return sim id
