@@ -11480,7 +11480,6 @@ public final class ActivityManagerService extends ActivityManagerNative
             }
             mStackSupervisor.resumeTopActivitiesLocked();
             sendUserSwitchBroadcastsLocked(-1, mCurrentUserId);
-            performGcsForAllLocked();
         }
     }
 
@@ -17810,25 +17809,7 @@ public final class ActivityManagerService extends ActivityManagerNative
             scheduleAppGcsLocked();
         }
     }
-
-    /**
-     * Perform GCs on all processes, we only call it one time when system ready
-     */
-    final void performGcsForAllLocked() {
-        final ArrayMap<String, SparseArray<ProcessRecord>> map = mProcessNames.getMap();
-        int mapSize = map.size();
-        ProcessRecord proc = null;
-        for (int i = 0; i < mapSize; i++) {
-            String name = map.keyAt(i);
-            SparseArray<ProcessRecord> array = map.get(name);
-            for (int j = 0; j < array.size(); j++) {
-                proc = array.valueAt(j);
-                performAppGcLocked(proc);
-
-            }
-        }
-    }
-
+    
     /**
      * If all looks good, perform GCs on all processes waiting for them.
      */
