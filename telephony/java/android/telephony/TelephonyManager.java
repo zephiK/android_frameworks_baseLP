@@ -3254,6 +3254,7 @@ public class TelephonyManager {
         } catch (RemoteException ex) {
             Rlog.e(TAG, "hasMatchedTetherApnSetting RemoteException", ex);
         } catch (NullPointerException ex) {
+            Rlog.e(TAG, "hasMatchedTetherApnSetting NPE", ex);
         }
         return 2;
     }
