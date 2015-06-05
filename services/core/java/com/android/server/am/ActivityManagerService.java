@@ -412,6 +412,16 @@ public final class ActivityManagerService extends ActivityManagerNative
         return (isFg) ? mFgBroadcastQueue : mBgBroadcastQueue;
     }
 
+    BroadcastRecord broadcastRecordForReceiverLocked(IBinder receiver) {
+        for (BroadcastQueue queue : mBroadcastQueues) {
+            BroadcastRecord r = queue.getMatchingOrderedReceiver(receiver);
+            if (r != null) {
+                return r;
+            }
+        }
+        return null;
+    }
+
     /**
      * Activity we have told the window manager to have key focus.
      */
@@ -15798,11 +15808,11 @@ public final class ActivityManagerService extends ActivityManagerNative
             synchronized(this) {
                 ReceiverList rl = mRegisteredReceivers.get(receiver.asBinder());
                 if (rl != null) {
-                    final BroadcastRecord r = rl.curBroadcast;
-                    if (r != null && r == r.queue.getMatchingOrderedReceiver(r)) {
-                        final boolean doNext = r.queue.finishReceiverLocked(
-                                r, r.resultCode, r.resultData, r.resultExtras,
-                                r.resultAbort, false);
+                    if (rl.curBroadcast != null) {
+                        BroadcastRecord r = rl.curBroadcast;
+                        final boolean doNext = finishReceiverLocked(
+                                receiver.asBinder(), r.resultCode, r.resultData,
+                                r.resultExtras, r.resultAbort);
                         if (doNext) {
                             doTrim = true;
                             r.queue.processNextBroadcast(false);
@@ -16493,6 +16503,17 @@ public final class ActivityManagerService extends ActivityManagerNative
         }
     }
 
+    private final boolean finishReceiverLocked(IBinder receiver, int resultCode,
+            String resultData, Bundle resultExtras, boolean resultAbort) {
+        final BroadcastRecord r = broadcastRecordForReceiverLocked(receiver);
+        if (r == null) {
+            Slog.w(TAG, "finishReceiver called but not found on queue");
+            return false;
+        }
+
+        return r.queue.finishReceiverLocked(r, resultCode, resultData, resultExtras, resultAbort, false);
+    }
+
     void backgroundServicesFinishedLocked(int userId) {
         for (BroadcastQueue queue : mBroadcastQueues) {
             queue.backgroundServicesFinishedLocked(userId);
@@ -16500,7 +16521,7 @@ public final class ActivityManagerService extends ActivityManagerNative
     }
 
     public void finishReceiver(IBinder who, int resultCode, String resultData,
-            Bundle resultExtras, boolean resultAbort, int flags) {
+            Bundle resultExtras, boolean resultAbort) {
         if (DEBUG_BROADCAST) Slog.v(TAG, "Finish receiver: " + who);
 
         // Refuse possible leaked file descriptors
@@ -16514,9 +16535,7 @@ public final class ActivityManagerService extends ActivityManagerNative
             BroadcastRecord r;
 
             synchronized(this) {
-                BroadcastQueue queue = (flags & Intent.FLAG_RECEIVER_FOREGROUND) != 0
-                        ? mFgBroadcastQueue : mBgBroadcastQueue;
-                r = queue.getMatchingOrderedReceiver(who);
+                r = broadcastRecordForReceiverLocked(who);
                 if (r != null) {
                     doNext = r.queue.finishReceiverLocked(r, resultCode,
                         resultData, resultExtras, resultAbort, true);
