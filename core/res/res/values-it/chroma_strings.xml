@@ -30,38 +30,38 @@
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_accessTorchService">accesso al servizio torcia</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessTorchService">Permeti ad un\'app di accedere al servizio torcia</string>
+    <string name="permdesc_accessTorchService">Permeti ad un\'app di accedere al servizio torcia. Non dovrebbe mai essere necessario per app normali.</string>
 
     <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permgrouplab_security">Security</string>
+    <string name="permgrouplab_security">Sicurezza</string>
     <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permgroupdesc_security">Permissions related to device security information.</string>
+    <string name="permgroupdesc_security">Permessi legati alla sicurezza del dispositivo.</string>
 
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_readPhoneBlacklist">read phone blacklist</string>
+    <string name="permlab_readPhoneBlacklist">leggi blacklist telefono</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
+    <string name="permdesc_readPhoneBlacklist">Permetti ad un\'app di leggere le informazioni sui numeri di telefono che sono bloccati per chiamate e messaggi.</string>
 
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_changePhoneBlacklist">change phone blacklist</string>
+    <string name="permlab_changePhoneBlacklist">cambia blacklist telefono</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
+    <string name="permdesc_changePhoneBlacklist">Permetti ad un\'app di cambiare i numeri di telefono che sono bloccati per chiamate e messaggi.</string>
 
     <!-- Notification which notifies user flashlight is enabled -->
-    <string name="quick_settings_tile_flashlight_not_title">Flashlight is on</string>
-    <string name="quick_settings_tile_flashlight_not_summary">Tap to turn off</string>
+    <string name="quick_settings_tile_flashlight_not_title">La torcia è accesa</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Tocca per spegnerla</string>
 
-    <string name="silent_mode_priority">Priority</string>
-    <string name="silent_mode_none">None</string>
+    <string name="silent_mode_priority">Priorità</string>
+    <string name="silent_mode_none">Nessuna</string>
 
 
     <!-- Privacy Guard -->
-    <string name="permlab_changePrivacyGuardState">Enable or disable privacy guard</string>
-    <string name="permdesc_changePrivacyGuardState">Allows the app to change whether another app runs with privacy guard. When an app is running with Privacy Guard, it will not have access to personal data such as contacts, call logs, or messages.</string>
-    <string name="privacy_guard_notification">Privacy guard active</string>
-    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> will not be able to access personal data</string>
-    <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> will not be able to access custom permissions</string>
+    <string name="permlab_changePrivacyGuardState">Attiva o disattiva privacy guard</string>
+    <string name="permdesc_changePrivacyGuardState">Permette ad un\'app di decidere se un\'altra app deve essere controllata da privacy guard. Quando un\'app è controllata da privacy guard, non sarà in grado di accedere a dati personali come posizione, contatti, registro chiamate, o messaggi.</string>
+    <string name="privacy_guard_notification">Privacy guard è attivo</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> non sarà in grado di accedere ai dati personali</string>
+    <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> non sarà in grado di accedere ai permessi specifici</string>
 
     <!-- label for current user in phone options dialog -->
-    <string name="global_action_current_user">Current</string>
+    <string name="global_action_current_user">Attuale</string>
 </resources>
