@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
     <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- kill app long press back -->
-    <string name="app_killed_message">Application killed.</string>
+    <string name="app_killed_message">App chiusa</string>
 
     <!-- Title of dialog to confirm rebooting. -->
-    <string name="reboot_title">Reboot</string>
+    <string name="reboot_title">Riavvio</string>
 
     <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
          be a confirmation dialog.  This is the message. -->
-    <string name="reboot_confirm" product="tablet">Your tablet will reboot.</string>
-    <string name="reboot_confirm" product="default">Your phone will reboot.</string>
+    <string name="reboot_confirm" product="tablet">Il tuo tablet si riavvierà.</string>
+    <string name="reboot_confirm" product="default">Il tuo telefono si riavvierà.</string>
 
     <!-- label for item that reboots the phone in phone options dialog -->
-    <string name="global_action_reboot">Reboot</string>
+    <string name="global_action_reboot">Riavvio</string>
 
     <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-    <string name="reboot_progress">Rebooting\u2026</string>
+    <string name="reboot_progress">Riavvio in corso\u2026</string>
 
     <!-- Reboot menu -->
     <!-- Button to reboot the phone, within the Reboot Options dialog -->
-    <string name="reboot_reboot">Reboot</string>
+    <string name="reboot_reboot">Riavvio</string>
     <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
     <string name="reboot_recovery">Recovery</string>
     <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
     <string name="reboot_bootloader">Bootloader</string>
     <!-- Button to soft reboot the device, within the Reboot Options dialog -->
-    <string name="reboot_soft">Soft reboot</string>
+    <string name="reboot_soft">Riavvio veloce</string>
 
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_accessTorchService">access torch service</string>
+    <string name="permlab_accessTorchService">accesso al servizio torcia</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessTorchService">Allows an app to access the torch service. Should never be needed for normal apps.</string>
+    <string name="permdesc_accessTorchService">Permeti ad un\'app di accedere al servizio torcia</string>
 
     <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permgrouplab_security">Security</string>
