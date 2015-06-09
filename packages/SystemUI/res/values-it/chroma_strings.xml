@@ -44,14 +44,14 @@
 
     <!-- QS location sensors -->
     <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Posizione: modalità basso consumo.</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Geolocalizzazione: modalità basso consumo.</string>
     <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Posizione: modalità solo dispositivo.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Geolocalizzazione: modalità solo dispositivo.</string>
     <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Posizione: modalità alta precisione.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Geolocalizzazione: modalità alta precisione.</string>
 
     <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Modalità posizione</string>
+    <string name="quick_settings_location_detail_title">Modalità geolocalizzazione</string>
     <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
     <string name="quick_settings_location_battery_saving_label">Basso consumo</string>
     <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
