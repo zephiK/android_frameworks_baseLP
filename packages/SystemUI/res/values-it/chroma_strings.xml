@@ -21,17 +21,100 @@
     <string name="screenshot_delete_action">Elimina</string>
     <string name="screenshot_delete_confirmation">Screenshot eliminato</string>
 
+    <!-- The text for the button in the notification window-shade that clears
+         all of the currently visible notifications. [CHAR LIMIT=10]-->
+    <string name="clear_recents">Chiudi tutte le app recenti</string>
+
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+
+    <!-- Dialog title for navigation bar button selection -->
+    <string name="navbar_dialog_title">Scegli azione</string>
+    <string name="navbar_home_button">Home</string>
+    <string name="navbar_recent_button">Recents</string>
+    <string name="navbar_search_button">Cerca</string>
+    <string name="navbar_back_button">Indietro</string>
+    <string name="navbar_empty_button">Vuoto</string>
+    <string name="navbar_menu_conditional_button">Menu (nascondi automaticamente)</string>
+    <string name="navbar_menu_always_button">Menu (mostra sempre)</string>
+    <string name="navbar_menu_big_button">Menu</string>
+
+    <string name="accessibility_dpad_left">Cursore sinistra</string>
+    <string name="accessibility_dpad_right">Cursore destro</string>
+
+    <!-- QS location sensors -->
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_battery_saving">Posizione: modalità basso consumo.</string>
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_gps_only">Posizione: modalità solo dispositivo.</string>
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_high_accuracy">Posizione: modalità alta precisione.</string>
+
     <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Modalità geolocalizzazione</string>
+    <string name="quick_settings_location_detail_title">Modalità posizione</string>
     <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Risparmio batteria</string>
+    <string name="quick_settings_location_battery_saving_label">Basso consumo</string>
     <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
     <string name="quick_settings_location_gps_only_label">Solo dispositivo</string>
     <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
     <string name="quick_settings_location_high_accuracy_label">Alta precisione</string>
-    <string name="quick_settings_screen_timeout_detail_title">Screen timeout</string>
+    <string name="quick_settings_screen_timeout_detail_title">Sospensione schermo</string>
+
+    <!-- Lockscreen shortcuts -->
+    <string name="left_shortcut_hint">Striscia a sinistra per %1$s</string>
+    <string name="right_shortcut_hint">Striscia a destra per %1$s</string>
+
+    <!-- Navigation ring shortcuts -->
+    <string name="navigation_ring_title">Scoriatoie avvio rapido</string>
+    <string name="navring_target_reset_message">Elimina tutte le scorciatoie create dall\'utente e ripristinare quelle predefinite?</string>
+    <string name="navring_target_reset">Ripristina scorciatoie predefinite navigation bar</string>
+    <string name="navring_action_open_ime_switcher">Apri cambia tastiera</string>
+    <string name="navring_action_kill_app">Chiudi app</string>
+    <string name="navring_action_none">Nessuna</string>
+    <string name="navring_action_take_screenshot">Screenshot</string>
+    <string name="navring_action_ring_vibrate">Suoneria/vibrazione</string>
+    <string name="navring_action_ring_silent">Suoneria/silenzioso</string>
+    <string name="navring_action_ring_vibrate_silent">Suoneria/vibrazione/silenzioso</string>
+    <string name="navring_action_screen_off">Spegni schermo</string>
+    <string name="navring_action_torch">Torcia accesa/spenta</string>
+    <string name="navring_action_google_now">Google Now</string>
+    <string name="navring_choose_action_title">Scegli azione</string>
+    <string name="select_application">Seleziona app</string>
+    <string name="lockscreen_target_empty">Vuoto</string>
+
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_HP">HSPA+</string>
+
+    <!-- Battery saver -->
+    <string name="quick_settings_battery_saver">Risparmio batteria</string>
+    <string name="quick_settings_battery_saver_off">Risparmio batteria spento</string>
 
     <!-- expanded tile -->
     <string name="quick_settings_expanded_desktop">Esteso</string>
     <string name="quick_settings_expanded_desktop_off">Normale</string>
+
+    <!-- Sync qs tile -->
+    <string name="quick_settings_sync">Sincronizzazione</string>
+    <string name="quick_settings_sync_off">Sincronizzazione spenta</string>
+
+    <!-- Screenshot qs tile -->
+    <string name="quick_settings_screenshot">Screenshot</string>
+
+    <!-- Heads up tile -->
+    <string name="quick_settings_heads_up_on">Heads up attivo</string>
+    <string name="quick_settings_heads_up_off">Nessun interruzione</string>
+
+    <!-- Heads up toast -->
+    <string name="heads_up_enabled">Le notifiche heads up sono attivate</string>
+    <string name="heads_up_disabled">Le notifiche heads up sono disattivate</string>
+
+    <!-- Music Tile -->
+    <string name="quick_settings_music_play">Riproduci</string>
+    <string name="quick_settings_music_pause">Pausa</string>
+
+    <!-- Interruption level: None. [CHAR LIMIT=20] -->
+    <string name="interruption_level_silent">Nessuna</string>
+
+    <!-- Zen mode: No interruptions title, with a warning about alarms. [CHAR LIMIT=60] -->
+    <string name="zen_silent_with_warning">Nessun interruzione, tranne gli allarmi</string>
 </resources>
