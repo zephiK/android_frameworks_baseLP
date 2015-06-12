@@ -109,7 +109,7 @@ import com.android.internal.policy.PolicyManager;
 import com.android.internal.policy.impl.keyguard.KeyguardServiceDelegate;
 import com.android.internal.policy.impl.keyguard.KeyguardServiceDelegate.ShowListener;
 import com.android.internal.statusbar.IStatusBarService;
-import com.android.internal.util.simpleaosp.DevUtils;
+import com.android.internal.util.chroma.DevUtils;
 import com.android.internal.widget.PointerLocationView;
 import com.android.server.LocalServices;
 

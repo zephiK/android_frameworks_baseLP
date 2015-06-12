@@ -1,4 +1,4 @@
-package com.android.internal.util.simpleaosp;
+package com.android.internal.util.chroma;
 
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
