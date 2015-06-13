@@ -23,5 +23,5 @@
     <bool name="config_invert_colors_on_doze">true</bool>
 
     <!-- kill app long press back -->
-    <integer name="config_backKillTimeout">500</integer>
+    <integer name="config_backKillTimeout">1000</integer>
 </resources>
