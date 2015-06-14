@@ -4495,7 +4495,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
                 if (lastTask != null) {
                     if (DEBUG) Log.d(TAG, "switching to " + lastTask.topActivity.getPackageName());
-                    am.moveTaskToFront(lastTask.id, ActivityManager.MOVE_TASK_NO_USER_ACTION);
+                    final ActivityOptions opts = ActivityOptions.makeCustomAnimation(mContext,
+                            R.anim.last_app_in, R.anim.last_app_out);
+                    am.moveTaskToFront(lastTask.id, ActivityManager.MOVE_TASK_NO_USER_ACTION,
+                            opts.toBundle());
                 }
             }
         } catch (RemoteException e) {
