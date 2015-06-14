@@ -30,7 +30,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.graphics.Point;
 import android.net.Uri;
-import android.os.Vibrator;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
@@ -667,9 +666,6 @@ public class QSPanel extends ViewGroup {
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER),
                     false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.Secure.getUriFor(
-            Settings.System.QUICK_SETTINGS_TILES_VIBRATE),
-                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -694,9 +690,6 @@ public class QSPanel extends ViewGroup {
             mBrightnessSliderEnabled = Settings.Secure.getIntForUser(
             mContext.getContentResolver(), Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER,
                 1, UserHandle.USER_CURRENT) == 1;
-            mVibrationEnabled = Settings.System.getIntForUser(
-            mContext.getContentResolver(), Settings.System.QUICK_SETTINGS_TILES_VIBRATE,
-                0, UserHandle.USER_CURRENT) == 1;
         }
     }
 }
