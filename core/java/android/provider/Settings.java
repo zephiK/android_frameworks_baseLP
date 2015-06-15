@@ -3061,6 +3061,12 @@ public final class Settings {
         */
         public static final String VOLUME_KEY_ADJUST_SOUND = "volume_key_adjust_sound";
 
+         /**
+         * Volume rocker wake
+          * @hide
+          */
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
         /**
          * Change volume up and down handlign based on rotation
          * @hide
