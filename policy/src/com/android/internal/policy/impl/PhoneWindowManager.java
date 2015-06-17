@@ -3113,9 +3113,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 awakenDreams();
                 sendCloseSystemWindows(SYSTEM_DIALOG_REASON_HOME_KEY);
                 hideRecentApps(false, true);
-            } else if (mScreenOnFully) {
-                // check if screen is fully on before going home
-                // to avoid hardware home button wake going home
+            } else {
+                // Otherwise, just launch Home
                 sendCloseSystemWindows(SYSTEM_DIALOG_REASON_HOME_KEY);
                 startDockOrHome();
             }
