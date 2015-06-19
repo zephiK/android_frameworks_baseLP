@@ -16,7 +16,6 @@
 
 package android.util;
 
-import android.graphics.Bitmap;
 import android.os.SystemProperties;
 
 
@@ -125,17 +124,16 @@ public class DisplayMetrics {
     @Deprecated
     public static int DENSITY_DEVICE;
 
-    /** @hide */
-    public static int DENSITY_PREFERRED;
-
-    /** @hide */
-    public static int DENSITY_DEVICE_DEFAULT;
+    /**
+     * Allow custom density setting
+     * @hide
+     */
+    public static int DENSITY_CURRENT;
 
     static {
         DENSITY_DEVICE = SystemProperties.getInt("qemu.sf.lcd_density", SystemProperties
             .getInt("ro.sf.lcd_density", DENSITY_DEFAULT));
-        DENSITY_DEVICE_DEFAULT = DENSITY_DEVICE;
-        DENSITY_PREFERRED = SystemProperties.getInt("persist.sys.lcd_density", DENSITY_DEVICE);
+        DENSITY_CURRENT = SystemProperties.getInt("persist.sys.lcd_density", DENSITY_DEVICE);
     }
 
     /**
@@ -227,16 +225,21 @@ public class DisplayMetrics {
      */
     public float noncompatYdpi;
 
-    /** @hide */
-    public void setDensity(int inDensity) {
-        density = inDensity / (float) DENSITY_DEFAULT;
-        densityDpi = inDensity;
+    /**
+     * Allow custom density setting
+     * @hide
+     */
+    public void updateDensity() {
+        density = DENSITY_CURRENT / (float) DENSITY_DEFAULT;
+        densityDpi = DENSITY_CURRENT;
         scaledDensity = density;
-        xdpi = inDensity;
-        ydpi = inDensity;
-
-        DENSITY_DEVICE = inDensity;
-        Bitmap.setDefaultDensity(inDensity);
+        xdpi = DENSITY_CURRENT;
+        ydpi = DENSITY_CURRENT;
+        noncompatDensity = density;
+        noncompatDensityDpi = densityDpi;
+        noncompatScaledDensity = scaledDensity;
+        noncompatXdpi = xdpi;
+        noncompatYdpi = ydpi;
     }
 
     public DisplayMetrics() {
@@ -328,5 +331,13 @@ public class DisplayMetrics {
         return "DisplayMetrics{density=" + density + ", width=" + widthPixels +
             ", height=" + heightPixels + ", scaledDensity=" + scaledDensity +
             ", xdpi=" + xdpi + ", ydpi=" + ydpi + "}";
+    }
+    
+    /**
+     * Allow custom density setting
+     * @hide
+     */
+    public static int getDeviceDensity() {
+        return DENSITY_CURRENT;
     }
 }
