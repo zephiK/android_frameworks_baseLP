@@ -294,7 +294,7 @@ public class QSTileHost implements QSTile.Host {
             case QSConstants.TILE_SYNC:
                 return new SyncTile(this);
             case QSConstants.TILE_HEADS_UP:
-                return new HeadsUpTile(this););
+                return new HeadsUpTile(this);
             case QSConstants.TILE_SCREENSHOT:
                 return new ScreenshotTile(this);
             case QSConstants.TILE_BATTERY_SAVER:
