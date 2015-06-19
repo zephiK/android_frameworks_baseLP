@@ -1260,13 +1260,10 @@ public final class Settings {
             /* CM12 CHANGES */
             MOVED_TO_SECURE.add(Secure.QS_TILES);
             MOVED_TO_SECURE.add(Secure.QS_USE_MAIN_TILES);
-<<<<<<< HEAD
             MOVED_TO_SECURE.add(Secure.QS_SHOW_BRIGHTNESS_SLIDER);
-=======
             for (String s : Secure.NAVIGATION_RING_TARGETS) {
                 MOVED_TO_SECURE.add(s);
             }
->>>>>>> f2bf273... Navbar ring targets (1/2)
         }
 
         private static final HashSet<String> MOVED_TO_GLOBAL;
