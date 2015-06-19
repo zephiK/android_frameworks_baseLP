@@ -1804,9 +1804,7 @@ public class Resources {
             if (mConfiguration.densityDpi != Configuration.DENSITY_DPI_UNDEFINED) {
                 mMetrics.densityDpi = mConfiguration.densityDpi;
                 mMetrics.density = mConfiguration.densityDpi * DisplayMetrics.DENSITY_DEFAULT_SCALE;
-                if (mCompatibilityInfo.equals(CompatibilityInfo.DEFAULT_COMPATIBILITY_INFO)) {
-                    mMetrics.updateDensity();
-                }
+                mMetrics.updateDensity();
             }
             mMetrics.scaledDensity = mMetrics.density * mConfiguration.fontScale;
 
