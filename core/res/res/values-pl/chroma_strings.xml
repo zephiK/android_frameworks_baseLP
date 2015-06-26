@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Reboot menu -->
+    <!-- Button to reboot the phone, within the Reboot Options dialog -->
+    <string name="reboot_reboot">Uruchom ponownie</string>
+    <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
+    <string name="reboot_recovery">Uruchom ponownie w trybie recovery</string>
+    <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
+    <string name="reboot_bootloader">Uruchom ponownie w trybie bootloader</string>
+    <!-- Button to soft reboot the device, within the Reboot Options dialog -->
+    <string name="reboot_soft">Miękki restart</string>
+
+    <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
+    <string name="reboot_progress">Uruchamiam ponownie\u2026</string>
+
+    <string name="silent_mode_priority">Priority</string>
+    <string name="silent_mode_none">None</string>
+
+    <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">Włącz lub wyłącz ochronę prywatności</string>
+    <string name="permdesc_changePrivacyGuardState">Zezwól na uruchamianie aplikacji z ochroną prywatności. Kiedy ochrona prywatności jest włączona, aplikacja nie będzie miała dostępu do danych osobistych takich jak kontakty, połączenia czy wiadomości.</string>
+    <string name="privacy_guard_notification">Ochrona prywatności aktywna</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nie będzie miała dostępu do danych osobistych</string>
+    <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> nie będzie miała dostępu do wybranych uprawnień</string>
+
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_security">Zabezpieczenia</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_security">Uprawnienia związane z informacjami o bezpieczeństwie urządzenia.</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_readPhoneBlacklist">odczytywanie czarnej listy</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_readPhoneBlacklist">Umożliwia aplikacji odczytywanie informacji o numerach telefonów, od których przychodzące połączenia i wiadomości są blokowane.</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_changePhoneBlacklist">edytowanie czarnej listy</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_changePhoneBlacklist">Umożliwia aplikacji zmianę numerów telefonów, od których przychodzące połączenia i wiadomości są blokowane.</string>
+
+</resources>
