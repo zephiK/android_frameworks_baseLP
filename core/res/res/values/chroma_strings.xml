@@ -21,15 +21,17 @@
     <!-- Reboot menu -->
     <!-- Button to reboot the phone, within the Reboot Options dialog -->
     <string name="reboot_reboot">Reboot</string>
-    <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
     <string name="reboot_recovery">Recovery</string>
-    <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
     <string name="reboot_bootloader">Bootloader</string>
-    <!-- Button to soft reboot the device, within the Reboot Options dialog -->
     <string name="reboot_soft">Soft reboot</string>
 
     <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
     <string name="reboot_progress">Rebooting\u2026</string>
+
+    <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
+         be a confirmation dialog.  This is the message. -->
+    <string name="reboot_confirm" product="tablet">Your tablet will reboot.</string>
+    <string name="reboot_confirm" product="default">Your phone will reboot.</string>
 
     <string name="silent_mode_priority">Priority</string>
     <string name="silent_mode_none">None</string>
@@ -60,5 +62,8 @@
     <string name="permlab_accessTorchService">access torch service</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_accessTorchService">Allows an app to access the torch service. Should never be needed for normal apps.</string>
+
+   <!-- kill app long press back -->
+   <string name="app_killed_message">Application killed.</string>
 
 </resources>
