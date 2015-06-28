@@ -5197,12 +5197,4 @@
          for the space allocated to it (two dots). -->
     <string name="ellipsis_two_dots">\u2025</string>
 
-    <!-- Title of dialog to confirm rebooting. -->
-    <string name="reboot_title">Reboot</string>
-
-    <!-- label for item that reboots the phone in phone options dialog -->
-    <string name="global_action_reboot">Reboot</string>
-    <string name="global_action_current_user">Current</string>
-    <string name="global_action_screenshot">Screenshot</string>
-
 </resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title of dialog to confirm rebooting. -->
+    <string name="reboot_title">Redémarrer</string>
+
+    <!-- Reboot menu -->
+    <string name="reboot_reboot">Redémarrer</string>
+    <string name="reboot_recovery">Recovery</string>
+    <string name="reboot_bootloader">Bootloader</string>
+    <string name="reboot_soft">Redémarrage logiciel</string>
+
+    <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
+    <string name="reboot_progress">Redémarrage\u2026</string>
+
+    <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
+         be a confirmation dialog.  This is the message. -->
+    <string name="reboot_confirm" product="tablet">Votre tablette redémarre.</string>
+    <string name="reboot_confirm" product="default">Votre téléphone redémarre.</string>
+
+    <!-- label for item that reboots the phone in phone options dialog -->
+    <string name="global_action_current_user">Actuel</string>
+    <string name="global_action_reboot">Redémarrer</string>
+    <string name="global_action_screenshot">Capture d\'écran</string>
+
+    <!-- Silent mode -->
+    <string name="silent_mode_priority">Prioritaire</string>
+    <string name="silent_mode_none">Aucune</string>
+
+    <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">Activer ou désactiver privacy guard</string>
+    <string name="permdesc_changePrivacyGuardState">Autorise l\'application à déterminer si une autre application est lancée avec privacy Guard. Lorsqu\'une application est lancée avec Privacy Guard, elle n\'aura pas accès aux données personnelles comme les contacts, le journal d\'appels, ou les messages.</string>
+    <string name="privacy_guard_notification">Privacy Guard activé</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> ne pourra pas accéder à vos données personnelles.</string>
+    <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> ne pourra pas accéder aux permissions qui lui sont refusées.</string>
+
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_security">Sécurité</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_security">Permissions relatives à l\'information de sécurité de l\'appareil.</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_readPhoneBlacklist">Lire la liste noire téléphonique</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_readPhoneBlacklist">Permet a une application de lire des informations sur les numéros de téléphone qui sont bloqués pour les appels ou les messages entrants.</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_changePhoneBlacklist">Changer la liste noire du téléphone</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_changePhoneBlacklist">Permet à une application de modifier les numéros de téléphone qui sont bloqués pour les appels ou les messages entrants.</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessTorchService">service d\'accès de la torche</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessTorchService">Permet à une application d\'accéder au service de la torche. Ne devrait jamais être nécessaire pour les applications normales.</string>
+
+    <!-- kill app long press back -->
+    <string name="app_killed_message">Application arrêtée.</string>
+	
+    <!-- Notification which notifies user flashlight is enabled -->
+    <string name="quick_settings_tile_flashlight_not_title">Lampe de poche allumée</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Appuyer pour éteindre</string>
+	
+</resources>

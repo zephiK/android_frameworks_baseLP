@@ -18,8 +18,10 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title of dialog to confirm rebooting. -->
+    <string name="reboot_title">Reboot</string>
+
     <!-- Reboot menu -->
-    <!-- Button to reboot the phone, within the Reboot Options dialog -->
     <string name="reboot_reboot">Reboot</string>
     <string name="reboot_recovery">Recovery</string>
     <string name="reboot_bootloader">Bootloader</string>
@@ -33,6 +35,12 @@
     <string name="reboot_confirm" product="tablet">Your tablet will reboot.</string>
     <string name="reboot_confirm" product="default">Your phone will reboot.</string>
 
+    <!-- label for item that reboots the phone in phone options dialog -->
+    <string name="global_action_current_user">Current</string>
+    <string name="global_action_reboot">Reboot</string>
+    <string name="global_action_screenshot">Screenshot</string>
+
+    <!-- Silent mode -->
     <string name="silent_mode_priority">Priority</string>
     <string name="silent_mode_none">None</string>
 
