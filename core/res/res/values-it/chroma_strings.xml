@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Reboot menu -->
+    <!-- Button to reboot the phone, within the Reboot Options dialog -->
+    <string name="reboot_reboot">Riavvio</string>
+    <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
+    <string name="reboot_recovery">Recovery</string>
+    <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
+    <string name="reboot_bootloader">Bootloader</string>
+    <!-- Button to soft reboot the device, within the Reboot Options dialog -->
+    <string name="reboot_soft">Riavvio veloce</string>
+
+    <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
+    <string name="reboot_progress">Riavvio in corso\u2026</string>
+
+    <string name="silent_mode_priority">Priorità</string>
+    <string name="silent_mode_none">Nessuna</string>
+
+    <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">Attiva o disattiva privacy guard</string>
+    <string name="permdesc_changePrivacyGuardState">Permette ad un\'app di decidere se un\'altra app deve essere controllata da privacy guard. Quando un\'app è controllata da privacy guard, non sarà in grado di accedere a dati personali come posizione, contatti, registro chiamate, o messaggi.</string>
+    <string name="privacy_guard_notification">Privacy guard è attivo</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> non sarà in grado di accedere ai dati personali</string>
+    <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> non sarà in grado di accedere ai permessi specifici</string>
+
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_security">Sicurezza</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_security">Permessi legati alle informazioni sulla sicurezza del dispositivo.</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_readPhoneBlacklist">leggi blacklist telefono</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_readPhoneBlacklist">Permetti ad un\'app di leggere le informazioni sui numeri di telefono che sono bloccati per chiamate e/o messaggi.</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_changePhoneBlacklist">cambia blacklist telefono</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_changePhoneBlacklist">Permetti ad un\'app di cambiare i numeri di telefono che sono bloccati per chiamate e/o messaggi.</string>
+
+</resources>
