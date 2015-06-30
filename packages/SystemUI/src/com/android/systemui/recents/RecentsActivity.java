@@ -50,7 +50,6 @@ import com.android.systemui.recents.views.DebugOverlayView;
 import com.android.systemui.recents.views.RecentsView;
 import com.android.systemui.recents.views.SystemBarScrimViews;
 import com.android.systemui.recents.views.ViewAnimation;
-import android.provider.Settings;
 import com.android.systemui.statusbar.phone.PhoneStatusBar;
 import com.android.systemui.SystemUIApplication;
 
@@ -258,20 +257,10 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
             }
             findViewById(R.id.floating_action_button).setVisibility(View.VISIBLE);
             if (mRecentsView.hasSearchBar()) {
-
-                if (Settings.System.getInt(getContentResolver(),
-                    Settings.System.RECENTS_SHOW_HIDE_SEARCH_BAR, 1) != 1) {
-                    mRecentsView.setSearchBarVisibility(View.VISIBLE);
-                } else {
-                    mRecentsView.setSearchBarVisibility(View.GONE);
-                   }
-                } else {
-                if (Settings.System.getInt(getContentResolver(),
-                    Settings.System.RECENTS_SHOW_HIDE_SEARCH_BAR, 1) != 1) {
-                    addSearchBarAppWidgetView();
+                mRecentsView.setSearchBarVisibility(View.VISIBLE);
             } else {
-               }
-                }
+                addSearchBarAppWidgetView();
+            }
         }
 
         // Animate the SystemUI scrims into view
