@@ -175,6 +175,9 @@ public class ShortcutPickHelper {
         if (NavigationRingHelpers.isAssistantAvailable(mContext)) {
             mActions.addAction(ACTION_ASSIST, R.string.navring_action_google_now);
         }
+        if (NavigationRingHelpers.isTorchAvailable(mContext)) {
+            mActions.addAction(ACTION_TORCH, R.string.navring_action_torch);
+        }
 
         mActions.addAction(ACTION_SCREENSHOT, R.string.navring_action_take_screenshot);
         mActions.addAction(ACTION_IME_SWITCHER, R.string.navring_action_open_ime_switcher);

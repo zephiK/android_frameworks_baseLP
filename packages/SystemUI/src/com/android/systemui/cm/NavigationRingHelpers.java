@@ -24,6 +24,7 @@ import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.hardware.TorchManager;
 import android.media.AudioManager;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -59,6 +60,7 @@ public class NavigationRingHelpers {
         }
 
         filterAction(result, ACTION_ASSIST, isAssistantAvailable(context));
+        filterAction(result, ACTION_TORCH, isTorchAvailable(context));
 
         return result;
     }
@@ -87,6 +89,11 @@ public class NavigationRingHelpers {
                 .getAssistIntent(context, true, UserHandle.USER_CURRENT) != null;
     }
 
+    public static boolean isTorchAvailable(Context context) {
+        TorchManager torchManager = (TorchManager) context.getSystemService(Context.TORCH_SERVICE);
+        return torchManager.isTorchSupported();
+    }
+
     public static Drawable getTargetDrawable(Context context, String action) {
         int resourceId = -1;
 
@@ -106,6 +113,8 @@ public class NavigationRingHelpers {
             resourceId = R.drawable.ic_navigation_ring_killtask;
         } else if (action.equals(ACTION_STANDBY)) {
             resourceId = R.drawable.ic_navigation_ring_standby;
+        } else if (action.equals(ACTION_TORCH)) {
+            resourceId = getTorchDrawableResId(context);
         } else if (action.equals(ACTION_ASSIST)) {
             resourceId = R.drawable.ic_navigation_ring_search;
         }
@@ -158,5 +167,15 @@ public class NavigationRingHelpers {
         } else {
             return R.drawable.ic_navigation_ring_sound_on;
         }
+    }
+
+    private static int getTorchDrawableResId(Context context) {
+        TorchManager torchManager = (TorchManager) context.getSystemService(Context.TORCH_SERVICE);
+        boolean active = torchManager.isTorchOn();
+        if (active) {
+            return R.drawable.ic_navigation_ring_torch_on;
+        }
+
+        return R.drawable.ic_navigation_ring_torch_off;
     }
 }
