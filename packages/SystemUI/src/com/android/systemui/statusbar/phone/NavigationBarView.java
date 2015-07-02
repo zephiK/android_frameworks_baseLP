@@ -477,6 +477,7 @@ public class NavigationBarView extends LinearLayout {
         setButtonWithTagVisibility(NavbarEditor.NAVBAR_HOME, !disableHome);
         setButtonWithTagVisibility(NavbarEditor.NAVBAR_RECENT, !disableRecent);
         setButtonWithTagVisibility(NavbarEditor.NAVBAR_POWER, !disableRecent);
+        setButtonWithTagVisibility(NavbarEditor.NAVBAR_SEARCH, !disableSearch);
 
         mBarTransitions.applyBackButtonQuiescentAlpha(mBarTransitions.getMode(), true /*animate*/);
     }
