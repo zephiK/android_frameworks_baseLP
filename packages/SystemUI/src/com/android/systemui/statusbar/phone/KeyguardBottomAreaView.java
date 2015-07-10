@@ -385,7 +385,6 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     }
 
     public void launchCamera() {
-        mFlashlightController.killFlashlight();
         Intent intent;
         if (!mShortcutHelper.isTargetCustom(LockscreenShortcutsHelper.Shortcuts.RIGHT_SHORTCUT)) {
             intent = getCameraIntent();

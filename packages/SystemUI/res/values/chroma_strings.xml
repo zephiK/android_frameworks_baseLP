@@ -124,5 +124,4 @@
     <!-- Lockscreen shortcuts -->
     <string name="left_shortcut_hint">Swipe right for %1$s</string>
     <string name="right_shortcut_hint">Swipe left for %1$s</string>
- </resources>
 </resources>
