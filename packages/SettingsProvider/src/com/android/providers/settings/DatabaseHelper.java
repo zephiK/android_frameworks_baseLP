@@ -2437,6 +2437,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
            loadHeadsUpSetting(stmt);
 
 
+            loadBooleanSetting(stmt, Settings.System.SWAP_VOLUME_BUTTONS,
+                    R.bool.def_swap_volume_buttons);
+
         } finally {
             if (stmt != null) stmt.close();
         }
