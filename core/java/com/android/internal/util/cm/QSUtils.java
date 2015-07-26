@@ -130,7 +130,7 @@ public class QSUtils {
                     return true;
                 }
             }
-        } catch (CameraAccessException e) {
+        } catch (CameraAccessException | AssertionError e) {
             // Ignore
         }
         return false;
