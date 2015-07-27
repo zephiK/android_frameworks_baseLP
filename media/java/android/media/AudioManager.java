@@ -778,8 +778,7 @@ public class AudioManager {
                  * Play a sound. This is done on key up since we don't want the
                  * sound to play when a user holds down volume down to mute.
                  */
-                if (mUseVolumeKeySounds && Settings.System.getIntForUser(mContext.getContentResolver(),
-                        Settings.System.VOLUME_KEY_ADJUST_SOUND, 1, Process.myUserHandle().getIdentifier()) == 1) 
+                if (mUseVolumeKeySounds) {
                 if (mUseMasterVolume) {
                     adjustMasterVolume(ADJUST_SAME, FLAG_PLAY_SOUND);
                 } else {
@@ -788,6 +787,7 @@ public class AudioManager {
                             ADJUST_SAME,
                             stream,
                             flags);
+                    }
                 }
                 mVolumeKeyUpTime = SystemClock.uptimeMillis();
                 break;
