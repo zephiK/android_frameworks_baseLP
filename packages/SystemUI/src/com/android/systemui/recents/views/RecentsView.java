@@ -399,11 +399,6 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         }
     }
 
-    private boolean dismissAll() {
-        return Settings.System.getInt(mContext.getContentResolver(),
-            Settings.System.RECENTS_CLEAR_ALL_DISMISS_ALL, 1) == 1;
-    }
-
     @Override
     protected void onAttachedToWindow () {
         super.onAttachedToWindow();
@@ -415,11 +410,7 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                 if (mFloatingButton.getAlpha() != 1f) {
                     return;
                 }
-
-                if (dismissAll()) {
-                    startHideClearRecentsButtonAnimation();
-                }
-
+                startHideClearRecentsButtonAnimation();
                 dismissAllTasksAnimated();
             }
         });
