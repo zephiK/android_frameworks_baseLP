@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
+    <string name="battery_level_template"><xliff:g id="level" example="45">%d</xliff:g>%%</string>
+
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+
+    <!-- QS location sensors -->
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_battery_saving">Geolocalizzazione: modalità basso consumo.</string>
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_gps_only">Geolocalizzazione: modalità solo dispositivo.</string>
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_high_accuracy">Geolocalizzazione: modalità alta precisione.</string>
+
+    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_title">Modalità geolocalizzazione</string>
+    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_battery_saving_label">Basso consumo</string>
+    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_gps_only_label">Solo dispositivo</string>
+    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_high_accuracy_label">Alta precisione</string>
+
+    <string name="quick_settings_screen_timeout_detail_title">Sospensione</string>
+
+    <!-- Dialog title for navigation bar button selection -->
+    <string name="navbar_dialog_title">Scegli azione</string>
+    <string name="navbar_home_button">Home</string>
+    <string name="navbar_recent_button">Recents</string>
+    <string name="navbar_search_button">Cerca</string>
+    <string name="navbar_back_button">Indietro</string>
+    <string name="navbar_empty_button">Vuoto</string>
+    <string name="navbar_menu_conditional_button">Menu (nascondi automaticamente)</string>
+    <string name="navbar_menu_always_button">Menu (mostra sempre)</string>
+    <string name="navbar_menu_big_button">Menu</string>
+    <string name="navbar_power_button">Spegnimento</string>
+
+    <!-- Navigation bar cursor -->
+    <string name="accessibility_dpad_left">Cursore sinistro</string>
+    <string name="accessibility_dpad_right">Cursore destro</string>
+
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_HP">HSPA+</string>
+
+    <!-- Interruption level: None. [CHAR LIMIT=20] -->
+    <string name="interruption_level_silent">Nessuna</string>
+
+    <!-- Zen mode: No interruptions title, with a warning about alarms. [CHAR LIMIT=60] -->
+    <string name="zen_silent_with_warning">Nessun interruzione, tranne le sveglie</string>
+
+    <!-- Sync qs tile -->
+    <string name="quick_settings_sync_label">Sincronizzazione</string>
+    <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_sync_off">Sincronizzazione spenta</string>
+    <!-- Content description of the sync tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_sync_on">Sincronizzazione accesa</string>
+
+    <!-- Announcement made when sync changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_sync_changed_off">La sincronizzazione è stata spenta.</string>
+    <!-- Announcement made when sync changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_sync_changed_on">La sincronizzazione è stata accesa.</string>
+
+    <!-- Heads up qs tile -->
+    <string name="quick_settings_heads_up_label">Heads up</string>
+
+    <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_heads_up_on">Heads up è attivato</string>
+    <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_heads_up_off">Heads up è disattivato</string>
+
+    <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up è stato disattivato</string>
+    <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up è stato attivato</string>
+
+    <!-- Screenshot qs tile -->
+    <string name="quick_settings_screenshot">Screenshot</string>
+    <string name="quick_settings_battery_saver">Risparmio batteria</string>
+    <string name="quick_settings_battery_saver_off">Risparmio batteria spento</string>
+
+    <string name="accessibility_power">Spegnimento</string>
+
+    <!-- Navigation ring shortcuts -->
+    <string name="navigation_ring_title">Scoriatoie ad avvio rapido</string>
+    <string name="navring_target_reset_message">Eliminare tutte le scorciatoie create dall\'utente e ripristinare quelle predefinite??</string>
+    <string name="navring_target_reset">Ripristina scorciatoie predefinite navigation bar</string>
+    <string name="navring_action_open_ime_switcher">Apri cambia tastiera</string>
+    <string name="navring_action_kill_app">Chiudi app</string>
+    <string name="navring_action_none">Nessuna</string>
+    <string name="navring_action_take_screenshot">Screenshot</string>
+    <string name="navring_action_ring_vibrate">Suoneria/vibrazione</string>
+    <string name="navring_action_ring_silent">Suoneria/nessuna</string>
+    <string name="navring_action_ring_vibrate_silent">Suoneria/vibrazione/nessuna</string>
+    <string name="navring_action_screen_off">Spegni schermo</string>
+    <string name="navring_action_torch">Accendi/spegni torcia</string>
+    <string name="navring_action_google_now">Google Now</string>
+    <string name="navring_choose_action_title">Seleziona azione</string>
+    <string name="select_application">Seleziona app</string>
+    <string name="lockscreen_target_empty">Vuoto</string>
+
+    <!-- Battery Saver Dismiss -->
+    <string name="battery_saver_dismiss_title">Dismiss</string>
+    <string name="battery_saver_notification_action_text_short">Turn off</string>
+
+    <!-- Lockscreen shortcuts -->
+    <string name="left_shortcut_hint">Swipe right for %1$s</string>
+    <string name="right_shortcut_hint">Swipe left for %1$s</string>
+</resources>
