@@ -295,6 +295,5 @@
 
     <!-- Enable the default volume dialog -->
     <bool name="enable_volume_ui">true</bool>
-
 </resources>
 
