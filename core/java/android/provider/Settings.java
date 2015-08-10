@@ -3134,6 +3134,13 @@ public final class Settings {
          */
         public static final String RECENTS_SHOW_SEARCH_BAR = "recents_show_search_bar";
 
+         /**
+         * Three Finger Gesture from Oppo
+         *
+         * @hide
+         */
+        public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
+
         /**
     	* Network traffic indicator, goes from least to greatest significant bitwise
     	* 0 = Display up-stream traffic if set
