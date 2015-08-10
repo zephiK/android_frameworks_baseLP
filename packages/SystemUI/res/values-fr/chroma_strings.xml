@@ -40,7 +40,7 @@
     <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
     <string name="quick_settings_location_high_accuracy_label">Haute précision</string>
 
-    <string name="quick_settings_screen_timeout_detail_title">Mise en veille de l\'écran<</string>
+    <string name="quick_settings_screen_timeout_detail_title">Mise en veille de l\'écran</string>
 	
     <!-- Dialog title for navigation bar button selection -->
     <string name="navbar_dialog_title">Choisir une action pour assigner</string>
