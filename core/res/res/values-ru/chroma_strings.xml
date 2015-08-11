@@ -36,7 +36,7 @@
     <string name="reboot_confirm" product="default">Ваш телефон будет перезагружен.</string>
 
     <!-- label for item that reboots the phone in phone options dialog -->
-    <string name="global_action_current_user">Current</string>
+    <string name="global_action_current_user">Текущий</string>
     <string name="global_action_reboot">Перезагрузка</string>
     <string name="global_action_screenshot">Скриншот</string>
 
@@ -77,5 +77,10 @@
     <!-- Notification which notifies user flashlight is enabled -->
     <string name="quick_settings_tile_flashlight_not_title">Фонарик включен</string>
     <string name="quick_settings_tile_flashlight_not_summary">Нажмите для выключения</string>
-
+	
+    <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
+    <string name="permlab_setKeyguardWallpaper">установить обои экрана блокировки</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_setKeyguardWallpaper">Приложение сможет изменять фон экрана блокировки.</string>
+	
 </resources>
