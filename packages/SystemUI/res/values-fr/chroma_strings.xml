@@ -124,4 +124,8 @@
     <!-- Lockscreen shortcuts -->
     <string name="left_shortcut_hint">Glisser vers la droite pour %1$s</string>
     <string name="right_shortcut_hint">Glisser vers la gauche pour %1$s</string>
+    
+    <!-- Expanded desktop qs tile -->
+    <string name="quick_settings_expanded_desktop">Étendu</string>
+    <string name="quick_settings_expanded_desktop_off">Normal</string>
 </resources>
