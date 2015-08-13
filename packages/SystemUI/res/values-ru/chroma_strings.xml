@@ -124,4 +124,8 @@
     <!-- Lockscreen shortcuts -->
     <string name="left_shortcut_hint">Проведите вправо для %1$s</string>
     <string name="right_shortcut_hint">Проведите влево для %1$s</string>
+    
+    <!-- Expanded desktop qs tile -->
+    <string name="quick_settings_expanded_desktop">Расширенный</string>
+    <string name="quick_settings_expanded_desktop_off">Нормальный</string>
 </resources>
