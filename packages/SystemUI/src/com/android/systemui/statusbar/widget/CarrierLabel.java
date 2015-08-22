@@ -165,7 +165,7 @@ public class CarrierLabel extends TextView {
     private void updateColor() {
         ContentResolver resolver = mContext.getContentResolver();
 
-        int defaultColor = getResources().getColor(R.color.exposed_kg_carrier_text);
+        int defaultColor = getResources().getColor(R.color.kg_carrier_text);
         int mCarrierColor = Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_CARRIER_COLOR, defaultColor);
 

@@ -279,9 +279,8 @@
     </style>
 
     <style name="TextAppearance.StatusBar.CarrierLabel" parent="@*android:style/TextAppearance.StatusBar.Icon">
-        <!-- Note: must be dp to fit in status bar -->
-        <item name="android:textSize">16dp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/exposed_kg_carrier_text</item>
+        <item name="android:textSize">@dimen/status_bar_clock_size</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/kg_carrier_text</item>
     </style>
 </resources>

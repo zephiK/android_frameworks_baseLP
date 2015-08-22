@@ -3241,7 +3241,10 @@ public final class Settings {
 
         /**
          * show carrier in statusbar. The value is
-         * int (1: Show or 0: Hide).
+         * 0 = Hide
+         * 1 = Show only on keyguard
+         * 2 = Show only on statusbar
+         * 3 = Show on keyguard and statusbar
          */
         public static final String STATUS_BAR_CARRIER = "status_bar_carrier";
 
