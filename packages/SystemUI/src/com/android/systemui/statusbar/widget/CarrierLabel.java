@@ -159,7 +159,7 @@ public class CarrierLabel extends TextView {
         if (TextUtils.isEmpty(operatorName)) {
             operatorName = telephonyManager.getSimOperatorName();
         }
-        return operatorName.toUpperCase();
+        return operatorName;
     }
 
     private void updateColor() {
