@@ -365,7 +365,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private int mCarrierLabelHeight;
     private int mStatusBarHeaderHeight;
 
-    private boolean mShowCarrierInPanel = false;s
+    private boolean mShowCarrierInPanel = false;
 
     // position
     int[] mPositionTmp = new int[2];
@@ -484,7 +484,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             mAutomaticBrightness = mode != Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL;
             mBrightnessControl = Settings.System.getInt(
                     resolver, Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1;
-            showStatusBarCarrierLabel(mShowStatusBarCarrier);
         }
     }
 
