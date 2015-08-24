@@ -118,10 +118,14 @@
     <string name="lockscreen_target_empty">Vuoto</string>
 
     <!-- Battery Saver Dismiss -->
-    <string name="battery_saver_dismiss_title">Dismiss</string>
-    <string name="battery_saver_notification_action_text_short">Turn off</string>
+    <string name="battery_saver_dismiss_title">Rimuovi</string>
+    <string name="battery_saver_notification_action_text_short">Spegni</string>
 
     <!-- Lockscreen shortcuts -->
-    <string name="left_shortcut_hint">Swipe right for %1$s</string>
-    <string name="right_shortcut_hint">Swipe left for %1$s</string>
+    <string name="left_shortcut_hint">Striscia a destra per %1$s</string>
+    <string name="right_shortcut_hint">Striscia a sinistra per %1$s</string>
+    
+    <!-- Expanded desktop qs tile -->
+    <string name="quick_settings_expanded_desktop">Modalità estesa</string>
+    <string name="quick_settings_expanded_desktop_off">Normale</string>
 </resources>
