@@ -77,5 +77,10 @@
     <!-- Notification which notifies user flashlight is enabled -->
     <string name="quick_settings_tile_flashlight_not_title">Latarka włączona</string>
     <string name="quick_settings_tile_flashlight_not_summary">Dotknij aby wyłączyć</string>
+	
+	 <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
+    <string name="permlab_setKeyguardWallpaper">ustaw tapetę ekranu blokady</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_setKeyguardWallpaper">Zezwala aplikacji na zmianę tapety ekranu blokady.</string>
 
 </resources>
