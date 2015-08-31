@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
+    <string name="battery_level_template"><xliff:g id="level" example="45">%d</xliff:g>%%</string>
+
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+
+    <!-- QS location sensors -->
+    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_battery_saving">Raportowanie lokalizacji: oszczędzanie baterii.</string>
+    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_gps_only">Raportowanie lokalizacji: tylko czujniki.</string>
+    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_location_high_accuracy">Raportowanie lokalizacji: wysoka dokładność.</string>
+
+    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_detail_title">Tryb lokalizacji</string>
+    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_battery_saving_label">Oszczędzanie baterii</string>
+    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_gps_only_label">Tylko urządzenie</string>
+    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_location_high_accuracy_label">Wysoka dokładność</string>
+
+    <string name="quick_settings_screen_timeout_detail_title">Wygaszanie ekranu</string>
+
+    <!-- Dialog title for navigation bar button selection -->
+    <string name="navbar_dialog_title">Wybierz akcję do przypisania</string>
+    <string name="navbar_home_button">Przycisk Home</string>
+    <string name="navbar_recent_button">Przycisk Ostatnie aplikacje</string>
+    <string name="navbar_search_button">Przycisk Szukaj</string>
+    <string name="navbar_back_button">Przycisk Wstecz</string>
+    <string name="navbar_empty_button">Pusty przycisk</string>
+    <string name="navbar_menu_conditional_button">Przycisk Menu (autoukrywaj)</string>
+    <string name="navbar_menu_always_button">Przycisk Menu (zawsze pokazuj)</string>
+    <string name="navbar_menu_big_button">Przycisk Menu</string>
+    <string name="navbar_power_button">Przycisk Power</string>
+
+    <!-- Navigation bar cursor -->
+    <string name="accessibility_dpad_left">Kursor w lewo</string>
+    <string name="accessibility_dpad_right">Kursor w prawo</string>
+
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_HP">HSPA+</string>
+
+    <!-- Interruption level: None. [CHAR LIMIT=20] -->
+    <string name="interruption_level_silent">Cichy</string>
+
+    <!-- Zen mode: No interruptions title, with a warning about alarms. [CHAR LIMIT=60] -->
+    <string name="zen_silent_with_warning">Bez przerw, z wyjątkiem alarmów.</string>
+
+    <!-- Sync qs tile -->
+    <string name="quick_settings_sync_label">Synchronizacja</string>
+    <!-- Content description of the sync tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_sync_off">Synchronizacja wyłączona.</string>
+    <!-- Content description of the sync tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_sync_on">Synchronizacja włączona.</string>
+
+    <!-- Announcement made when sync changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronizacja została wyłączona.</string>
+    <!-- Announcement made when sync changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronizacja została włączona.</string>
+
+    <!-- Heads up qs tile -->
+    <string name="quick_settings_heads_up_label">Wyskakujące powiadomienia</string>
+
+    <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_heads_up_on">Wyskakujące powiadomienia włączone.</string>
+    <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_heads_up_off">Wyskakujące powiadomienia wyłączone.</string>
+
+    <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_heads_up_changed_off">Wyskakujące powiadomienia zostały wyłączone.</string>
+    <!-- Announcement made when heads up changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_heads_up_changed_on">Wyskakujące powiadomienia zostały włączone.</string>
+
+    <!-- Screenshot qs tile -->
+    <string name="quick_settings_screenshot">Zrzut ekranu</string>
+    <string name="quick_settings_battery_saver">Oszczędzanie baterii</string>
+    <string name="quick_settings_battery_saver_off">Oszczędzanie baterii wyłączone</string>
+
+    <string name="accessibility_power">Power</string>
+
+    <!-- Navigation ring shortcuts -->
+    <string name="navigation_ring_title">Skróty szybkiego uruchamiania</string>
+    <string name="navring_target_reset_message">Usunąć wszystkie skróty paska nawigacji stworzone przez użytkownika i przywrócić domyślne?</string>
+    <string name="navring_target_reset">Przywrócono domyślne skróty paska nawigacji</string>
+    <string name="navring_action_open_ime_switcher">Otwórz przełącznik metod wprowadzania</string>
+    <string name="navring_action_kill_app">Zamknięcie aplikacji</string>
+    <string name="navring_action_none">Brak</string>
+    <string name="navring_action_take_screenshot">Zrzut ekranu</string>
+    <string name="navring_action_ring_vibrate">Dźwięk/Wibracje</string>
+    <string name="navring_action_ring_silent">Dźwięk/Wyciszenie</string>
+    <string name="navring_action_ring_vibrate_silent">Dźwięk/Wibracje/Wyciszenie</string>
+    <string name="navring_action_screen_off">Wygaszanie ekranu</string>
+    <string name="navring_action_torch">Latarka</string>
+    <string name="navring_action_google_now">Google Now</string>
+    <string name="navring_choose_action_title">Wybierz akcję</string>
+    <string name="select_application">Wybierz aplikację</string>
+    <string name="lockscreen_target_empty">Puste</string>
+
+    <!-- Battery Saver Dismiss -->
+    <string name="battery_saver_dismiss_title">Odwołaj</string>
+    <string name="battery_saver_notification_action_text_short">Wyłączono</string>
+
+    <!-- Lockscreen shortcuts -->
+    <string name="left_shortcut_hint">Przesuń palcem w prawo do %1$s</string>
+    <string name="right_shortcut_hint">Przesuń palcem w lewo do %1$s</string>
+
+    <!-- Expanded desktop qs tile -->
+    <string name="quick_settings_expanded_desktop">Rozszerzony</string>
+    <string name="quick_settings_expanded_desktop_off">Normalny</string>
+
+</resources>
