@@ -83,9 +83,9 @@
     <string name="quick_settings_heads_up_label">Heads up</string>
 
     <!-- Content description of the heads up tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_heads_up_on">Heads up è attivato</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads up è attivo</string>
     <!-- Content description of the heads up tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_heads_up_off">Heads up è disattivato</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads up non è attivo</string>
 
     <!-- Announcement made when heads up changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up è stato disattivato</string>
