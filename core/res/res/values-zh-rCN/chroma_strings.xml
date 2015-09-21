@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title of dialog to confirm rebooting. -->
+    <string name="reboot_title">重启</string>
+
+    <!-- Reboot menu -->
+    <string name="reboot_reboot">重启</string>
+    <string name="reboot_recovery">恢复模式</string>
+    <string name="reboot_bootloader">引导模式</string>
+    <string name="reboot_soft">快速重启</string>
+
+    <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
+    <string name="reboot_progress">重启中\u2026</string>
+
+    <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the device, there will
+         be a confirmation dialog.  This is the message. -->
+    <string name="reboot_confirm" product="tablet">您的平板将重启。</string>
+    <string name="reboot_confirm" product="default">您的手机将重启。</string>
+
+    <!-- label for item that reboots the phone in phone options dialog -->
+    <string name="global_action_current_user">当前用户</string>
+    <string name="global_action_reboot">重启</string>
+    <string name="global_action_screenshot">屏幕截图</string>
+
+    <!-- Silent mode -->
+    <string name="silent_mode_priority">优先级</string>
+    <string name="silent_mode_none">无</string>
+
+    <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">开启或关闭隐私保护</string>
+    <string name="permdesc_changePrivacyGuardState">允许改变应用隐私保护状态。当应用被启用了隐私保护，它将无法接触到一些个人数据，比如通话记录、联系人等</string>
+    <string name="privacy_guard_notification">隐私保护已激活</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> 不会接触到个人数据</string>
+    <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> 不会接触到自定义权限</string>
+
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_security">安全</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_security">与设备安全信息相关的权限。</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_readPhoneBlacklist">读取电话黑名单</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_readPhoneBlacklist">允许应用读取被屏蔽的电话号码。</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_changePhoneBlacklist">个性电话黑名单</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_changePhoneBlacklist">允许应用修改被屏蔽的电话号码。</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessTorchService">修改手电筒服务</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessTorchService">允许应用修改手电筒服务。普通应用应该不需要。</string>
+
+   <!-- kill app long press back -->
+   <string name="app_killed_message">应用已退出。</string>
+
+    <!-- Notification which notifies user flashlight is enabled -->
+    <string name="quick_settings_tile_flashlight_not_title">闪光灯开启</string>
+    <string name="quick_settings_tile_flashlight_not_summary">轻按关闭闪光灯</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
+    <string name="permlab_setKeyguardWallpaper">设置锁屏壁纸</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_setKeyguardWallpaper">允许应用修改锁屏壁纸。</string>
+
+</resources>
