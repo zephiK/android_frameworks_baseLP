@@ -194,7 +194,10 @@ public class BatteryMeterView extends View implements DemoMode,
             // preload the battery level
             mTracker.onReceive(getContext(), sticky);
         }
+
+        if (mBatteryController != null) {
         mBatteryController.addStateChangedCallback(this);
+        }
         mAttached = true;
     }
 
@@ -204,7 +207,9 @@ public class BatteryMeterView extends View implements DemoMode,
 
         mAttached = false;
         getContext().unregisterReceiver(mTracker);
+        if (mBatteryController != null) {
         mBatteryController.removeStateChangedCallback(this);
+        }
     }
 
     public BatteryMeterView(Context context) {
