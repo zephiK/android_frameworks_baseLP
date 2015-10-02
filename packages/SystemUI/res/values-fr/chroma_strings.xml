@@ -128,4 +128,7 @@
     <!-- Expanded desktop qs tile -->
     <string name="quick_settings_expanded_desktop">Étendu</string>
     <string name="quick_settings_expanded_desktop_off">Normal</string>
+
+    <!-- Screen off qs tile -->
+    <string name="quick_settings_screen_off">Éteindre l\'écran</string>
 </resources>
